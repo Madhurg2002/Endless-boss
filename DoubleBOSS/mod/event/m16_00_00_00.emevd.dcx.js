@@ -1,0 +1,1401 @@
+// ==EMEVD==
+// @docs    nr-common.emedf.json
+// @compress    DCX_KRAK
+// @game    Sekiro
+// @string    "W:\\CL\\data\\Param\\event\\common_func.emevd\u0000W:\\CL\\data\\Param\\event\\common_macro.emevd\u0000\u0000\u0000\u0000\u0000\u0000"
+// @linked    [0,82]
+// @version    3.6.2
+// ==/EMEVD==
+
+$Event(0, Default, function() {
+    $InitializeEvent(0, 16002590);
+    if (!IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075801, 16005800);
+        $InitializeEvent(0, 190075901, 16000807, 762000, 907640000);
+        $InitializeCommonEvent(0, 90075902, 16005800, 16000807, 0);
+        $InitializeCommonEvent(0, 90015012, 16005800, 7511);
+        $InitializeCommonEvent(0, 90015012, 16000807, 7511);
+        $InitializeCommonEvent(0, 90015020, 7511, 19002954);
+        $InitializeCommonEvent(0, 90075800, 16005800, 16000807);
+        $InitializeCommonEvent(0, 90075802, 16005800, 16000800, 16000801, 16000802, 16000803, 16000804, 16000805, 16000806, 16000807);
+        $InitializeCommonEvent(0, 90075803, 16005800, 16000807);
+        
+        $InitializeCommonEvent(0, 90015008, 7511, 19002954, 762000, 16005800, 5105, 0);
+        $InitializeCommonEvent(0, 90075845, 7511, 16000800, 16005800, 16006800, 5108, 0);
+
+        $InitializeEvent(0, 19110900);
+        $InitializeEvent(0, 19210900, 16000807);
+        $InitializeEvent(0, 19002951);
+
+    }
+    if (!IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075830, 16000800, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000801, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000802, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000803, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000804, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000805, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000806, 16002750);
+    }
+    if (!IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075810, 16005800, 16000800, 16000801, 16000802, 16000803, 16000804, 16000805, 16000806, 16000807);
+        $InitializeCommonEvent(0, 90075811, 16000800, 16005800, 62620);
+        $InitializeCommonEvent(0, 90075811, 16000801, 16005800, 62621);
+        $InitializeCommonEvent(0, 90075811, 16000802, 16005800, 62622);
+        $InitializeCommonEvent(0, 90075811, 16000803, 16005800, 62623);
+        $InitializeCommonEvent(0, 90075811, 16000804, 16005800, 62624);
+        $InitializeCommonEvent(0, 90075811, 16000805, 16005800, 62625);
+        $InitializeCommonEvent(0, 90075811, 16000806, 16005800, 62626);
+    }
+    $InitializeCommonEvent(0, 90075812, 16005800);
+    if (!IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075820, 16005800, 16000800, 16000800, 16000801, 16000802, 16000803, 16000804, 16000805, 16000806);
+        $InitializeCommonEvent(0, 90075820, 16005800, 16000801, 16000800, 16000801, 16000802, 16000803, 16000804, 16000805, 16000806);
+        $InitializeCommonEvent(0, 90075820, 16005800, 16000802, 16000800, 16000801, 16000802, 16000803, 16000804, 16000805, 16000806);
+        $InitializeCommonEvent(0, 90075820, 16005800, 16000803, 16000800, 16000801, 16000802, 16000803, 16000804, 16000805, 16000806);
+        $InitializeCommonEvent(0, 90075820, 16005800, 16000804, 16000800, 16000801, 16000802, 16000803, 16000804, 16000805, 16000806);
+        $InitializeCommonEvent(0, 90075820, 16005800, 16000805, 16000800, 16000801, 16000802, 16000803, 16000804, 16000805, 16000806);
+        $InitializeCommonEvent(0, 90075820, 16005800, 16000806, 16000800, 16000801, 16000802, 16000803, 16000804, 16000805, 16000806);
+    }
+    if (!IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075842, 16005800, 16000807);
+    }
+    if (!IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075831, 16000800, 16000807);
+        $InitializeCommonEvent(0, 90075831, 16000801, 16000807);
+        $InitializeCommonEvent(0, 90075831, 16000802, 16000807);
+        $InitializeCommonEvent(0, 90075831, 16000803, 16000807);
+        $InitializeCommonEvent(0, 90075831, 16000804, 16000807);
+        $InitializeCommonEvent(0, 90075831, 16000805, 16000807);
+        $InitializeCommonEvent(0, 90075831, 16000806, 16000807);
+    }
+    if (!IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075843, 16005800, 62530, 7622);
+        $InitializeCommonEvent(0, 90075843, 16005800, 62531, 7623);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075801, 16005860);
+        $InitializeEvent(0, 190075901, 16000857, 762000, 907640000);
+        $InitializeCommonEvent(0, 90075902, 16005860, 16000867, 0);
+        $InitializeCommonEvent(0, 90075902, 16005850, 16000857, 16000858);
+        $InitializeCommonEvent(0, 90075850, 16005860, 16000867, 16005851, 16000857);
+        $InitializeCommonEvent(0, 90075852, 16005860, 16000860, 16000861, 16000862, 16000863, 16000864, 16000865, 16000866, 16000867, 16000250);
+        $InitializeCommonEvent(0, 90075853, 16005860, 16000867, 16000250);
+
+        $InitializeEvent(0, 19110900);
+        $InitializeEvent(0, 19210900, 16000857);
+        $InitializeEvent(0, 19002951);
+
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075854, 16000850, 16000857);
+        $InitializeCommonEvent(0, 90075854, 16000851, 16000857);
+        $InitializeCommonEvent(0, 90075854, 16000852, 16000857);
+        $InitializeCommonEvent(0, 90075854, 16000853, 16000857);
+        $InitializeCommonEvent(0, 90075854, 16000854, 16000857);
+        $InitializeCommonEvent(0, 90075854, 16000855, 16000857);
+        $InitializeCommonEvent(0, 90075854, 16000856, 16000857);
+        $InitializeCommonEvent(0, 90075855, 16000858, 16000857);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90015012, 16005860, 7511);
+        $InitializeCommonEvent(0, 90015012, 16000867, 7511);
+        $InitializeCommonEvent(0, 90015012, 16005850, 7511);
+        $InitializeCommonEvent(0, 90015012, 16000857, 7511);
+        $InitializeCommonEvent(0, 90015012, 16000858, 7511);
+        $InitializeCommonEvent(0, 90015020, 7511, 7512);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075830, 16000860, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000861, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000862, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000863, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000864, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000865, 16002750);
+        $InitializeCommonEvent(0, 90075830, 16000866, 16002750);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075820, 16005860, 16000860, 16000860, 16000861, 16000862, 16000863, 16000864, 16000865, 16000866);
+        $InitializeCommonEvent(0, 90075820, 16005860, 16000861, 16000860, 16000861, 16000862, 16000863, 16000864, 16000865, 16000866);
+        $InitializeCommonEvent(0, 90075820, 16005860, 16000862, 16000860, 16000861, 16000862, 16000863, 16000864, 16000865, 16000866);
+        $InitializeCommonEvent(0, 90075820, 16005860, 16000863, 16000860, 16000861, 16000862, 16000863, 16000864, 16000865, 16000866);
+        $InitializeCommonEvent(0, 90075820, 16005860, 16000864, 16000860, 16000861, 16000862, 16000863, 16000864, 16000865, 16000866);
+        $InitializeCommonEvent(0, 90075820, 16005860, 16000865, 16000860, 16000861, 16000862, 16000863, 16000864, 16000865, 16000866);
+        $InitializeCommonEvent(0, 90075820, 16005860, 16000866, 16000860, 16000861, 16000862, 16000863, 16000864, 16000865, 16000866);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075842, 16005860, 16000867);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075843, 16005860, 62530, 7622);
+        $InitializeCommonEvent(0, 90075843, 16005860, 62531, 7623);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075860, 16005860, 16000860, 16000861, 16000862, 16000863, 16000864, 16000865, 16000866, 16000260, 16000261, 16000262, 16000263, 16000264, 16000265, 16000266, 16000867, 16000250);
+        InitializeCommonEvent(0, 90075861, 16005860, 16005850, 16000850, 16000851, 16000852, 16000853, 16000854, 16000855, 16000856, 16000857, 16000858, 16002810, 16002820, 16002821, 16002822, 16002823, 16002824, 16002825, 16000250, 16000260, 16000261, 16000262, 16000263, 16000264, 16000265, 16000266);
+        $InitializeCommonEvent(0, 90075890, 16000250, 16000800, 16006850, 16006800);
+        $InitializeCommonEvent(0, 90075891, 16005860, 5106, 16000250);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075862, 16005850, 16000850, 16000851, 16000852, 16000853, 16000854, 16000855, 16000856, 16000858, 16000250);
+        $InitializeCommonEvent(0, 90075863, 16005850, 16000850, 16000851, 16000852, 16000853, 16000854, 16000855, 16000856, 16000858, 16000250);
+        $InitializeCommonEvent(0, 90075864, 16000858, 16000250);
+        $InitializeCommonEvent(0, 90075867, 16000858, 16000857, 16000250);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075865, 16000858, 16000857, 16000250, 16000270, 62950, 60, 10, NPCPartType.Part5, 11, NPCPartType.Part8, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
+        $InitializeCommonEvent(0, 90075865, 16000858, 16000857, 16000250, 16000271, 62951, 60, 20, NPCPartType.Part1, 21, NPCPartType.Part2, 22, NPCPartType.Part6, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
+        $InitializeCommonEvent(0, 90075865, 16000858, 16000857, 16000250, 16000272, 62952, 130, 30, NPCPartType.Part7, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
+        $InitializeCommonEvent(0, 90075865, 16000858, 16000857, 16000250, 16000273, 62953, 120, 40, NPCPartType.Part3, 41, NPCPartType.Part4, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
+    }
+    if (IsMapVariation(18)) {
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000275, 20, 110, 10, NPCPartType.Part10, 60);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000276, 20, 111, 11, NPCPartType.Part11, 61);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000277, 20, 112, 12, NPCPartType.Part12, 62);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000278, 20, 113, 13, NPCPartType.Part13, 63);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000279, 20, 114, 14, NPCPartType.Part14, 64);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000280, 20, 115, 15, NPCPartType.Part15, 65);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000281, 20, 116, 16, NPCPartType.Part16, 66);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000282, 20, 120, 20, NPCPartType.Part20, 70);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000283, 20, 121, 21, NPCPartType.Part21, 71);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000284, 20, 122, 22, NPCPartType.Part22, 72);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000285, 20, 123, 23, NPCPartType.Part23, 73);
+        $InitializeCommonEvent(0, 90075866, 16000858, 16000857, 16000250, 16000286, 20, 124, 24, NPCPartType.Part24, 74);
+    }
+    $InitializeCommonEvent(0, 90075940, 8, 161, 9081, 2070);
+    $InitializeCommonEvent(0, 90075931);
+});
+
+$Event(50, Default, function() {
+    $InitializeEvent(0, 16002470);
+});
+
+$Event(16002470, Restart, function() {
+    DisableNetworkSync();
+    WaitFor(EventFlag(7510) && PlayerInMap(16, 0, 0, 0));
+    FadeToBlack(1, 0, true, -1);
+    WaitFixedTimeSeconds(2);
+    FadeToBlack(0, 0.5, false, -1);
+    EndEvent();
+});
+
+$Event(16002590, Default, function() {
+    WaitFor(EventFlag(7512));
+    DisplayTextEffectId(4000);
+    WaitFixedTimeSeconds(15);
+    SetEventFlagID(7000, ON);
+});
+
+// 连战夜王系统
+$Event(19110900, Default, function()
+{
+    SetNetworkconnectedEventFlagID(19002951, OFF);
+    SetNetworkconnectedEventFlagID(19002952, OFF);
+    SetNetworkconnectedEventFlagID(19002953, OFF);
+    SetNetworkconnectedEventFlagID(19002954, OFF);
+    SetNetworkconnectedEventFlagID(19002955, OFF);   // 连战夜王开始初始化FLAG
+    SetNetworkconnectedEventFlagID(19002956, OFF);   // 连战夜王初始化成功FLAG
+    SetNetworkconnectedEventFlagID(19002957, OFF);   // 连战魔像FLAG
+    
+    // 连战夜王：圣牢布
+    if (RandomAppearLot(19111803)) {
+        DisableCharacter(19111803);
+        DisableCharacterAI(19111803);
+        DisableCharacterCollision(19111803);
+        
+        $InitializeEvent(0, 19113900);
+    }
+    
+    // 连战夜王：米塔恩
+    if (RandomAppearLot(19110880)) {
+        DisableCharacter(19110880);
+        DisableCharacterAI(19110880);
+        DisableCharacterCollision(19110880);
+
+        $InitializeEvent(0, 19113901);      
+    }
+    
+    // 连战夜王：王三狼
+    if (RandomAppearLot(19110800)) {
+        DisableCharacter(19110800);
+        DisableCharacter(19115801);
+        DisableCharacterAI(19110800);
+        DisableCharacterAI(19115801);
+        DisableCharacterCollision(19110800);
+        DisableCharacterCollision(19115801);
+        
+        $InitializeEvent(0, 19113902);
+    }
+    
+    // 连战夜王：王人马
+    if (RandomAppearLot(19110850)) {
+        DisableCharacter(19110850);
+        DisableCharacterAI(19110850);
+        DisableCharacterCollision(19110850);
+        
+        $InitializeEvent(0, 19113903);
+    }
+    
+    // 连战夜王：王冰龙
+    if (RandomAppearLot(19110860)) {
+        DisableCharacter(19110860);
+        DisableCharacterAI(19110860);
+        DisableCharacterCollision(19110860);
+        
+        $InitializeEvent(0, 19113904);
+    }
+    
+    // 连战夜王：垃圾王
+    if (RandomAppearLot(19110870)) {
+        DisableCharacter(19110870);
+        DisableCharacterAI(19110870);
+        DisableCharacterCollision(19110870);
+        
+        $InitializeEvent(0, 19113905);
+    }
+    
+    // 连战开关：魔像
+    WaitFor(HPRatio(19110888) <= 0);
+    WaitFixedTimeSeconds(1);
+    if (EventFlag(19002956)) {
+        if (!EventFlag(19002954)) {
+            SetNetworkconnectedEventFlagID(19002957, ON);
+            DisplayTextEffectId(6017);
+        }
+    }
+    EndEvent();
+});
+
+
+// 入侵夜王系统（双夜王）
+$Event(19210900, Default, function(chrEntityId)
+{
+    SetNetworkconnectedEventFlagID(19002971, OFF);   // 双BOSS战flag
+    SetNetworkconnectedEventFlagID(19002972, OFF);   // 入侵夜王击败FLAG
+    SetNetworkconnectedEventFlagID(19002973, OFF);   // 击败粪金龟FLAG
+    SetNetworkconnectedEventFlagID(19002974, OFF);   // 入侵夜王可发动登场技FLAG
+    SetNetworkconnectedEventFlagID(19002975, OFF);   // 入侵夜王准备登场FLAG
+    SetNetworkconnectedEventFlagID(19002976, OFF);   // 入侵夜王已登场FLAG
+    SetNetworkconnectedEventFlagID(19002977, OFF);   // 第一BOSS死亡FLAG(取消减攻击力BUFF用)
+    
+    // 小狼入侵: EntityID: 19210800  NameID:907500000
+    if (RandomAppearLot(19210800)) {
+        $InitializeCommonEvent(0, 90075100, 19210800);
+        $InitializeCommonEvent(0, 90015012, 19210800, 7511);        
+        $InitializeEvent(0, 19212818, 19210800, 907500000, 20029);
+        $InitializeEvent(0, 19212819, 19210800);
+        $InitializeEvent(0, 19212820, 19210800, 3034);
+        $InitializeEvent(0, 19219920, 19214191);
+
+        WaitFor(HPRatio(chrEntityId) < 0.7);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
+    }
+    
+    // 小嘴入侵: EntityID: 19210810  NameID:907510000
+    if (RandomAppearLot(19210810)) {
+        $InitializeCommonEvent(0, 90075100, 19210810);
+        $InitializeCommonEvent(0, 90015012, 19210810, 7511);        
+        $InitializeEvent(0, 19212818, 19210810, 907510000, 20029);
+        $InitializeEvent(0, 19212819, 19210810);
+        $InitializeEvent(0, 19219920, 19214191);
+        
+        WaitFor(HPRatio(chrEntityId) < 0.7);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
+    }
+    
+    // 小羊入侵: EntityID: 19210840  NameID:907550000
+    if (RandomAppearLot(19210840)) {
+        $InitializeCommonEvent(0, 90075100, 19210840);
+        $InitializeCommonEvent(0, 90015012, 19210840, 7511);        
+        $InitializeEvent(0, 19212818, 19210840, 907550000, 20029);
+        $InitializeEvent(0, 19212819, 19210840);
+        $InitializeEvent(0, 19219920, 19214191);
+        
+        WaitFor(HPRatio(chrEntityId) < 0.7);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
+    }
+    
+    // 小马入侵: EntityID: 19210850  NameID:907610000
+    if (RandomAppearLot(19210850)) {
+        $InitializeCommonEvent(0, 90075100, 19210850);
+        $InitializeCommonEvent(0, 90015012, 19210850, 7511);        
+        $InitializeEvent(0, 19212818, 19210850, 907610000, 20029);
+        $InitializeEvent(0, 19212819, 19210850);
+        $InitializeEvent(0, 19219920, 19214191);
+        
+        WaitFor(HPRatio(chrEntityId) < 0.7);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
+    }
+    
+    // 小龙入侵: EntityID: 19210860  NameID:907620000
+    if (RandomAppearLot(19210860)) {
+        $InitializeCommonEvent(0, 90075100, 19210860);
+        $InitializeCommonEvent(0, 90015012, 19210860, 7511);        
+        $InitializeEvent(0, 19212818, 19210860, 907620000, 20029);
+        $InitializeEvent(0, 19212819, 19210860);
+        $InitializeEvent(0, 19219920, 19214191);
+        
+        WaitFor(HPRatio(chrEntityId) < 0.7);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
+    }
+    
+    // 龙王入侵: EntityID: 19210817  NameID:907620001
+    // 贝勒入侵: EntityID: 19210818  NameID:907510001
+    
+    EndEvent();
+});
+
+$Event(19113900, Default, function() {
+    $InitializeEvent(0, 19114900);
+    $InitializeEvent(0, 190017580, 19111803);
+    $InitializeEvent(0, 190075851, 19111803, 907580002);
+    
+    $InitializeCommonEvent(0, 90075901, 19111803, 758000, 907580001);
+    $InitializeCommonEvent(0, 90075902, 19005800, 19111803, 0);
+    $InitializeCommonEvent(0, 90015012, 19111803, 19002953);
+    $InitializeCommonEvent(0, 90075710, 19111803);
+    
+    SetNetworkconnectedEventFlagID(19002956, ON);
+    EndEvent();
+});
+
+$Event(19114900, Default, function() {
+    WaitFor(EventFlag(19002952));
+    
+    if (!EventFlag(19002951)) {
+        EndEvent();
+    }
+    
+    EnableCharacter(19111803);
+    WaitFixedTimeFrames(1);
+    WarpCharacterAndCopyFloor(19111803, TargetEntityType.Area, 19002910, -1, 19113910);
+    
+    ChangeWeather(Weather.Type87, -1, true);
+    SetCharacterEventTarget(19111803, 19000910);
+    
+    WaitFor(ElapsedSeconds(1));
+    SetNetworkconnectedEventFlagID(19002955, ON);
+    SetCameraAngle(5.42, 0);
+    WaitFixedTimeSeconds(3);
+    FadeToBlack(0, 2, false, 1);
+    ForceAnimationPlayback(19111803, 20006, false, false, false);
+    EnableCharacterAI(19111803);
+    WaitFixedTimeSeconds(1);
+    
+    SetNetworkconnectedEventFlagID(19002953, ON);
+    EndEvent();
+});
+
+$Event(19113901, Default, function() {
+    $InitializeEvent(0, 19114901);
+    $InitializeEvent(0, 190075501, 19110880, 907610001);
+    $InitializeEvent(0, 190075900, 19110880);
+    
+    $InitializeCommonEvent(0, 90075901, 19110880, 760000, 907610001);
+    $InitializeCommonEvent(0, 90075902, 19110880, 0, 0);
+    $InitializeCommonEvent(0, 90075500, 19110880);
+    $InitializeCommonEvent(0, 90015012, 19110880, 19002953);
+    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    $InitializeCommonEvent(0, 90015008, 19002953, 7512, 760000, 19110880, 5105, 0);
+    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110880, 5108, 0);
+    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110880, 5108, 0);
+    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110880, 5108, 0);
+    
+    SetNetworkconnectedEventFlagID(19002956, ON);
+    EndEvent();
+});
+
+$Event(19114901, Default, function() {
+    WaitFor(EventFlag(19002952));
+    if (!EventFlag(19002951)) {
+        EndEvent();
+    }
+    
+    $InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110880, 5108, 0);
+    DisableCharacterAI(19110880);
+    WaitFor(ElapsedSeconds(1));
+    SetNetworkconnectedEventFlagID(19002955, ON);
+    SetCameraAngle(5.42, 0);
+    WaitFixedTimeSeconds(3);
+    FadeToBlack(0, 2, false, 1);
+    
+    ForceAnimationPlayback(19110880, 30029, true, false, false);
+    WaitFixedTimeSeconds(1);
+    SetNetworkconnectedEventFlagID(19002953, ON);
+    
+    EndEvent();
+});
+
+
+$Event(19113902, Default, function() {
+    $InitializeEvent(0, 19114902);
+    $InitializeEvent(0, 190075051, 19110800, 19115801, 19110801, 19110802);
+    $InitializeEvent(0, 290075950, 750000, 19110800, 5106, 0);
+
+    $InitializeCommonEvent(0, 90075901, 19110800, 750000, 907500000);
+    $InitializeEvent(0, 190075902, 19110800, 19115801, 0);
+    $InitializeCommonEvent(0, 90015012, 19110800, 19002953);
+    $InitializeCommonEvent(1, 90015012, 19115801, 19002953);
+    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    $InitializeCommonEvent(0, 90075000, 19110800, 19115801);
+    $InitializeCommonEvent(0, 90075002, 19110800, 19110801, 19110802);
+    $InitializeCommonEvent(0, 90075005, 19110800, 19110801, 72, 5900);
+    $InitializeCommonEvent(0, 90075005, 19110800, 19110802, 2, 5901);
+    $InitializeCommonEvent(0, 90075006, 19110800, 19110801);
+    $InitializeCommonEvent(0, 90075006, 19110800, 19110802);
+    $InitializeCommonEvent(0, 90075060, 19110800, 19110801);
+    $InitializeCommonEvent(0, 90075060, 19110800, 19110802);
+    $InitializeCommonEvent(0, 90075070, 19110800, 19110801, 72, 5908, 51320);
+    $InitializeCommonEvent(0, 90075070, 19110800, 19110802, 72, 5909, 51321);
+    $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19110800, 0, 1);
+    $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19110800, 0, 1);
+    $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006802, 19110800, 0, 1);
+    $InitializeEvent(0, 190075008, 6001, 7512, 0, 19110800, 0, 1);
+
+    SetNetworkconnectedEventFlagID(19002956, ON);
+    EndEvent();
+});
+
+$Event(19114902, Default, function() {
+    WaitFor(EventFlag(19002952));
+    
+    if (!EventFlag(19002951)) {
+        EndEvent();
+    }
+    
+    WaitFor(ElapsedSeconds(1));
+    SetNetworkconnectedEventFlagID(19002955, ON);
+    SetCameraAngle(5.42, 0);
+    WaitFixedTimeSeconds(3);
+    FadeToBlack(0, 2, false, 1);
+    WaitFixedTimeSeconds(1);
+    SetNetworkconnectedEventFlagID(19002953, ON);
+    EndEvent();
+});
+
+$Event(19113903, Default, function() {
+    $InitializeEvent(0, 19114903);
+    $InitializeEvent(0, 190075551, 19110850);
+    $InitializeEvent(0, 290075950, 760000, 19110850, 5106, 0);
+
+    $InitializeCommonEvent(0, 90015012, 19110850, 19002953);
+    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    $InitializeCommonEvent(0, 90075902, 19110850, 0, 0);
+    $InitializeCommonEvent(0, 90075901, 19110850, 760000, 907610000);
+    $InitializeCommonEvent(0, 90075500, 19110850);
+    $InitializeCommonEvent(0, 90075510, 19110850);
+    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110850, 5108, 0);
+    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110850, 5108, 0);
+    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110850, 5108, 0);
+    
+    SetNetworkconnectedEventFlagID(19002956, ON);
+    EndEvent();
+});
+
+$Event(19114903, Default, function() {
+    WaitFor(EventFlag(19002952));
+
+    if (!EventFlag(19002951)) {
+        EndEvent();
+    }
+    
+    $InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110850, 0, 1);
+    WaitFor(ElapsedSeconds(1));
+    SetNetworkconnectedEventFlagID(19002955, ON);
+    SetCameraAngle(5.42, 0);
+    WaitFixedTimeSeconds(3);
+    FadeToBlack(0, 2, false, 1);
+    WaitFixedTimeSeconds(1);
+
+    SetNetworkconnectedEventFlagID(19002953, ON);
+    EndEvent();
+});
+
+
+$Event(19113904, Default, function() {
+    $InitializeEvent(0, 19114904);
+    $InitializeEvent(0, 191175651, 19110860);
+    $InitializeEvent(0, 290075950, 490000, 19110860, 5106, 0);
+
+    $InitializeCommonEvent(0, 90015012, 19110860, 19002953);
+    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    $InitializeCommonEvent(0, 90075902, 19110860, 0, 0);
+    $InitializeCommonEvent(0, 90075901, 19110860, 490000, 907620000);
+    $InitializeCommonEvent(0, 90075600, 19110860, 19102860);
+    $InitializeCommonEvent(0, 90075610, 19110860);
+    $InitializeEvent(0, 191175652, 19110860, 5105, 5106);
+    $InitializeCommonEvent(0, 90075602, 19110860);
+    $InitializeCommonEvent(0, 90075660, 19110860, 51001, 51002, 51030, 15, 120, 10, NPCPartType.Part1, 11, NPCPartType.Part6, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
+    $InitializeCommonEvent(0, 90075660, 19110860, 51003, 51004, 51031, 16, 130, 20, NPCPartType.Part2, 21, NPCPartType.Part3, 22, NPCPartType.Part4, 23, NPCPartType.Part5, 24, NPCPartType.Part8);
+    $InitializeCommonEvent(0, 90075660, 19110860, 51005, 51006, 51032, 17, 60, 30, NPCPartType.Part9, 31, NPCPartType.Part10, 32, NPCPartType.Part11, 33, NPCPartType.Part12, 0, NPCPartType.Part1);
+    $InitializeCommonEvent(0, 90075660, 19110860, 51007, 51008, 51033, 18, 120, 40, NPCPartType.Part7, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
+    
+    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006860, 19110860, 5108, 0);
+    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006861, 19110860, 5108, 0);
+    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006862, 19110860, 5108, 0);
+    
+    SetNetworkconnectedEventFlagID(19002956, ON);
+    EndEvent();
+});
+
+$Event(19114904, Default, function() {
+    WaitFor(EventFlag(19002952));
+    if (!EventFlag(19002951)) {
+        EndEvent();
+    }
+    
+    $InitializeCommonEvent(0, 99075620, 19002953, 7512, 0, 19110860, 0, 1);
+    WaitFor(ElapsedSeconds(1));
+    SetNetworkconnectedEventFlagID(19002955, ON);
+    SetCameraAngle(5.42, 0);
+    WaitFixedTimeSeconds(3);
+    FadeToBlack(0, 2, false, 1);
+    WaitFixedTimeSeconds(1);
+    SetNetworkconnectedEventFlagID(19002953, ON);
+    
+    EndEvent();
+});
+
+
+$Event(19113905, Default, function() {
+    $InitializeEvent(0, 19114905);
+    $InitializeEvent(0, 190075770, 19110870, 16122810, 16120220);
+    $InitializeEvent(0, 190075752, 19110870, 16120220);
+    $InitializeEvent(0, 190075904, 19110870, 761000, 907630001, 7, 60517, 4);
+    $InitializeEvent(0, 190075780, 19110870, 16120220);
+    $InitializeEvent(0, 190075773, 19110870, 16120220);
+    $InitializeEvent(0, 190075774, 19110870, 16122890);
+    $InitializeCommonEvent(0, 90015012, 19110870, 19002953);
+    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    $InitializeCommonEvent(0, 90075902, 19110870, 0, 0);
+    
+    SetNetworkconnectedEventFlagID(19002956, ON);
+    EndEvent();
+});
+
+$Event(19114905, Default, function() {
+    WaitFor(EventFlag(19002952));
+    if (!EventFlag(19002951)) {
+        EndEvent();
+    }
+    
+    $InitializeCommonEvent(0, 90075758);
+    $InitializeCommonEvent(0, 90075771, 19110870, 16126800, 16120220);
+
+    EnableCharacter(19110870);
+    DisableCharacterAI(19110870);
+    EnableCharacterImmortality(19110870);
+    WaitFixedTimeFrames(1);
+    WarpCharacterAndCopyFloor(19110870, TargetEntityType.Area, 19002910, -1, 19113910);
+    ForceAnimationPlayback(19110870, 30029, true, false, false);
+    $InitializeCommonEvent(0, 90075760, 19110870);
+    WaitFor(ElapsedSeconds(1));
+    SetNetworkconnectedEventFlagID(19002955, ON);
+    SetCameraAngle(5.42, 0);
+    WaitFixedTimeSeconds(3);
+    FadeToBlack(0, 2, false, 1);
+
+    WaitFixedTimeSeconds(2);
+    SetNetworkconnectedEventFlagID(19002953, ON);
+    
+    EndEvent();
+});
+
+
+$Event(19002951, Restart, function() {
+    WaitFor(EventFlag(19002951));
+    
+    if (EventFlag(7512)) {
+        EndEvent();
+    }
+    if (EventFlag(19002952)) {
+        EndEvent(); 
+    }
+    
+    WaitFixedTimeSeconds(8);
+    DisplayTextEffectId(6015);
+    WaitFixedTimeSeconds(3);
+    
+    FadeToBlack(1, 1, true, -1);
+    WaitFor(ElapsedSeconds(1));
+    
+    if (IsPlayerNo(1)) {
+        WarpCharacterAndCopyFloorUnknown200489(10002, TargetEntityType.Area, 19002920, -1, 10002, -1, -1);
+    }
+    if (IsPlayerNo(2)) {
+        WarpCharacterAndCopyFloorUnknown200489(10003, TargetEntityType.Area, 19002921, -1, 10003, -1, -1);
+    }
+    if (IsPlayerNo(3)) {
+        WarpCharacterAndCopyFloorUnknown200489(10004, TargetEntityType.Area, 19002922, -1, 10004, -1, -1);
+    }
+    if (IsPlayerNo(4)) {
+        WarpCharacterAndCopyFloorUnknown200489(10005, TargetEntityType.Area, 19002923, -1, 10005, -1, -1);
+    }
+    if (IsPlayerNo(5)) {
+        WarpCharacterAndCopyFloorUnknown200489(10006, TargetEntityType.Area, 19002924, -1, 10006, -1, -1);
+    }
+    if (IsPlayerNo(6)) {
+        WarpCharacterAndCopyFloorUnknown200489(10007, TargetEntityType.Area, 19002925, -1, 10007, -1, -1);
+    }
+    
+    SetNetworkconnectedEventFlagID(19002952, ON);
+    
+    EndEvent();
+});
+
+
+$Event(190075901, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId) {
+    EndIf(EventFlag(7512));
+    EndIf(EventFlag(18002800));
+    WaitFor(HPRatio(chrEntityId) == 0);
+    EndIf(EventFlag(7516));
+
+    if (!EventFlag(19002954)) {
+        WaitFixedTimeSeconds(2);
+        DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
+        LinkToBossHealthBar(Disabled, logObjectId, 0);
+        
+        SetNetworkconnectedEventFlagID(19002977, ON);
+        
+        if(EventFlag(19002976)){
+            WaitFor(EventFlag(19002972));
+        }
+
+        PlaySE(chrEntityId, SoundType.SFX, 888880000);
+        DisplayTextEffectId(1051);
+        
+        SetNetworkconnectedEventFlagID(19002954, ON);
+        WaitFixedTimeSeconds(1);
+        
+        if (BossBGMPlaying(bgmBossConvParamId)) {
+            SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
+            WaitFixedTimeSeconds(3);
+        }
+        
+        if(EventFlag(19002956) && EventFlag(19002957)){
+            SetNetworkconnectedEventFlagID(19002951, ON);
+        }
+        else {
+            SetNetworkconnectedEventFlagID(7512, ON);
+            EndEvent();
+        }
+        
+        WaitFixedTimeSeconds(30);
+        if(!EventFlag(19002953)){
+            SetNetworkconnectedEventFlagID(7512, ON);
+        }
+        
+        EndEvent();
+    }
+    
+    SetSpEffect(10000, 509);
+    SetSpEffect(10001, 509);
+    SetSpEffect(10002, 509);
+    SetSpEffect(10003, 509);
+    SetSpEffect(10004, 509);
+    SetSpEffect(10005, 509);
+    SetSpEffect(10006, 509);
+    SetSpEffect(10007, 509);
+    SetSpEffect(10008, 509);
+    SetSpEffect(10009, 509);
+    SetSpEffect(10010, 509);
+
+    EnableCharacterImmortality(20000);
+    SetNetworkconnectedEventFlagID(7513, ON);
+    WaitFixedTimeSeconds(5);
+    
+    PlaySE(chrEntityId, SoundType.SFX, 888880000);
+    
+    RecordUserDispLog(10111, 10000, LogObjectType.NpcName, logObjectId);
+    
+    if (PlayerInMap(16, 0, 0, 0)) {
+        DisplayTextEffectId(1052);
+    }
+    if (PlayerInMap(16, 10, 0, 0)) {
+        DisplayTextEffectId(1053);
+    }
+    if (PlayerInMap(18, 0, 0, 0)) {
+        DisplayTextEffectId(1040);
+    }
+    if (PlayerInMap(19, 0, 0, 0)) {
+        DisplayTextEffectId(1051);
+    }
+    
+    if (BossBGMPlaying(bgmBossConvParamId)) {
+        SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
+    }
+    IncrementTeamBossesKilled(1);
+    DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
+    
+    SetNetworkconnectedEventFlagID(7512, ON);
+    WaitFixedTimeSeconds(0.1);
+    
+    SetSpEffect(20000, 102121);
+});
+
+
+$Event(290075950, Restart, function(bgmBossConvParamId, chrEntityId, spEffectId, targetAmount) {
+    DisableNetworkSync();
+    EndIf(EventFlag(7512)); 
+    WaitFor(EventFlag(19002953)); 
+    if (Signed(0) != spEffectId) {
+        spHp |= CharacterHasSpEffect(chrEntityId, spEffectId, GreaterOrEqual, 1);
+    } else {
+        spHp |= CharacterRatioHPRatio(chrEntityId, NotEqual, 0) <= targetAmount;
+    }
+    WaitFor((spHp && BossBGMPlaying(bgmBossConvParamId)) || EventFlag(7512));
+    EndIf(EventFlag(7512));
+    SetBossBGM(bgmBossConvParamId, BossBGMState.HeatUp2);
+    WaitFor(!BossBGMPlaying(bgmBossConvParamId) || EventFlag(7512));
+    EndIf(EventFlag(7512));
+    RestartEvent();
+});
+
+$Event(190075051, Restart, function(chrEntityId, chrEntityId2, entityId, entityId2) {
+    if (EventFlag(7512)) {
+        ForceCharacterDeath(chrEntityId, false);
+        ForceCharacterDeath(chrEntityId2, false);
+        EndEvent();
+    }
+    
+    if (EventFlag(19002953)) {
+        EnableCharacter(chrEntityId);
+        EnableCharacter(chrEntityId2);
+        EnableCharacterAI(chrEntityId);
+        EnableCharacterAI(chrEntityId2);
+        EnableCharacterCollision(chrEntityId);
+        EnableCharacterCollision(chrEntityId2);
+        DisplayBossHealthBar(Enabled, chrEntityId, 0, 907500000);
+        LinkToBossHealthBar(Disabled, 907500000, 0);
+        LinkToBossHealthBar(Enabled, 907500000, chrEntityId);
+        LinkToBossHealthBar(Enabled, 907500000, chrEntityId2);
+        SetBossBGM(750000, BossBGMState.HeatUp);
+        EndEvent();
+    }
+    
+    WaitFor(EventFlag(19002955));
+    
+    EnableCharacter(chrEntityId);
+    EnableCharacter(chrEntityId2);
+    DisableCharacterAI(chrEntityId);
+    DisableCharacterAI(chrEntityId2);
+    // WaitFixedTimeFrames(1);  //三狼不用传送
+    // WarpCharacterAndCopyFloor(chrEntityId, TargetEntityType.Area, 19002910, -1, 19113910);
+    
+    ForceAnimationPlayback(chrEntityId, 30028, true, false, false);
+    ForceAnimationPlayback(chrEntityId2, 30000, true, false, false);
+    
+    WaitFor(EventFlag(19002953));
+    SetBossBGM(750000, BossBGMState.HeatUp);
+    ForceAnimationPlayback(chrEntityId, 20028, false, false, false);
+    ForceAnimationPlayback(entityId, 20010, false, false, false);
+    ForceAnimationPlayback(entityId2, 20011, false, false, false);
+
+    EnableCharacterAI(chrEntityId);
+    EnableCharacterAI(chrEntityId2);
+    EnableCharacterCollision(chrEntityId);
+    EnableCharacterCollision(chrEntityId2);
+    
+    LinkToBossHealthBar(Disabled, 907500000, 0);
+    LinkToBossHealthBar(Enabled, 907500000, chrEntityId);
+    LinkToBossHealthBar(Enabled, 907500000, chrEntityId2);
+    
+    WaitFor(ElapsedSeconds(3));
+    DisplayBossHealthBar(Enabled, chrEntityId, 0, 907500000);
+});
+
+$Event(190075008, Restart, function(eventFlagId, eventFlagId2, spEffectId, chrEntityId, spEffectId2, targetAmount) {
+    WaitFor(EventFlag(19002955));
+    if (!EventFlag(9999)) {
+        EndIf(EventFlag(eventFlagId2));
+        if (eventFlagId != 0) {
+            WaitFor(EventFlag(eventFlagId));
+        }
+        if (Signed(0) != spEffectId2) {
+            WaitFor(CharacterHasSpEffect(chrEntityId, spEffectId2, GreaterOrEqual, 1));
+        } else {
+            WaitFor(CharacterRatioHPRatio(chrEntityId, NotEqual, 0) <= targetAmount);
+        }
+    }
+    ChangeWeather(Weather.Type10, -1, false);
+    SetSpEffect(0, spEffectId);
+});
+
+$Event(190075902, Restart, function(chrEntityId, chrEntityId2, chrEntityId3) {
+    DisableNetworkSync();
+    EndIf(EventFlag(7512));
+    WaitFor(EventFlag(19002953));
+    if (!PlayerIsInOwnWorld()) {
+        if (chrEntityId != 0) {
+            SetNetworkUpdateAuthority(chrEntityId, AuthorityLevel.Normal);
+        }
+        if (chrEntityId2 != 0) {
+            SetNetworkUpdateAuthority(chrEntityId2, AuthorityLevel.Normal);
+        }
+        if (chrEntityId3 != 0) {
+            SetNetworkUpdateAuthority(chrEntityId3, AuthorityLevel.Normal);
+        }
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    if (PlayerIsInOwnWorld()) {
+        if (chrEntityId != 0) {
+            SetNetworkUpdateAuthority(chrEntityId, AuthorityLevel.Forced);
+        }
+        if (chrEntityId2 != 0) {
+            SetNetworkUpdateAuthority(chrEntityId2, AuthorityLevel.Forced);
+        }
+        if (chrEntityId3 != 0) {
+            SetNetworkUpdateAuthority(chrEntityId3, AuthorityLevel.Forced);
+        }
+    }
+    WaitFor(!PlayerIsInOwnWorld());
+    RestartEvent();
+});
+
+
+$Event(190075551, Restart, function(chrEntityId) {
+    if (EventFlag(7512)) {
+        ForceCharacterDeath(chrEntityId, false);
+        EndEvent();
+    }
+    
+    if (EventFlag(19002953)) {
+        EnableCharacter(chrEntityId);
+        EnableCharacterAI(chrEntityId);
+        EnableCharacterCollision(chrEntityId);
+        DisplayBossHealthBar(Enabled, chrEntityId, 0, 907610000);
+        LinkToBossHealthBar(Disabled, 907610000, 0);
+        LinkToBossHealthBar(Enabled, 907610000, chrEntityId);
+        SetBossBGM(760000, BossBGMState.HeatUp);
+        EndEvent();
+    }
+    
+    WaitFor(EventFlag(19002955));
+
+    EnableCharacter(chrEntityId);
+    DisableCharacterAI(chrEntityId);
+    WaitFixedTimeFrames(1);
+    WarpCharacterAndCopyFloor(chrEntityId, TargetEntityType.Area, 19002910, -1, 19113910);
+    ForceAnimationPlayback(chrEntityId, 30029, true, false, false);
+    
+    WaitFor(EventFlag(19002953));
+    SetSpEffect(chrEntityId, 5108);
+    SetBossBGM(760000, BossBGMState.HeatUp);
+    ForceAnimationPlayback(chrEntityId, 20030, false, false, false);
+    
+    EnableCharacterAI(chrEntityId);
+    EnableCharacterCollision(chrEntityId);
+
+    LinkToBossHealthBar(Disabled, 907610000, 0);
+    LinkToBossHealthBar(Enabled, 907610000, chrEntityId);
+    
+    WaitFor(ElapsedSeconds(4));
+    DisplayBossHealthBar(Enabled, chrEntityId, 0, 907610000);
+});
+
+
+$Event(191175651, Restart, function(chrEntityId) {
+    if (EventFlag(7512)) {
+        ForceCharacterDeath(chrEntityId, false);
+        EndEvent();
+    }
+    
+    if (EventFlag(19002953)) {
+        EnableCharacter(chrEntityId);
+        EnableCharacterAI(chrEntityId);
+        EnableCharacterCollision(chrEntityId);
+        EnableLockOnPoint(chrEntityId, 221);
+        EnableLockOnPoint(chrEntityId, 222);
+        EnableLockOnPoint(chrEntityId, 223);
+        EnableLockOnPoint(chrEntityId, 224);
+        DisplayBossHealthBar(Enabled, chrEntityId, 0, 907620000);
+        LinkToBossHealthBar(Disabled, 907620000, 0);
+        LinkToBossHealthBar(Enabled, 907620000, chrEntityId);
+        if (CharacterHasSpEffect(chrEntityId, 5106)) {
+            SetBossBGM(490000, BossBGMState.HeatUp2);
+            EndEvent();
+        }
+        if (CharacterHasSpEffect(chrEntityId, 5105)) {
+            SetBossBGM(490000, BossBGMState.HeatUp);
+            EndEvent();
+        }
+        EndEvent();
+    }
+    
+    WaitFor(EventFlag(19002955));
+    
+    EnableCharacter(chrEntityId);
+    DisableCharacterAI(chrEntityId);
+    DisableLockOnPoint(chrEntityId, 221);
+    DisableLockOnPoint(chrEntityId, 222);
+    DisableLockOnPoint(chrEntityId, 223);
+    DisableLockOnPoint(chrEntityId, 224);
+    WaitFixedTimeFrames(1);
+    WarpCharacterAndCopyFloor(chrEntityId, TargetEntityType.Area, 19002910, -1, 19113910);
+    ForceAnimationPlayback(chrEntityId, 30029, true, false, false);
+    
+    WaitFor(EventFlag(19002953));
+    EnableCharacterAI(chrEntityId);
+    ActivateGparamOverride(4, 0);
+    
+    ForceAnimationPlayback(chrEntityId, 20029, false, false, false);
+    EnableLockOnPoint(chrEntityId, 221);
+    EnableLockOnPoint(chrEntityId, 222);
+    EnableLockOnPoint(chrEntityId, 223);
+    EnableLockOnPoint(chrEntityId, 224);
+    DeactivateGparamOverride(3);
+    
+    EnableCharacterCollision(chrEntityId);
+    
+    if (CharacterHasSpEffect(chrEntityId, 5106)) {
+        SetBossBGM(490000, BossBGMState.HeatUp2);
+    } else if (CharacterHasSpEffect(chrEntityId, 5105)) {
+        SetBossBGM(490000, BossBGMState.HeatUp);
+    } else {
+        SetBossBGM(490000, BossBGMState.Start);
+    }
+    
+    LinkToBossHealthBar(Disabled, 907620000, 0);
+    LinkToBossHealthBar(Enabled, 907620000, chrEntityId);
+    
+    WaitFor(ElapsedSeconds(2.5));
+    DisplayBossHealthBar(Enabled, chrEntityId, 0, 907620000);
+});
+
+$Event(191175652, Restart, function(chrEntityId, spEffectId, spEffectId2) {
+    DisableNetworkSync();
+    EndIf(EventFlag(7512));
+    EndIf(CharacterHasSpEffect(chrEntityId, spEffectId2));
+    WaitFor(EventFlag(19002973));
+    WaitFor(
+        CharacterHasSpEffect(chrEntityId, spEffectId)
+            || CharacterHasSpEffect(chrEntityId, spEffectId2)
+            || EventFlag(7512));
+    EndIf(CharacterHasSpEffect(chrEntityId, spEffectId2));
+    EndIf(EventFlag(7512));
+    SetBossBGM(490000, BossBGMState.HeatUp);
+    WaitFor(
+        !BossBGMPlaying(490000) || CharacterHasSpEffect(chrEntityId, spEffectId2) || EventFlag(7512));
+    EndIf(CharacterHasSpEffect(chrEntityId, spEffectId2));
+    EndIf(EventFlag(7512));
+    RestartEvent();
+});
+
+
+$Event(190075752, Restart, function(chrEntityId, eventFlagId) {
+    if (EventFlag(7512)) {
+        ForceCharacterDeath(chrEntityId, false);
+        EndEvent();
+    }
+    if (EventFlag(19002953)) {
+        EnableCharacter(chrEntityId);
+        EnableCharacterAI(chrEntityId);
+        EnableCharacterCollision(chrEntityId);
+        if (!EventFlag(eventFlagId)) {
+            EnableCharacterImmortality(chrEntityId);
+        }
+        if (EventFlag(eventFlagId)) {
+            DisplayBossHealthBar(Enabled, chrEntityId, 0, 907630001);
+            LinkToBossHealthBar(Disabled, 907630001, 0);
+            LinkToBossHealthBar(Enabled, 907630001, chrEntityId);
+            EndEvent();
+        }
+        DisplayBossHealthBar(Enabled, chrEntityId, 0, 907630000);
+        LinkToBossHealthBar(Disabled, 907630000, 0);
+        LinkToBossHealthBar(Enabled, 907630000, chrEntityId);
+        EndEvent();
+    }
+    
+    WaitFor(EventFlag(19002953));
+    ForceAnimationPlayback(chrEntityId, 20029, false, false, false);
+    EnableCharacterAI(chrEntityId);
+    EnableCharacterCollision(chrEntityId);
+    LinkToBossHealthBar(Disabled, 907630000, 0);
+    LinkToBossHealthBar(Enabled, 907630000, chrEntityId);
+    WaitFor(ElapsedSeconds(4));
+    DisplayBossHealthBar(Enabled, chrEntityId, 0, 907630000);
+});
+
+
+$Event(190075770, Restart, function(chrEntityId, entityId, eventFlagId) {
+    EndIf(EventFlag(eventFlagId));
+    EndIf(EventFlag(7512));
+    WaitFor(CharacterHasSpEffect(chrEntityId, 60507) || CharacterHasSpEffect(chrEntityId, 60505));
+    DisplayBossHealthBar(Disabled, chrEntityId, 0, 907630000);
+    WaitFor(CharacterHasSpEffect(chrEntityId, 60505));
+    SetSpEffect(10000, 60506);
+    WaitFor(ElapsedSeconds(5));
+    FadeToBlack(1, 0.5, true, 0);
+    WaitFor(ElapsedSeconds(0.5));
+    WarpCharacterAndCopyFloorUnknown200489(chrEntityId, TargetEntityType.Area, entityId, -1, chrEntityId, -1, -1);
+    if (IsPlayerNo(1)) {
+        WarpCharacterAndCopyFloorUnknown200489(10002, TargetEntityType.Area, 19002920, -1, 10002, -1, -1);
+    }
+    if (IsPlayerNo(2)) {
+        WarpCharacterAndCopyFloorUnknown200489(10003, TargetEntityType.Area, 19002921, -1, 10003, -1, -1);
+    }
+    if (IsPlayerNo(3)) {
+        WarpCharacterAndCopyFloorUnknown200489(10004, TargetEntityType.Area, 19002922, -1, 10004, -1, -1);
+    }
+    if (IsPlayerNo(4)) {
+        WarpCharacterAndCopyFloorUnknown200489(10005, TargetEntityType.Area, 19002923, -1, 10005, -1, -1);
+    }
+    if (IsPlayerNo(5)) {
+        WarpCharacterAndCopyFloorUnknown200489(10006, TargetEntityType.Area, 19002924, -1, 10006, -1, -1);
+    }
+    if (IsPlayerNo(6)) {
+        WarpCharacterAndCopyFloorUnknown200489(10007, TargetEntityType.Area, 19002925, -1, 10007, -1, -1);
+    }
+    SetCameraAngle(0, 0);
+    WaitFor(ElapsedSeconds(4));
+    FadeToBlack(0, 0.5, false, -1);
+    WaitFor(ElapsedSeconds(1));
+    SetSpEffect(chrEntityId, 60510);
+    DisableCharacterImmortality(chrEntityId);
+    LinkToBossHealthBar(Disabled, 907630001, 0);
+    LinkToBossHealthBar(Enabled, 907630001, chrEntityId);
+    SetNetworkconnectedEventFlagID(eventFlagId, ON);
+    WaitFor(!CharacterHasSpEffect(chrEntityId, 60507));
+    DisplayBossHealthBar(Enabled, chrEntityId, 0, 907630001);
+});
+
+
+$Event(190075904, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId, timeSeconds, spEffectId, timeSeconds2) {
+
+    EndIf(EventFlag(7512));
+    EndIf(EventFlag(18002800));
+    WaitFor(HPRatio(chrEntityId) == 0);
+    EndIf(EventFlag(7516));
+    
+    SetSpEffect(10000, 509);
+    SetSpEffect(10001, 509);
+    SetSpEffect(10002, 509);
+    SetSpEffect(10003, 509);
+    SetSpEffect(10004, 509);
+    SetSpEffect(10005, 509);
+    SetSpEffect(10006, 509);
+    SetSpEffect(10007, 509);
+    SetSpEffect(10008, 509);
+    SetSpEffect(10009, 509);
+    SetSpEffect(10010, 509);
+    
+    EnableCharacterImmortality(20000);
+    SetNetworkconnectedEventFlagID(19002953, ON);
+    WaitFixedTimeSeconds(5);
+    
+    if (Signed(spEffectId) != 0) {
+        if (CharacterHasSpEffect(chrEntityId, spEffectId)) {
+            WaitFixedTimeSeconds(timeSeconds2);
+        } else {
+            WaitFixedTimeSeconds(timeSeconds);
+        }
+    } else {
+        WaitFixedTimeSeconds(timeSeconds);
+    }
+    
+    PlaySE(chrEntityId, SoundType.SFX, 888880000);
+    
+    RecordUserDispLog(10111, 10000, LogObjectType.NpcName, logObjectId);
+
+    if (PlayerInMap(16, 0, 0, 0)) {
+        DisplayTextEffectId(1052);
+    }
+    if (PlayerInMap(16, 10, 0, 0)) {
+        DisplayTextEffectId(1053);
+    }
+    if (PlayerInMap(18, 0, 0, 0)) {
+        DisplayTextEffectId(1040);
+    }
+    if (PlayerInMap(19, 0, 0, 0)) {
+        DisplayTextEffectId(1051);
+    }
+    
+    if (BossBGMPlaying(bgmBossConvParamId)) {
+        SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
+    }
+    
+    IncrementTeamBossesKilled(1);
+    DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
+    
+    SetNetworkconnectedEventFlagID(7512, ON);
+    WaitFixedTimeSeconds(0.1);
+    
+    SetSpEffect(20000, 102121);
+});
+
+
+$Event(190075780, Restart, function(chrEntityId, eventFlagId) {
+    DisableNetworkSync();
+    EndIf(EventFlag(7512));
+    if (EventFlag(eventFlagId)) {
+        SetBossBGM(761000, BossBGMState.HeatUp2);
+    } else {
+        if (CharacterHasSpEffect(chrEntityId, 5105)) {
+            SetBossBGM(761000, BossBGMState.HeatUp);
+        } else {
+            WaitFor(EventFlag(19002953));
+            SetBossBGM(761000, BossBGMState.Start);
+            WaitFor(ElapsedFrames(1));
+            WaitFor(CharacterHasSpEffect(chrEntityId, 5105) || !BossBGMPlaying(761000));
+            RestartIf(!BossBGMPlaying(761000));
+            SetBossBGM(761000, BossBGMState.HeatUp);
+            WaitFor(ElapsedFrames(1));
+        }
+L0:
+        WaitFor(EventFlag(eventFlagId) || !BossBGMPlaying(761000));
+        RestartIf(!BossBGMPlaying(761000));
+        SetBossBGM(761000, BossBGMState.HeatUp2);
+        WaitFor(ElapsedFrames(1));
+    }
+L1:
+    WaitFor(!BossBGMPlaying(761000));
+    WaitFor(ElapsedSeconds(5));
+    RestartEvent();
+});
+
+
+$Event(190075773, Restart, function(chrEntityId, eventFlagId) {
+    DisableNetworkSync();
+    EndIf(EventFlag(7512));
+    EndIf(EventFlag(19002953) && !CharacterHasSpEffect(20000, 6999200));
+    if ((CharacterHasSpEffect(chrEntityId, 60521) || EventFlag(eventFlagId))
+        && CharacterHasSpEffect(20000, 6999201)) {
+        SetSpEffect(20000, 6999201);
+        EndEvent();
+    }
+    WaitFor(EventFlag(19002953));
+    EndIf(!CharacterHasSpEffect(20000, 6999200));
+    WaitFor(CharacterHasSpEffect(chrEntityId, 60521) || EventFlag(eventFlagId));
+    WaitFor(CharacterHasSpEffect(chrEntityId, 60521) || ElapsedSeconds(25));
+    SetSpEffect(20000, 6999201);
+    SetSpEffect(20000, 60522);
+    WaitFor(ElapsedSeconds(2.2));
+    RecordUserDispLog(110400, 20000, LogObjectType.None, -1);
+});
+
+
+$Event(190075774, Restart, function(chrEntityId, areaEntityId) {
+    EndIf(EventFlag(7512));
+    WaitFor(EventFlag(19002953));
+    WaitFor(!InArea(chrEntityId, areaEntityId) || CharacterHasSpEffect(chrEntityId, 60555));
+    SetSpEffect(chrEntityId, 60555);
+    DisableNetworkSync();
+    WaitFor(CharacterHasSpEffect(chrEntityId, 60555));
+    EnableNetworkSync();
+    WaitFor(InArea(chrEntityId, areaEntityId) || !CharacterHasSpEffect(chrEntityId, 60555));
+    SetSpEffect(chrEntityId, 60556);
+    DisableNetworkSync();
+    WaitFor(!CharacterHasSpEffect(chrEntityId, 60555));
+    EnableNetworkSync();
+    RestartEvent();
+});
+
+
+$Event(190075851, Restart, function(chrEntityId, nameId) {
+    if (EventFlag(7512)) {
+        ForceCharacterDeath(chrEntityId, false);
+        EndEvent();
+    }
+    if (EventFlag(19002953)) {
+        EnableCharacter(chrEntityId);
+        EnableCharacterAI(chrEntityId);
+        DisplayBossHealthBar(Enabled, chrEntityId, 0, nameId);
+        LinkToBossHealthBar(Disabled, nameId, 0);
+        LinkToBossHealthBar(Enabled, nameId, chrEntityId);
+        SetBossBGM(100520, BossBGMState.Start);
+        EndEvent();
+    }
+    WaitFor(EventFlag(19002953));
+    
+    WaitFor(CharacterHasSpEffect(chrEntityId, 46726));
+    DisplayBossHealthBar(Enabled, chrEntityId, 0, nameId);
+    LinkToBossHealthBar(Disabled, nameId, 0);
+    LinkToBossHealthBar(Enabled, nameId, chrEntityId);
+    SetBossBGM(100520, BossBGMState.Start);
+    EnableCharacterCollision(chrEntityId);
+    DisplayTextEffectId(6014);
+    
+    WaitFor(CharacterHasSpEffect(chrEntityId, 46734));
+    DisplayTextEffectId(6011);
+    SetBossBGM(100800, BossBGMState.HeatUp);
+    ChangeAssetEnableState(19006852, Enabled);
+    ChangeAssetEnableState(19006851, Enabled);
+    WaitFor(CharacterHasSpEffect(chrEntityId, 46731));
+    SpawnOneshotSFX(TargetEntityType.Character, chrEntityId, 960, 203);
+    WaitFixedTimeSeconds(4);
+    SetBossBGM(100520, BossBGMState.Stop1);
+    WaitFor(EventFlag(7512));
+    RestartEvent();
+});
+
+
+$Event(190017580, Default, function(chrEntityId) {
+    EndIf(EventFlag(7512));
+    WaitFor(EventFlag(19002953));
+
+    if (!EventFlag(19002952)) {
+        EndEvent();
+    }
+    
+    WaitFor(HPRatio(chrEntityId) <= 0);
+    
+    WaitFixedTimeSeconds(3);
+    DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
+
+    SetNetworkconnectedEventFlagID(7512, ON);
+    
+    WaitFixedTimeSeconds(24);
+    DisableCharacter(chrEntityId);
+    DisableCharacterAI(chrEntityId);
+    
+    EndEvent();
+});
+
+
+$Event(190075900, Default, function(chrEntityId) {
+    EndIf(EventFlag(7512));
+    EndIf(EventFlag(18002800));
+    WaitFor(EventFlag(19002953));
+    SetWorldMapPointFlag(0, ON);
+    SetWorldMapPointFlag(8, OFF);
+    EndIf(CharacterRatioDead(chrEntityId));
+    WaitFor(EventFlag(7512));
+    SetWorldMapPointFlag(0, OFF);
+    SetWorldMapPointFlag(8, ON);
+});
+
+
+$Event(190075501, Restart, function(chrEntityId, nameId) {
+    if (EventFlag(7512)) {
+        ForceCharacterDeath(chrEntityId, false);
+        EndEvent();
+    }
+    if (EventFlag(19002953)) {
+        EnableCharacter(chrEntityId);
+        EnableCharacterAI(chrEntityId);
+        DisplayBossHealthBar(Enabled, chrEntityId, 0, nameId);
+        LinkToBossHealthBar(Disabled, nameId, 0);
+        LinkToBossHealthBar(Enabled, nameId, chrEntityId);
+        SetBossBGM(760000, BossBGMState.Start);
+        EndEvent();
+    }
+    WaitFor(EventFlag(19002955));
+    EnableCharacter(chrEntityId);
+    WaitFixedTimeFrames(1);
+    // WarpCharacterAndCopyFloor(chrEntityId, TargetEntityType.Area, 19002910, -1, 19113910);
+    
+    WaitFor(EventFlag(19002953));
+    SetBossBGM(760000, BossBGMState.Start);
+    ForceAnimationPlayback(chrEntityId, 20029, false, false, false);
+    EnableCharacterAI(chrEntityId);
+    EnableCharacterCollision(chrEntityId);
+    LinkToBossHealthBar(Disabled, 907610001, 0);
+    LinkToBossHealthBar(Enabled, 907610001, chrEntityId);
+    WaitFor(ElapsedSeconds(4));
+    DisplayBossHealthBar(Enabled, chrEntityId, 0, 907610001);
+});
+
+$Event(19212818, Default, function(chrEntityId, nameId, animId) {
+    EndIf(EventFlag(7512));
+    DisableCharacter(chrEntityId);
+    DisableCharacterCollision(chrEntityId);
+    DisableCharacterAI(chrEntityId);
+    
+    WaitFor(EventFlag(19002973));
+    SetNetworkconnectedEventFlagID(19002971, ON);
+    DisplayTextEffectId(6016);
+    if (!EventFlag(7511)) {
+        WaitFor(EventFlag(7511));
+    }
+    
+    WaitFor(EventFlag(19002975));
+    WaitFixedTimeSeconds(0.5);
+    if (EventFlag(19002954)) {
+        EndEvent();
+    }
+    
+    EnableCharacter(chrEntityId);
+    EnableCharacterCollision(chrEntityId);
+    WaitFixedTimeFrames(1);
+    WarpCharacterAndCopyFloor(chrEntityId, TargetEntityType.Area, 19002910, -1, 19113910);
+    ForceAnimationPlayback(chrEntityId, animId, false, false, false);
+    WaitFixedTimeSeconds(1);
+    EnableCharacterAI(chrEntityId);
+    
+    SetNetworkUpdateRate(chrEntityId, true, CharacterUpdateFrequency.AlwaysUpdate);
+
+    LinkToBossHealthBar(Disabled, nameId, 0);
+    LinkToBossHealthBar(Enabled, nameId, chrEntityId);
+    WaitFor(ElapsedSeconds(2));
+    DisplayBossHealthBar(Enabled, chrEntityId, 0, nameId);
+    SetNetworkconnectedEventFlagID(19002976, ON);
+    
+    WaitFixedTimeSeconds(1.5);
+    SetNetworkconnectedEventFlagID(19002974, ON);
+    
+    WaitFor(CharacterHPValue(chrEntityId) <= 0);
+    
+    PlaySE(chrEntityId, SoundType.SFX, 888880000);
+    WaitFixedTimeSeconds(7);
+    SetNetworkconnectedEventFlagID(19002972, ON);
+
+    DisplayBossHealthBar(Disabled, chrEntityId, 0, nameId);
+    WaitFor(ElapsedSeconds(5));
+    LinkToBossHealthBar(Disabled, nameId, 0); 
+    
+    DisableCharacterAI(chrEntityId);
+    DisableCharacterCollision(chrEntityId);
+    DisableCharacter(chrEntityId);
+    
+    EndEvent();
+});
+
+$Event(19212819, Default, function(chrEntityId) {
+    EndIf(EventFlag(19002954)); 
+    WaitFor(EventFlag(19002976));
+    SetSpEffect(chrEntityId, 96312);
+    WaitFor(EventFlag(19002977));
+    ClearSpEffect(chrEntityId, 96312);
+    EndEvent();
+});
+
+$Event(19212820, Default, function(chrEntityId, animId) {
+    EndIf(EventFlag(19002954)); 
+    WaitFor(EventFlag(19002974));
+    ForceAnimationPlayback(chrEntityId, animId, false, false, false);
+    EndEvent();
+});
+
+$Event(19219920, Restart, function(enemyID) {
+    EndIf(EventFlag(19002954));
+    EndIf(EventFlag(19002973));
+    if (!EntityInRadiusOfEntity(20000, enemyID, 30, 1)) {
+        DisableCharacterGravity(enemyID);
+        DisableCharacterAI(enemyID);
+        WaitFixedTimeSeconds(0.2);
+        WaitFor(EntityInRadiusOfEntity(20000, enemyID, 30, 1));
+    } else {
+        WaitFixedTimeSeconds(0.2);
+        EnableCharacterGravity(enemyID);
+        EnableCharacterAI(enemyID);
+        WaitFor(HPRatio(enemyID) <= 0);
+        WaitFixedTimeSeconds(1);
+        SetNetworkconnectedEventFlagID(19002973, ON);
+    }
+    RestartEvent();
+});
