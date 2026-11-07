@@ -10,32 +10,32 @@
 $Event(0, Default, function() {
     $InitializeEvent(0, 16102500);
     $InitializeEvent(0, 16102590);
-    $InitializeCommonEvent(0, 90075751, 16100800);
+    InitializeCommonEvent(0, 90075751, 16100800);
     $InitializeEvent(0, 290075904, 16100800, 761000, 907630001, 7, 60517, 4);
-    $InitializeCommonEvent(0, 90075902, 16100800, 0, 0);
-    $InitializeCommonEvent(0, 90015012, 16100800, 7511);
-    $InitializeCommonEvent(0, 90015020, 7511, 19002954);
-    $InitializeCommonEvent(0, 90075750, 16100800, 16105810, 16100890);
-    $InitializeCommonEvent(0, 90075752, 16100800, 16100220);
-    $InitializeCommonEvent(0, 90075758);
-    $InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103810, 16103840, 1, 16100200, 16100220);
-    $InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103811, 0, 0.8, 16100201, 16100220);
-    $InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103812, 16103842, 0.6, 16100202, 16100220);
-    $InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103813, 16103843, 0.4, 16100203, 16100220);
-    $InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103814, 0, 0.2, 16100204, 16100220);
-    $InitializeCommonEvent(0, 90075756, 16100800, 16103820, 16100820, 16103830, 16100830, 0.6, 16100210, 16100220);
-    $InitializeCommonEvent(0, 90075756, 16100800, 16103821, 16100821, 16103831, 16100831, 0.4, 16100211, 16100220);
-    $InitializeCommonEvent(0, 90075756, 16100800, 16103822, 16100822, 16103832, 16100832, 0.2, 16100212, 16100220);
-    $InitializeCommonEvent(0, 90075757, 16100800, 16105810, 16100220);
-    $InitializeCommonEvent(0, 90075760, 16100800);
+    InitializeCommonEvent(0, 90075902, 16100800, 0, 0);
+    InitializeCommonEvent(0, 90015012, 16100800, 7511);
+    InitializeCommonEvent(0, 90015020, 7511, 19002954);
+    InitializeCommonEvent(0, 90075750, 16100800, 16105810, 16100890);
+    InitializeCommonEvent(0, 90075752, 16100800, 16100220);
+    InitializeCommonEvent(0, 90075758, 0);
+    InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103810, 16103840, 1065353216, 16100200, 16100220);
+    InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103811, 0, 1061997773, 16100201, 16100220);
+    InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103812, 16103842, 1058642330, 16100202, 16100220);
+    InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103813, 16103843, 1053609165, 16100203, 16100220);
+    InitializeCommonEvent(0, 90075755, 16100800, 16105810, 16103814, 0, 1045220557, 16100204, 16100220);
+    InitializeCommonEvent(0, 90075756, 16100800, 16103820, 16100820, 16103830, 16100830, 1058642330, 16100210, 16100220);
+    InitializeCommonEvent(0, 90075756, 16100800, 16103821, 16100821, 16103831, 16100831, 1053609165, 16100211, 16100220);
+    InitializeCommonEvent(0, 90075756, 16100800, 16103822, 16100822, 16103832, 16100832, 1045220557, 16100212, 16100220);
+    InitializeCommonEvent(0, 90075757, 16100800, 16105810, 16100220);
+    InitializeCommonEvent(0, 90075760, 16100800);
     $InitializeEvent(0, 290075770, 16100800, 16102810, 16100220);
-    $InitializeCommonEvent(0, 90075771, 16100800, 16106800, 16100220);
+    InitializeCommonEvent(0, 90075771, 16100800, 16106800, 16100220);
     $InitializeEvent(0, 290075780, 16100800, 16100220);
-    $InitializeCommonEvent(0, 90075772, 16100800, 16105810, 16100220);
-    $InitializeCommonEvent(0, 90075773, 16100800, 16100220);
-    $InitializeCommonEvent(0, 90075774, 16100800, 16102890);
-    $InitializeCommonEvent(0, 90075930, 162, 9082);
-    $InitializeCommonEvent(0, 90085027, 902, 9, 9281, Hero.Scholar);
+    InitializeCommonEvent(0, 90075772, 16100800, 16105810, 16100220);
+    InitializeCommonEvent(0, 90075773, 16100800, 16100220);
+    InitializeCommonEvent(0, 90075774, 16100800, 16102890);
+    InitializeCommonEvent(0, 90075930, 162, 9082);
+    InitializeCommonEvent(0, 90085027, 590726, 9281, 9);
     
     $InitializeEvent(0, 16102830);
     
@@ -302,6 +302,7 @@ $Event(19110900, Default, function()
     SetNetworkconnectedEventFlagID(19002955, OFF);   // 连战夜王开始初始化FLAG
     SetNetworkconnectedEventFlagID(19002956, OFF);   // 连战夜王初始化成功FLAG
         SetNetworkconnectedEventFlagID(19300002, OFF);   // endless: first round done
+    SetNetworkconnectedEventFlagID(19300999, OFF);   // endless: never set (loop stop)
     SetNetworkconnectedEventFlagID(19300101, OFF);   // endless: kill counter
     SetNetworkconnectedEventFlagID(19300102, OFF);   // endless: kill counter
     SetNetworkconnectedEventFlagID(19300103, OFF);   // endless: kill counter
@@ -391,8 +392,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小狼入侵: EntityID: 19210800  NameID:907500000
     if (RandomAppearLot(19210800)) {
-        $InitializeCommonEvent(0, 90075100, 19210800);
-        $InitializeCommonEvent(0, 90015012, 19210800, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210800);
+        InitializeCommonEvent(0, 90015012, 19210800, 7511);        
         $InitializeEvent(0, 19212818, 19210800, 907500000, 20029);
         $InitializeEvent(0, 19212819, 19210800);
         $InitializeEvent(0, 19212820, 19210800, 3034);
@@ -407,8 +408,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小嘴入侵: EntityID: 19210810  NameID:907510000
     if (RandomAppearLot(19210810)) {
-        $InitializeCommonEvent(0, 90075100, 19210810);
-        $InitializeCommonEvent(0, 90015012, 19210810, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210810);
+        InitializeCommonEvent(0, 90015012, 19210810, 7511);        
         $InitializeEvent(0, 19212818, 19210810, 907510000, 20029);
         $InitializeEvent(0, 19212819, 19210810);
         $InitializeEvent(0, 19219920, 19214191);
@@ -422,8 +423,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小羊入侵: EntityID: 19210840  NameID:907550000
     if (RandomAppearLot(19210840)) {
-        $InitializeCommonEvent(0, 90075100, 19210840);
-        $InitializeCommonEvent(0, 90015012, 19210840, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210840);
+        InitializeCommonEvent(0, 90015012, 19210840, 7511);        
         $InitializeEvent(0, 19212818, 19210840, 907550000, 20029);
         $InitializeEvent(0, 19212819, 19210840);
         $InitializeEvent(0, 19219920, 19214191);
@@ -437,8 +438,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小马入侵: EntityID: 19210850  NameID:907610000
     if (RandomAppearLot(19210850)) {
-        $InitializeCommonEvent(0, 90075100, 19210850);
-        $InitializeCommonEvent(0, 90015012, 19210850, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210850);
+        InitializeCommonEvent(0, 90015012, 19210850, 7511);        
         $InitializeEvent(0, 19212818, 19210850, 907610000, 20029);
         $InitializeEvent(0, 19212819, 19210850);
         $InitializeEvent(0, 19219920, 19214191);
@@ -452,8 +453,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小龙入侵: EntityID: 19210860  NameID:907620000
     if (RandomAppearLot(19210860)) {
-        $InitializeCommonEvent(0, 90075100, 19210860);
-        $InitializeCommonEvent(0, 90015012, 19210860, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210860);
+        InitializeCommonEvent(0, 90015012, 19210860, 7511);        
         $InitializeEvent(0, 19212818, 19210860, 907620000, 20029);
         $InitializeEvent(0, 19212819, 19210860);
         $InitializeEvent(0, 19219920, 19214191);
@@ -477,25 +478,27 @@ $Event(19113900, Default, function() {
     $InitializeEvent(0, 190075851, 19111803, 907580002);
     
     $InitializeEvent(0, 19309000, 19111803, 758000, 907580001, 19300020);
-    $InitializeCommonEvent(0, 90075902, 19005800, 19111803, 0);
-    $InitializeCommonEvent(0, 90015012, 19111803, 19002953);
-    $InitializeCommonEvent(0, 90075710, 19111803);
+    InitializeCommonEvent(0, 90075902, 19005800, 19111803, 0);
+    InitializeCommonEvent(0, 90015012, 19111803, 19002953);
+    InitializeCommonEvent(0, 90075710, 19111803);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
-$Event(19114900, Default, function() {
+$Event(19114900, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300020));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19111803);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300020));
+
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19111803);
 
     EnableCharacter(19111803);
         WaitFixedTimeFrames(1);
@@ -515,9 +518,8 @@ $Event(19114900, Default, function() {
     
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 $Event(19113901, Default, function() {
@@ -526,32 +528,34 @@ $Event(19113901, Default, function() {
     $InitializeEvent(0, 190075900, 19110880);
     
     $InitializeEvent(0, 19309000, 19110880, 760000, 907610001, 19300021);
-    $InitializeCommonEvent(0, 90075902, 19110880, 0, 0);
-    $InitializeCommonEvent(0, 90075500, 19110880);
-    $InitializeCommonEvent(0, 90015012, 19110880, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90015008, 19002953, 7512, 760000, 19110880, 5105, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110880, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110880, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110880, 5108, 0);
+    InitializeCommonEvent(0, 90075902, 19110880, 0, 0);
+    InitializeCommonEvent(0, 90075500, 19110880);
+    InitializeCommonEvent(0, 90015012, 19110880, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90015008, 19002953, 7512, 760000, 19110880, 5105, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110880, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110880, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110880, 5108, 0);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
-$Event(19114901, Default, function() {
+$Event(19114901, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300021));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110880);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300021));
 
-    $InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110880, 5108, 0);
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110880);
+
+    InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110880, 5108, 0);
         DisableCharacterAI(19110880);
         WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
@@ -563,9 +567,8 @@ $Event(19114901, Default, function() {
         WaitFixedTimeSeconds(1);
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 
@@ -576,40 +579,42 @@ $Event(19113902, Default, function() {
 
     $InitializeEvent(0, 19309000, 19110800, 750000, 907500000, 19300022);
     $InitializeEvent(0, 190075902, 19110800, 19115801, 0);
-    $InitializeCommonEvent(0, 90015012, 19110800, 19002953);
-    $InitializeCommonEvent(1, 90015012, 19115801, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90075000, 19110800, 19115801);
-    $InitializeCommonEvent(0, 90075002, 19110800, 19110801, 19110802);
-    $InitializeCommonEvent(0, 90075005, 19110800, 19110801, 72, 5900);
-    $InitializeCommonEvent(0, 90075005, 19110800, 19110802, 2, 5901);
-    $InitializeCommonEvent(0, 90075006, 19110800, 19110801);
-    $InitializeCommonEvent(0, 90075006, 19110800, 19110802);
-    $InitializeCommonEvent(0, 90075060, 19110800, 19110801);
-    $InitializeCommonEvent(0, 90075060, 19110800, 19110802);
-    $InitializeCommonEvent(0, 90075070, 19110800, 19110801, 72, 5908, 51320);
-    $InitializeCommonEvent(0, 90075070, 19110800, 19110802, 72, 5909, 51321);
-    $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19110800, 0, 1);
-    $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19110800, 0, 1);
-    $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006802, 19110800, 0, 1);
+    InitializeCommonEvent(0, 90015012, 19110800, 19002953);
+    InitializeCommonEvent(1, 90015012, 19115801, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90075000, 19110800, 19115801);
+    InitializeCommonEvent(0, 90075002, 19110800, 19110801, 19110802);
+    InitializeCommonEvent(0, 90075005, 19110800, 19110801, 72, 5900);
+    InitializeCommonEvent(0, 90075005, 19110800, 19110802, 2, 5901);
+    InitializeCommonEvent(0, 90075006, 19110800, 19110801);
+    InitializeCommonEvent(0, 90075006, 19110800, 19110802);
+    InitializeCommonEvent(0, 90075060, 19110800, 19110801);
+    InitializeCommonEvent(0, 90075060, 19110800, 19110802);
+    InitializeCommonEvent(0, 90075070, 19110800, 19110801, 72, 5908, 51320);
+    InitializeCommonEvent(0, 90075070, 19110800, 19110802, 72, 5909, 51321);
+    InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19110800, 0, 1065353216);
+    InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19110800, 0, 1065353216);
+    InitializeCommonEvent(0, 90075910, 6001, 7512, 19006802, 19110800, 0, 1065353216);
     $InitializeEvent(0, 190075008, 6001, 7512, 0, 19110800, 0, 1);
 
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
-$Event(19114902, Default, function() {
+$Event(19114902, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300022));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110800);
-        EnableCharacter(19115801);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300022));
+
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110800);
+    EnableCharacter(19115801);
 
     WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
@@ -619,9 +624,8 @@ $Event(19114902, Default, function() {
         WaitFixedTimeSeconds(1);
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 $Event(19113903, Default, function() {
@@ -629,33 +633,35 @@ $Event(19113903, Default, function() {
     $InitializeEvent(0, 190075551, 19110850);
     $InitializeEvent(0, 290075950, 760000, 19110850, 5106, 0);
 
-    $InitializeCommonEvent(0, 90015012, 19110850, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90075902, 19110850, 0, 0);
+    InitializeCommonEvent(0, 90015012, 19110850, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90075902, 19110850, 0, 0);
     $InitializeEvent(0, 19309000, 19110850, 760000, 907610000, 19300023);
-    $InitializeCommonEvent(0, 90075500, 19110850);
-    $InitializeCommonEvent(0, 90075510, 19110850);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110850, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110850, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110850, 5108, 0);
+    InitializeCommonEvent(0, 90075500, 19110850);
+    InitializeCommonEvent(0, 90075510, 19110850);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110850, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110850, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110850, 5108, 0);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
-$Event(19114903, Default, function() {
+$Event(19114903, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300023));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110850);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300023));
 
-    $InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110850, 0, 1);
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110850);
+
+    InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110850, 0, 1065353216);
         WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
         SetCameraAngle(5.42, 0);
@@ -665,9 +671,8 @@ $Event(19114903, Default, function() {
 
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 
@@ -676,40 +681,42 @@ $Event(19113904, Default, function() {
     $InitializeEvent(0, 191175651, 19110860);
     $InitializeEvent(0, 290075950, 490000, 19110860, 5106, 0);
 
-    $InitializeCommonEvent(0, 90015012, 19110860, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90075902, 19110860, 0, 0);
+    InitializeCommonEvent(0, 90015012, 19110860, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90075902, 19110860, 0, 0);
     $InitializeEvent(0, 19309000, 19110860, 490000, 907620000, 19300024);
-    $InitializeCommonEvent(0, 90075600, 19110860, 19102860);
-    $InitializeCommonEvent(0, 90075610, 19110860);
+    InitializeCommonEvent(0, 90075600, 19110860, 19102860);
+    InitializeCommonEvent(0, 90075610, 19110860);
     $InitializeEvent(0, 191175652, 19110860, 5105, 5106);
-    $InitializeCommonEvent(0, 90075602, 19110860);
-    $InitializeCommonEvent(0, 90075660, 19110860, 51001, 51002, 51030, 15, 120, 10, NPCPartType.Part1, 11, NPCPartType.Part6, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
-    $InitializeCommonEvent(0, 90075660, 19110860, 51003, 51004, 51031, 16, 130, 20, NPCPartType.Part2, 21, NPCPartType.Part3, 22, NPCPartType.Part4, 23, NPCPartType.Part5, 24, NPCPartType.Part8);
-    $InitializeCommonEvent(0, 90075660, 19110860, 51005, 51006, 51032, 17, 60, 30, NPCPartType.Part9, 31, NPCPartType.Part10, 32, NPCPartType.Part11, 33, NPCPartType.Part12, 0, NPCPartType.Part1);
-    $InitializeCommonEvent(0, 90075660, 19110860, 51007, 51008, 51033, 18, 120, 40, NPCPartType.Part7, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
+    InitializeCommonEvent(0, 90075602, 19110860);
+    InitializeCommonEvent(0, 90075660, 19110860, 51001, 51002, 51030, 15, 120, 10, 1, 11, 6, 0, 1, 0, 1, 0, 1);
+    InitializeCommonEvent(0, 90075660, 19110860, 51003, 51004, 51031, 16, 130, 20, 2, 21, 3, 22, 4, 23, 5, 24, 8);
+    InitializeCommonEvent(0, 90075660, 19110860, 51005, 51006, 51032, 17, 60, 30, 9, 31, 10, 32, 11, 33, 12, 0, 1);
+    InitializeCommonEvent(0, 90075660, 19110860, 51007, 51008, 51033, 18, 120, 40, 7, 0, 1, 0, 1, 0, 1, 0, 1);
     
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006860, 19110860, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006861, 19110860, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006862, 19110860, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006860, 19110860, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006861, 19110860, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006862, 19110860, 5108, 0);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
-$Event(19114904, Default, function() {
+$Event(19114904, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300024));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110860);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300024));
 
-    $InitializeCommonEvent(0, 99075620, 19002953, 7512, 0, 19110860, 0, 1);
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110860);
+
+    InitializeCommonEvent(0, 99075620, 19002953, 7512, 0, 19110860, 0, 1065353216);
         WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
         SetCameraAngle(5.42, 0);
@@ -718,9 +725,8 @@ $Event(19114904, Default, function() {
         WaitFixedTimeSeconds(1);
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 
@@ -732,28 +738,30 @@ $Event(19113905, Default, function() {
     $InitializeEvent(0, 190075780, 19110870, 16120220);
     $InitializeEvent(0, 190075773, 19110870, 16120220);
     $InitializeEvent(0, 190075774, 19110870, 16122890);
-    $InitializeCommonEvent(0, 90015012, 19110870, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90075902, 19110870, 0, 0);
+    InitializeCommonEvent(0, 90015012, 19110870, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90075902, 19110870, 0, 0);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
-$Event(19114905, Default, function() {
+$Event(19114905, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300025));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110870);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300025));
 
-    $InitializeCommonEvent(0, 90075758);
-        $InitializeCommonEvent(0, 90075771, 19110870, 16126800, 16120220);
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110870);
+
+    InitializeCommonEvent(0, 90075758, 0);
+        InitializeCommonEvent(0, 90075771, 19110870, 16126800, 16120220);
 
         EnableCharacter(19110870);
         DisableCharacterAI(19110870);
@@ -761,7 +769,7 @@ $Event(19114905, Default, function() {
         WaitFixedTimeFrames(1);
         WarpCharacterAndCopyFloor(19110870, TargetEntityType.Area, 19002910, -1, 19113910);
         ForceAnimationPlayback(19110870, 30029, true, false, false);
-        $InitializeCommonEvent(0, 90075760, 19110870);
+        InitializeCommonEvent(0, 90075760, 19110870);
         WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
         SetCameraAngle(5.42, 0);
@@ -771,38 +779,35 @@ $Event(19114905, Default, function() {
         WaitFixedTimeSeconds(2);
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 
 $Event(19002951, Restart, function() {
     // ===== ENDLESS GAUNTLET: round manager =====
-    // Replaces the original one-shot transition. Each round: warp the team into the
-    // arena, let the chained Nightlord spawn (flag 19002952), then wait until the
-    // fight is over (the death handler clears 19002952) and start the next round.
+    // This event is typed Restart, so the engine starts it over as soon as the body
+    // reaches its end: one pass of this body is one round.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop the gauntlet
+    }
 
-        SetNetworkconnectedEventFlagID(19002952, OFF);
-        SetNetworkconnectedEventFlagID(19002953, OFF);
-        SetNetworkconnectedEventFlagID(19002955, OFF);
+    SetNetworkconnectedEventFlagID(19002952, OFF);
+    SetNetworkconnectedEventFlagID(19002953, OFF);
+    SetNetworkconnectedEventFlagID(19002955, OFF);
 
-        if (!EventFlag(19300002)) {
-            WaitFixedTimeSeconds(8);
-            DisplayTextEffectId(6015);
-            WaitFixedTimeSeconds(3);
-            SetNetworkconnectedEventFlagID(19300002, ON);
-        } else {
-            WaitFixedTimeSeconds(4);
-        }
+    if (!EventFlag(19300002)) {
+        WaitFixedTimeSeconds(8);
+        DisplayTextEffectId(6015);
+        WaitFixedTimeSeconds(3);
+        SetNetworkconnectedEventFlagID(19300002, ON);
+    } else {
+        WaitFixedTimeSeconds(4);
+    }
 
-        FadeToBlack(1, 1, true, -1);
-        WaitFor(ElapsedSeconds(1));
+    FadeToBlack(1, 1, true, -1);
+    WaitFor(ElapsedSeconds(1));
 
     if (IsPlayerNo(1)) {
         WarpCharacterAndCopyFloorUnknown200489(10002, TargetEntityType.Area, 19002920, -1, 10002, -1, -1);
@@ -823,35 +828,34 @@ $Event(19002951, Restart, function() {
         WarpCharacterAndCopyFloorUnknown200489(10007, TargetEntityType.Area, 19002925, -1, 10007, -1, -1);
     }
 
-        // ===== ENDLESS GAUNTLET: roll the Nightlord for this round =====
-        // The host sets one random flag of the six; they are network-connected, so
-        // every co-op peer sees the same pick.
-        BatchSetNetworkconnectedEventFlags(19300010, 19300015, OFF);
-        BatchSetNetworkconnectedEventFlags(19300020, 19300025, OFF);
-        if (HasMultiplayerState(MultiplayerState.Host) || PlayerIsInOwnWorld()) {
-            RandomlySetNetworkconnectedEventFlagInRange(19300010, 19300015, ON);
-        }
-        WaitFor(AnyBatchEventFlags(19300010, 19300015));
-        if (EventFlag(19300010)) {
-            SetNetworkconnectedEventFlagID(19300020, ON);
-        } else if (EventFlag(19300011)) {
-            SetNetworkconnectedEventFlagID(19300021, ON);
-        } else if (EventFlag(19300012)) {
-            SetNetworkconnectedEventFlagID(19300022, ON);
-        } else if (EventFlag(19300013)) {
-            SetNetworkconnectedEventFlagID(19300023, ON);
-        } else if (EventFlag(19300014)) {
-            SetNetworkconnectedEventFlagID(19300024, ON);
-        } else if (EventFlag(19300015)) {
-            SetNetworkconnectedEventFlagID(19300025, ON);
-        }
-
-        SetNetworkconnectedEventFlagID(19002952, ON);
-
-        // the death handler clears 19002952 when the current boss is dead
-        WaitFor(!EventFlag(19002952));
-        WaitFixedTimeSeconds(2);
+    // ===== ENDLESS GAUNTLET: roll the Nightlord for this round =====
+    // The host sets one random flag of the six; they are network-connected, so
+    // every co-op peer sees the same pick.
+    BatchSetNetworkconnectedEventFlags(19300010, 19300015, OFF);
+    BatchSetNetworkconnectedEventFlags(19300020, 19300025, OFF);
+    if (HasMultiplayerState(MultiplayerState.Host) || PlayerIsInOwnWorld()) {
+        RandomlySetNetworkconnectedEventFlagInRange(19300010, 19300015, ON);
     }
+    WaitFor(AnyBatchEventFlags(19300010, 19300015));
+    if (EventFlag(19300010)) {
+        SetNetworkconnectedEventFlagID(19300020, ON);
+    } else if (EventFlag(19300011)) {
+        SetNetworkconnectedEventFlagID(19300021, ON);
+    } else if (EventFlag(19300012)) {
+        SetNetworkconnectedEventFlagID(19300022, ON);
+    } else if (EventFlag(19300013)) {
+        SetNetworkconnectedEventFlagID(19300023, ON);
+    } else if (EventFlag(19300014)) {
+        SetNetworkconnectedEventFlagID(19300024, ON);
+    } else if (EventFlag(19300015)) {
+        SetNetworkconnectedEventFlagID(19300025, ON);
+    }
+
+    SetNetworkconnectedEventFlagID(19002952, ON);
+
+    // the death handler clears 19002952 when the current boss is dead
+    WaitFor(!EventFlag(19002952));
+    WaitFixedTimeSeconds(2);
 });
 
 
@@ -1598,92 +1602,89 @@ $Event(19219920, Restart, function(enemyID) {
 });
 
 
-$Event(19309000, Default, function(chrEntityId, bgmBossConvParamId, logObjectId, selectionFlagId) {
+$Event(19309000, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId, selectionFlagId) {
     // ===== ENDLESS GAUNTLET: chained Nightlord death handler =====
     // Same defeat feedback as common_func 90075901, but it never sets flag 7512
     // (expedition finished). Instead it counts the kill, optionally replenishes
-    // consumables, and re-arms the round so the gauntlet continues.
-    while (true) {
-        // only the family that was rolled this round is hunted
-        WaitFor(EventFlag(19002953) && EventFlag(selectionFlagId));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
-        WaitFor(HPRatio(chrEntityId) <= 0);
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
-
-        SetNetworkconnectedEventFlagID(19002953, OFF);
-        SetNetworkconnectedEventFlagID(19002955, OFF);
-        SetNetworkconnectedEventFlagID(19002952, OFF);
-
-        DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
-        LinkToBossHealthBar(Disabled, logObjectId, 0);
-
-        SetSpEffect(10000, 509);
-        SetSpEffect(10001, 509);
-        SetSpEffect(10002, 509);
-        SetSpEffect(10003, 509);
-        SetSpEffect(10004, 509);
-        SetSpEffect(10005, 509);
-        SetSpEffect(10006, 509);
-        SetSpEffect(10007, 509);
-        SetSpEffect(10008, 509);
-        SetSpEffect(10009, 509);
-        SetSpEffect(10010, 509);
-
-        if (BossBGMPlaying(bgmBossConvParamId)) {
-            SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
-        }
-
-        IncrementTeamBossesKilled(1);
-        PlaySE(chrEntityId, SoundType.SFX, 888880000);
-        RecordUserDispLog(10111, 10000, LogObjectType.NpcName, logObjectId);
-
-        if (PlayerInMap(16, 0, 0, 0)) {
-            DisplayTextEffectId(1052);
-        }
-        if (PlayerInMap(16, 10, 0, 0)) {
-            DisplayTextEffectId(1053);
-        }
-        if (PlayerInMap(18, 0, 0, 0)) {
-            DisplayTextEffectId(1040);
-        }
-        if (PlayerInMap(19, 0, 0, 0)) {
-            DisplayTextEffectId(1051);
-        }
-
-        WaitFixedTimeSeconds(2);
-
-        if (EventFlag(19300101)) {
-            if (EventFlag(19300102)) {
-                // 3 bosses defeated: replenish consumables
-                SetSpEffect(10000, 509);
-                SetSpEffect(10001, 509);
-                SetSpEffect(10002, 509);
-                SetSpEffect(10003, 509);
-                SetSpEffect(10004, 509);
-                SetSpEffect(10005, 509);
-                SetSpEffect(10006, 509);
-                SetSpEffect(10007, 509);
-                SetSpEffect(10008, 509);
-                SetSpEffect(10009, 509);
-                SetSpEffect(10010, 509);
-                SetNetworkconnectedEventFlagID(19300101, OFF);
-                SetNetworkconnectedEventFlagID(19300102, OFF);
-            } else {
-                SetNetworkconnectedEventFlagID(19300102, ON);
-            }
-        } else {
-            SetNetworkconnectedEventFlagID(19300101, ON);
-        }
-
-        // leave a clean corpse so the next round spawns the boss at full health
-        DisableCharacterAI(chrEntityId);
-        DisableCharacterCollision(chrEntityId);
-        DisableCharacter(chrEntityId);
-
-        WaitFixedTimeSeconds(1);
+    // consumables, and lets the round manager start the next round.
+    // Typed Restart, so one pass of this body is one kill.
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop counting
     }
+
+    // only the family that was rolled this round is hunted
+    WaitFor(EventFlag(19002953) && EventFlag(selectionFlagId));
+    WaitFor(HPRatio(chrEntityId) <= 0);
+
+    SetNetworkconnectedEventFlagID(19002953, OFF);
+    SetNetworkconnectedEventFlagID(19002955, OFF);
+    SetNetworkconnectedEventFlagID(19002952, OFF);
+
+    DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
+    LinkToBossHealthBar(Disabled, logObjectId, 0);
+
+    SetSpEffect(10000, 509);
+    SetSpEffect(10001, 509);
+    SetSpEffect(10002, 509);
+    SetSpEffect(10003, 509);
+    SetSpEffect(10004, 509);
+    SetSpEffect(10005, 509);
+    SetSpEffect(10006, 509);
+    SetSpEffect(10007, 509);
+    SetSpEffect(10008, 509);
+    SetSpEffect(10009, 509);
+    SetSpEffect(10010, 509);
+
+    if (BossBGMPlaying(bgmBossConvParamId)) {
+        SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
+    }
+
+    IncrementTeamBossesKilled(1);
+    PlaySE(chrEntityId, SoundType.SFX, 888880000);
+    RecordUserDispLog(10111, 10000, LogObjectType.NpcName, logObjectId);
+
+    if (PlayerInMap(16, 0, 0, 0)) {
+        DisplayTextEffectId(1052);
+    }
+    if (PlayerInMap(16, 10, 0, 0)) {
+        DisplayTextEffectId(1053);
+    }
+    if (PlayerInMap(18, 0, 0, 0)) {
+        DisplayTextEffectId(1040);
+    }
+    if (PlayerInMap(19, 0, 0, 0)) {
+        DisplayTextEffectId(1051);
+    }
+
+    WaitFixedTimeSeconds(2);
+
+    if (EventFlag(19300101)) {
+        if (EventFlag(19300102)) {
+            // 3 bosses defeated: replenish consumables
+            SetSpEffect(10000, 509);
+            SetSpEffect(10001, 509);
+            SetSpEffect(10002, 509);
+            SetSpEffect(10003, 509);
+            SetSpEffect(10004, 509);
+            SetSpEffect(10005, 509);
+            SetSpEffect(10006, 509);
+            SetSpEffect(10007, 509);
+            SetSpEffect(10008, 509);
+            SetSpEffect(10009, 509);
+            SetSpEffect(10010, 509);
+            SetNetworkconnectedEventFlagID(19300101, OFF);
+            SetNetworkconnectedEventFlagID(19300102, OFF);
+        } else {
+            SetNetworkconnectedEventFlagID(19300102, ON);
+        }
+    } else {
+        SetNetworkconnectedEventFlagID(19300101, ON);
+    }
+
+    // leave a clean corpse so the next round spawns the boss at full health
+    DisableCharacterAI(chrEntityId);
+    DisableCharacterCollision(chrEntityId);
+    DisableCharacter(chrEntityId);
+
+    WaitFixedTimeSeconds(1);
 });

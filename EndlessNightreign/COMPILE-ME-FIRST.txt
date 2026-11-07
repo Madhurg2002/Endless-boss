@@ -1,13 +1,26 @@
-STOP: the .emevd.dcx files for the four map scripts are NOT included.
+Endless Nightreign - the event scripts are ALREADY COMPILED
+===========================================================
 
-This mod is shipped as DarkScript3 sources (mod/event/*.emevd.dcx.js), because the
-endless-gauntlet logic only exists in those sources.
+Previous versions of this folder shipped only .js sources and asked you to compile them.
+You do not need to do that any more: mod/event/ contains the finished files
 
-Before playing:
-  1. Install DarkScript3 (Nightreign-capable release).
-  2. Open each of the four mod/event/m*_*.emevd.dcx.js files in it.
-  3. Press Ctrl+S in each one -> it writes m*_*.emevd.dcx next to the .js.
-  4. Launch EndlessNightreign.me3 with me3 (SeamlessCoop/nrsc.dll must be present).
+    m16_00_00_00.emevd.dcx
+    m16_10_00_00.emevd.dcx
+    m18_00_00_00.emevd.dcx
+    m19_00_00_00.emevd.dcx
 
-Without this step the game has no event overrides and you get plain Nightreign.
-See README.md for details, configuration and known risks.
+so the folder can be dropped in and played as-is.
+
+WHAT IF YOU WANT TO EDIT THE SCRIPTS
+------------------------------------
+The matching .js files sit next to them. Open one in DarkScript3 (Nightreign mode),
+edit it, and press Ctrl+S - that writes a new .emevd.dcx. DarkScript3 on Windows writes
+KRAK-compressed files, exactly like the retail game files; the shipped ones are DFLT
+(zlib) because Oodle compression is not available outside Windows. Both are the same DCX
+container and both are read by the game.
+
+TO PLAY
+-------
+   me3 launch -p EndlessNightreign.me3
+
+and keep nrsc.dll (Seamless Coop) working as usual.

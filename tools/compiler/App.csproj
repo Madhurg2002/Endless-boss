@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <AssemblyName>emevdc</AssemblyName>
+    <RootNamespace>DarkScript3</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <LangVersion>latest</LangVersion>
+    <NoWarn>CS0618;CS8632;CS0219;CS0168;CS0162;CS0649</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Stubs.cs" />
+    <Compile Include="/tmp/ds3/DarkScript3/**/*.cs"
+             Exclude="/tmp/ds3/DarkScript3/Program.cs;/tmp/ds3/DarkScript3/BetterFindForm.cs;/tmp/ds3/DarkScript3/BetterFindForm.Designer.cs;/tmp/ds3/DarkScript3/ComplexFindForm.cs;/tmp/ds3/DarkScript3/ComplexFindForm.Designer.cs;/tmp/ds3/DarkScript3/DarkToolStripRenderer.cs;/tmp/ds3/DarkScript3/EditorGUI.cs;/tmp/ds3/DarkScript3/EditorGUI.Designer.cs;/tmp/ds3/DarkScript3/ErrorMessageForm.cs;/tmp/ds3/DarkScript3/ErrorMessageForm.Designer.cs;/tmp/ds3/DarkScript3/GUI.cs;/tmp/ds3/DarkScript3/GUI.Designer.cs;/tmp/ds3/DarkScript3/GameChooser.cs;/tmp/ds3/DarkScript3/GameChooser.Designer.cs;/tmp/ds3/DarkScript3/InfoViewer.cs;/tmp/ds3/DarkScript3/InfoViewer.Designer.cs;/tmp/ds3/DarkScript3/PreviewCompilationForm.cs;/tmp/ds3/DarkScript3/PreviewCompilationForm.Designer.cs;/tmp/ds3/DarkScript3/ScriptSettingsForm.cs;/tmp/ds3/DarkScript3/ScriptSettingsForm.Designer.cs;/tmp/ds3/DarkScript3/ScrollDialog.cs;/tmp/ds3/DarkScript3/ScrollDialog.Designer.cs;/tmp/ds3/DarkScript3/SharedControls.cs;/tmp/ds3/DarkScript3/StyleConfig.cs;/tmp/ds3/DarkScript3/StyleConfig.Designer.cs;/tmp/ds3/DarkScript3/StyleSetting.cs;/tmp/ds3/DarkScript3/StyleSetting.Designer.cs;/tmp/ds3/DarkScript3/TextStyles.cs;/tmp/ds3/DarkScript3/ToolControl.cs;/tmp/ds3/DarkScript3/ToolControl.Designer.cs;/tmp/ds3/DarkScript3/SoapstoneMetadata.cs;/tmp/ds3/DarkScript3/DocAutocomplete.cs;/tmp/ds3/DarkScript3/CondTestingTool.cs;/tmp/ds3/DarkScript3/JSRegex.cs;/tmp/ds3/DarkScript3/Properties/Settings.Designer.cs;/tmp/ds3/DarkScript3/obj/**/*.cs;/tmp/ds3/DarkScript3/bin/**/*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="/tmp/ds3/DarkScript3/Resources/*.json">
+      <LogicalName>DarkScript3.Resources.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="/tmp/ds3/DarkScript3/Resources/*.js">
+      <LogicalName>DarkScript3.Resources.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="/tmp/ds3/DarkScript3/Resources/*.txt">
+      <LogicalName>DarkScript3.Resources.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Esprima" Version="3.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.ClearScript" Version="7.3.1" />
+    <PackageReference Include="Microsoft.ClearScript.V8" Version="7.3.1" />
+    <PackageReference Include="Microsoft.ClearScript.V8.Native.linux-x64" Version="7.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="/tmp/sfn/SoulsFormats/SoulsFormats.csproj" />
+  </ItemGroup>
+</Project>

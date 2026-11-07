@@ -30,6 +30,7 @@ different, randomly rolled Nightlord.
 
 import os
 import re
+import json
 import shutil
 import sys
 
@@ -45,6 +46,7 @@ REFILL_SPEFFECT = 509     # the restore the game itself applies on a boss kill
 
 # Game flags used by this mod (kept next to the original mod's 190029xx block).
 FLAG_DONE_FIRST = 19300002   # "one round already happened" (shortens the interlude)
+FLAG_NEVER = 19300999     # never set: used as a "wait forever" guard
 COUNTER_FLAGS = [19300101, 19300102, 19300103, 19300104, 19300105]
 
 # Per-round Nightlord lottery. The host sets one random flag of ROLL_FLAGS; the manager
@@ -133,6 +135,140 @@ def replace_event_body(text, eid, new_body, eol):
     return text[:s] + body + text[e:], True
 
 
+EVENT_PARAMS = {}   # event id -> parameter count, filled from the JS sources
+ORIGINAL_INITS = {}  # file -> [[instruction, event id, [raw 4-byte args]], ...]
+
+
+def load_original_inits():
+    """Exact init-call arguments read out of the shipped binaries.
+
+    Floats are stored there as their 4-byte patterns (1.0 shows up as 1065353216), which is
+    precisely the information a typed init would have recovered from init data. Without it we
+    would silently encode such a parameter as the integer 1 and corrupt the call.
+    """
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "original_inits.json")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            ORIGINAL_INITS.update(json.load(f))
+
+
+def _as_float(bits):
+    import struct
+    return struct.unpack("<f", struct.pack("<I", bits & 0xFFFFFFFF))[0]
+
+
+def _is_int_literal(token):
+    return re.fullmatch(r"-?\d+", token.strip()) is not None
+
+
+def _tok_int(t):
+    t = t.strip()
+    return int(t) if _is_int_literal(t) else None
+
+
+def _tok_enum_value(t):
+    """Trailing number of an enum token, e.g. NPCPartType.Part10 -> 10."""
+    m = re.search(r"(\d+)$", t.strip())
+    return int(m.group(1)) if m else None
+
+
+def _compatible(orig_args, js_tokens):
+    """Can this binary call be the source of this JS call?
+
+    Enums carry no number here (their values live in init data), and some parameters pack two
+    values into one 4-byte slot (10 + Part10 -> 655370), so the two lists are aligned rather
+    than compared position by position.
+    """
+    def packed_pair(a, b):
+        return {a | (b << 16), b | (a << 16)}
+
+    def align(i, j):
+        if j == len(orig_args):
+            # the typed form appends 0 for events that take no parameters
+            return all(_tok_int(t) == 0 for t in js_tokens[i:])
+        if i >= len(js_tokens):
+            return False
+        o = orig_args[j]
+        a = _tok_int(js_tokens[i])
+        if a is None:                       # enum token: matched by position only
+            return align(i + 1, j + 1)
+        if a == o:
+            if align(i + 1, j + 1):
+                return True
+        # a float parameter stored as its bit pattern (1.0 -> 1065353216)
+        if abs(_as_float(o) - float(a)) == 0.0:
+            if align(i + 1, j + 1):
+                return True
+        if i + 1 < len(js_tokens):
+            b = _tok_int(js_tokens[i + 1])
+            if b is None:
+                b = _tok_enum_value(js_tokens[i + 1])
+            if b is not None and o in packed_pair(a & 0xFFFF, b & 0xFFFF):
+                if align(i + 2, j + 1):
+                    return True
+        return False
+
+    return align(0, 0)
+
+
+def collect_event_params(text):
+    """event id -> number of declared parameters, for typed-init expansion."""
+    for m in re.finditer(r"\$Event\((\d+),\s*\w+,\s*function\s*\(([^)]*)\)", text):
+        params = [x for x in m.group(2).split(",") if x.strip()]
+        EVENT_PARAMS.setdefault(int(m.group(1)), len(params))
+    for m in re.finditer(r"\$Event\((\d+),\s*\w+,\s*function\s*\(\s*\)", text):
+        EVENT_PARAMS.setdefault(int(m.group(1)), 0)
+
+
+def plain_inits(text, own_events, orig_calls):
+    """Expand typed inits that have no init data available, keeping the exact arguments.
+
+    Events declared in this same file keep the typed form - the compiler resolves those from
+    the shipped binary. Common events live in common_func, which is not decompiled here, so
+    their calls are written out with the byte-exact argument list taken from the binary.
+    """
+    warnings = []
+    collect_event_params(text)
+    used = [False] * len(orig_calls)
+
+    def repl(m):
+        name, slot, eid, args = m.group(1), m.group(2), int(m.group(3)), m.group(4).strip()
+        if eid in own_events:
+            return m.group(0)   # typed form resolves fine for same-file events
+        js_tokens = [t for t in args.split(",")] if args else []
+        for i, (iname, ieid, iargs) in enumerate(orig_calls):
+            if used[i] or ieid != eid or iname != name:
+                continue
+            if _compatible(iargs, js_tokens):
+                used[i] = True
+                return "%s(%s, %d%s)" % (name, slot, eid, "".join(", %d" % a for a in iargs))
+        warnings.append("no binary match for %s(%s, %d)" % (name, slot, eid))
+        # a vararg instruction always carries at least one parameter; the typed form emits 0
+        # for an event that takes none, so mirror that here
+        return "%s(%s, %d%s)" % (name, slot, eid, (", " + args) if args else ", 0")
+
+    text = re.sub(r"\$(InitializeEvent|InitializeCommonEvent)\((\d+),\s*(\d+)\s*(?:,\s*([^)]*))?\)",
+                  lambda m: repl(_InitMatch(m)), text)
+    return text, warnings
+
+
+class _InitMatch:
+    """Adapter so the replacement can see the optional argument list."""
+    def __init__(self, m):
+        self.m = m
+
+    def group(self, i):
+        if i == 0:
+            return self.m.group(0)
+        return self.m.group(i) if self.m.group(i) is not None else ""
+
+
+def set_event_type(text, eid, kind):
+    """Retag an event as Default/Restart. Restart events loop by themselves."""
+    pat = re.compile(r"(\$Event\(%d, )(Default|Restart|End)(,)" % eid)
+    return pat.subn(lambda m: m.group(1) + kind + m.group(3), text)
+
+
 def sp_effects(indent):
     out = []
     for p in PLAYERS:
@@ -197,42 +333,39 @@ def roll_block(indent):
 # ---------------------------------------------------------------------------
 def manager_body(warp_block):
     return """    // ===== ENDLESS GAUNTLET: round manager =====
-    // Replaces the original one-shot transition. Each round: warp the team into the
-    // arena, let the chained Nightlord spawn (flag 19002952), then wait until the
-    // fight is over (the death handler clears 19002952) and start the next round.
+    // This event is typed Restart, so the engine starts it over as soon as the body
+    // reaches its end: one pass of this body is one round.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
-
-        SetNetworkconnectedEventFlagID(19002952, OFF);
-        SetNetworkconnectedEventFlagID(19002953, OFF);
-        SetNetworkconnectedEventFlagID(19002955, OFF);
-
-        if (!EventFlag(%d)) {
-            WaitFixedTimeSeconds(8);
-            DisplayTextEffectId(6015);
-            WaitFixedTimeSeconds(3);
-            SetNetworkconnectedEventFlagID(%d, ON);
-        } else {
-            WaitFixedTimeSeconds(4);
-        }
-
-        FadeToBlack(1, 1, true, -1);
-        WaitFor(ElapsedSeconds(1));
-
-%s
-
-%s
-
-        SetNetworkconnectedEventFlagID(19002952, ON);
-
-        // the death handler clears 19002952 when the current boss is dead
-        WaitFor(!EventFlag(19002952));
-        WaitFixedTimeSeconds(2);
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(%d));   // expedition finished - stop the gauntlet
     }
-""" % (FLAG_DONE_FIRST, FLAG_DONE_FIRST, warp_block, roll_block("        "))
+
+    SetNetworkconnectedEventFlagID(19002952, OFF);
+    SetNetworkconnectedEventFlagID(19002953, OFF);
+    SetNetworkconnectedEventFlagID(19002955, OFF);
+
+    if (!EventFlag(%d)) {
+        WaitFixedTimeSeconds(8);
+        DisplayTextEffectId(6015);
+        WaitFixedTimeSeconds(3);
+        SetNetworkconnectedEventFlagID(%d, ON);
+    } else {
+        WaitFixedTimeSeconds(4);
+    }
+
+    FadeToBlack(1, 1, true, -1);
+    WaitFor(ElapsedSeconds(1));
+
+%s
+
+%s
+
+    SetNetworkconnectedEventFlagID(19002952, ON);
+
+    // the death handler clears 19002952 when the current boss is dead
+    WaitFor(!EventFlag(19002952));
+    WaitFixedTimeSeconds(2);
+""" % (FLAG_NEVER, FLAG_DONE_FIRST, FLAG_DONE_FIRST, warp_block, roll_block("    "))
 
 
 def spawn_body(original_body, entities, eol, sel_flag):
@@ -240,88 +373,86 @@ def spawn_body(original_body, entities, eol, sel_flag):
     # the loop already waits for 19002952 and the gauntlet keeps 19002951 on
     body = re.sub(r'^WaitFor\(EventFlag\(19002952\)\);\s*', '', body)
     body = re.sub(r'^if \(!EventFlag\(19002951\)\) \{\s*EndEvent\(\);\s*\}\s*', '', body)
-    # drop the trailing EndEvent(); the loop keeps the event alive
+    # drop the trailing EndEvent(); the Restart behaviour keeps the event alive
     if body.endswith("EndEvent();"):
         body = body[: -len("EndEvent();")].rstrip()
     body = "\n".join(("    " + line) if line.strip() else line for line in body.split("\n"))
-    enables = "\n".join("        EnableCharacter(%d);" % e for e in entities)
-    return """    WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(%d));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
-
-        // bring the boss back for this round (it was disabled by the death handler)
-%s
-
-%s
-
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
+    enables = "\n".join("    EnableCharacter(%d);" % e for e in entities)
+    return """    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    WaitFor(EventFlag(19002951));
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(%d));   // expedition finished - stop spawning
     }
-""" % (sel_flag, enables, body)
+
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(%d));
+
+    // bring the boss back for this round (it was disabled by the death handler)
+%s
+
+%s
+
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
+""" % (FLAG_NEVER, sel_flag, enables, body)
 
 
 def death_handler_body():
     return """    // ===== ENDLESS GAUNTLET: chained Nightlord death handler =====
     // Same defeat feedback as common_func 90075901, but it never sets flag 7512
     // (expedition finished). Instead it counts the kill, optionally replenishes
-    // consumables, and re-arms the round so the gauntlet continues.
-    while (true) {
-        // only the family that was rolled this round is hunted
-        WaitFor(EventFlag(19002953) && EventFlag(selectionFlagId));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
-        WaitFor(HPRatio(chrEntityId) <= 0);
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
-
-        SetNetworkconnectedEventFlagID(19002953, OFF);
-        SetNetworkconnectedEventFlagID(19002955, OFF);
-        SetNetworkconnectedEventFlagID(19002952, OFF);
-
-        DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
-        LinkToBossHealthBar(Disabled, logObjectId, 0);
-
-%s
-
-        if (BossBGMPlaying(bgmBossConvParamId)) {
-            SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
-        }
-
-        IncrementTeamBossesKilled(1);
-        PlaySE(chrEntityId, SoundType.SFX, 888880000);
-        RecordUserDispLog(10111, 10000, LogObjectType.NpcName, logObjectId);
-
-        if (PlayerInMap(16, 0, 0, 0)) {
-            DisplayTextEffectId(1052);
-        }
-        if (PlayerInMap(16, 10, 0, 0)) {
-            DisplayTextEffectId(1053);
-        }
-        if (PlayerInMap(18, 0, 0, 0)) {
-            DisplayTextEffectId(1040);
-        }
-        if (PlayerInMap(19, 0, 0, 0)) {
-            DisplayTextEffectId(1051);
-        }
-
-        WaitFixedTimeSeconds(2);
-
-%s
-
-        // leave a clean corpse so the next round spawns the boss at full health
-        DisableCharacterAI(chrEntityId);
-        DisableCharacterCollision(chrEntityId);
-        DisableCharacter(chrEntityId);
-
-        WaitFixedTimeSeconds(1);
+    // consumables, and lets the round manager start the next round.
+    // Typed Restart, so one pass of this body is one kill.
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(%d));   // expedition finished - stop counting
     }
-""" % (sp_effects("        "), refill_block("        "))
+
+    // only the family that was rolled this round is hunted
+    WaitFor(EventFlag(19002953) && EventFlag(selectionFlagId));
+    WaitFor(HPRatio(chrEntityId) <= 0);
+
+    SetNetworkconnectedEventFlagID(19002953, OFF);
+    SetNetworkconnectedEventFlagID(19002955, OFF);
+    SetNetworkconnectedEventFlagID(19002952, OFF);
+
+    DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
+    LinkToBossHealthBar(Disabled, logObjectId, 0);
+
+%s
+
+    if (BossBGMPlaying(bgmBossConvParamId)) {
+        SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
+    }
+
+    IncrementTeamBossesKilled(1);
+    PlaySE(chrEntityId, SoundType.SFX, 888880000);
+    RecordUserDispLog(10111, 10000, LogObjectType.NpcName, logObjectId);
+
+    if (PlayerInMap(16, 0, 0, 0)) {
+        DisplayTextEffectId(1052);
+    }
+    if (PlayerInMap(16, 10, 0, 0)) {
+        DisplayTextEffectId(1053);
+    }
+    if (PlayerInMap(18, 0, 0, 0)) {
+        DisplayTextEffectId(1040);
+    }
+    if (PlayerInMap(19, 0, 0, 0)) {
+        DisplayTextEffectId(1051);
+    }
+
+    WaitFixedTimeSeconds(2);
+
+%s
+
+    // leave a clean corpse so the next round spawns the boss at full health
+    DisableCharacterAI(chrEntityId);
+    DisableCharacterCollision(chrEntityId);
+    DisableCharacter(chrEntityId);
+
+    WaitFixedTimeSeconds(1);
+""" % (FLAG_NEVER, sp_effects("    "), refill_block("    "))
 
 
 # ---------------------------------------------------------------------------
@@ -345,7 +476,8 @@ def transform(text, name):
         raise SystemExit("%s: warp block end not found" % name)
     warp_block = orig[warp_start:tail].rstrip()
     text, ok = replace_event_body(text, 19002951, manager_body(warp_block), eol)
-    report.append("19002951 round manager")
+    text, _ = set_event_type(text, 19002951, "Restart")
+    report.append("19002951 round manager (Restart)")
 
     # 2. looping spawn events ------------------------------------------------
     for eid_s, entities in SPAWN_EVENTS.items():
@@ -356,7 +488,8 @@ def transform(text, name):
         body = text[span[0]:span[1]]
         text, ok = replace_event_body(text, eid,
                                       spawn_body(body, entities, eol, SPAWN_SEL[int(eid_s)]), eol)
-        report.append("%d looping spawn" % eid)
+        text, _ = set_event_type(text, eid, "Restart")
+        report.append("%d looping spawn (Restart)" % eid)
 
     # 3. replace stock run-ending death handler with ours --------------------
     n = 0
@@ -385,7 +518,7 @@ def transform(text, name):
 
     # 4. append the new death handler ---------------------------------------
     text = text.rstrip() + eol + eol + eol + \
-        "$Event(19309000, Default, function(chrEntityId, bgmBossConvParamId, logObjectId, selectionFlagId) {" + eol + \
+        "$Event(19309000, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId, selectionFlagId) {" + eol + \
         death_handler_body().replace("\n", eol) + "});" + eol
     report.append("appended 19309000")
 
@@ -410,6 +543,7 @@ def transform(text, name):
         if anchor in body:
             add = ("\n    SetNetworkconnectedEventFlagID(%d, OFF);   // endless: first round done"
                    % FLAG_DONE_FIRST)
+            add += "\n    SetNetworkconnectedEventFlagID(%d, OFF);   // endless: never set (loop stop)" % FLAG_NEVER
             for f in COUNTER_FLAGS:
                 add += "\n    SetNetworkconnectedEventFlagID(%d, OFF);   // endless: kill counter" % f
             for f in ROLL_FLAGS + RESOLVED_FLAGS:
@@ -418,6 +552,13 @@ def transform(text, name):
             report.append("counter reset in 19110900")
 
         text = text[:s] + body.replace("\n", eol) + text[e:]
+
+    own_events = {int(m) for m in re.findall(r"\$Event\((\d+)", text)}
+    orig_calls = ORIGINAL_INITS.get(name.rsplit(".", 3)[0], [])
+    text, init_warnings = plain_inits(text, own_events, orig_calls)
+    report.append("typed inits expanded (%d binary matches)" % (len(orig_calls) - len(init_warnings)))
+    if init_warnings:
+        report.append("UNMATCHED inits: " + ", ".join(init_warnings[:4]))
     return text, report
 
 
@@ -430,6 +571,13 @@ def main():
     src_me3 = os.path.join(OUT, "DoubleBOSS.me3")
     if os.path.exists(src_me3):
         os.replace(src_me3, os.path.join(OUT, "EndlessNightreign.me3"))
+
+    load_original_inits()
+    for js in sorted(os.listdir(os.path.join(SRC, EVENT_DIR))):
+        if js.endswith(".js"):
+            collect_event_params(open(os.path.join(SRC, EVENT_DIR, js), encoding="utf-8").read())
+    print("collected parameter counts for %d events, binary init data for %d files"
+          % (len(EVENT_PARAMS), len(ORIGINAL_INITS)))
 
     for js in sorted(os.listdir(os.path.join(OUT, EVENT_DIR))):
         if not js.endswith(".js"):

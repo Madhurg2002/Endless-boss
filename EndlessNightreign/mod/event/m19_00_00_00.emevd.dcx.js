@@ -12,27 +12,27 @@ $Event(0, Default, function() {
     if (IsMapVariation(0)) {
         //----连战系统相关，这里是三狼连战系统相关事件，其他的夜王也是类似的处理方式
         
-        $InitializeCommonEvent(0, 90075900, 19000800);
+        InitializeCommonEvent(0, 90075900, 19000800);
         // 重写夜王死亡结算，让夜王死后不触发游戏结算
         $InitializeEvent(0, 190075901, 19000800, 750000, 907500000);
-        $InitializeCommonEvent(0, 90075902, 19000800, 19005801, 0);
-        $InitializeCommonEvent(0, 90015012, 19000800, 7511);
-        $InitializeCommonEvent(1, 90015012, 19005801, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 90075000, 19000800, 19005801);
-        $InitializeCommonEvent(0, 90075001, 19000800, 19005801);
-        $InitializeCommonEvent(0, 90075002, 19000800, 19000801, 19000802);
-        $InitializeCommonEvent(0, 90075005, 19000800, 19000801, 72, 5900);
-        $InitializeCommonEvent(0, 90075005, 19000800, 19000802, 2, 5901);
-        $InitializeCommonEvent(0, 90075006, 19000800, 19000801);
-        $InitializeCommonEvent(0, 90075006, 19000800, 19000802);
-        $InitializeCommonEvent(0, 90015008, 7511, 7512, 750000, 19000800, 5105, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006800, 19000800, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006801, 19000800, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006802, 19000800, 5108, 0);
-        $InitializeCommonEvent(0, 90075008, 7511, 7512, 0, 19000800, 5108, 0);
-        $InitializeCommonEvent(0, 90065920, 19000800, 7320);
-        $InitializeCommonEvent(0, 90065920, 19005801, 7320);
+        InitializeCommonEvent(0, 90075902, 19000800, 19005801, 0);
+        InitializeCommonEvent(0, 90015012, 19000800, 7511);
+        InitializeCommonEvent(1, 90015012, 19005801, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90075000, 19000800, 19005801);
+        InitializeCommonEvent(0, 90075001, 19000800, 19005801);
+        InitializeCommonEvent(0, 90075002, 19000800, 19000801, 19000802);
+        InitializeCommonEvent(0, 90075005, 19000800, 19000801, 72, 5900);
+        InitializeCommonEvent(0, 90075005, 19000800, 19000802, 2, 5901);
+        InitializeCommonEvent(0, 90075006, 19000800, 19000801);
+        InitializeCommonEvent(0, 90075006, 19000800, 19000802);
+        InitializeCommonEvent(0, 90015008, 7511, 7512, 750000, 19000800, 5105, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006800, 19000800, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006801, 19000800, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006802, 19000800, 5108, 0);
+        InitializeCommonEvent(0, 90075008, 7511, 7512, 0, 19000800, 5108, 0);
+        InitializeCommonEvent(0, 90065920, 19000800, 7320);
+        InitializeCommonEvent(0, 90065920, 19005801, 7320);
         
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19000800); // 注册双夜王事件
@@ -40,372 +40,372 @@ $Event(0, Default, function() {
         $InitializeEvent(0, 19002951);  
     }
     if (IsMapVariation(1)) {
-        $InitializeCommonEvent(0, 90075100, 19000810);
-        $InitializeCommonEvent(0, 90075101, 19000810);
-        $InitializeCommonEvent(0, 90075102, 19000810);
-        $InitializeCommonEvent(0, 90075900, 19000810);
+        InitializeCommonEvent(0, 90075100, 19000810);
+        InitializeCommonEvent(0, 90075101, 19000810);
+        InitializeCommonEvent(0, 90075102, 19000810);
+        InitializeCommonEvent(0, 90075900, 19000810);
         $InitializeEvent(0, 190075901, 19000810, 751000, 907510000);
-        $InitializeCommonEvent(0, 90075902, 19000810, 0, 0);
-        $InitializeCommonEvent(0, 90015012, 19000810, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 90015008, 7511, 7512, 751000, 19000810, 5105, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006810, 19000810, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006811, 19000810, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006812, 19000810, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006813, 19000810, 5108, 0);
-        $InitializeCommonEvent(0, 90075150, 7511, 7512, 0, 19000810, 5108, 0);
+        InitializeCommonEvent(0, 90075902, 19000810, 0, 0);
+        InitializeCommonEvent(0, 90015012, 19000810, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90015008, 7511, 7512, 751000, 19000810, 5105, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006810, 19000810, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006811, 19000810, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006812, 19000810, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006813, 19000810, 5108, 0);
+        InitializeCommonEvent(0, 90075150, 7511, 7512, 0, 19000810, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19000810);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(2)) {
-        $InitializeCommonEvent(0, 90075900, 19005821);
+        InitializeCommonEvent(0, 90075900, 19005821);
         $InitializeEvent(0, 190075901, 19000827, 752000, 907520000);
-        $InitializeCommonEvent(0, 90075902, 19005821, 0, 0);
-        $InitializeCommonEvent(0, 90015012, 19005821, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 90075200, 19005821, 19000827);
-        $InitializeCommonEvent(0, 90075201, 19005821, 19000821, 19000820, 19000825, 19000826, 19000827, 19000220, 19000221, 19000222);
-        $InitializeCommonEvent(0, 90075202, 19000827, 19000821, 19000820, 19000825, 19000826, 19000222);
-        $InitializeCommonEvent(0, 99075205, 19000821, 19000820);
-        $InitializeCommonEvent(0, 90075220, 19000825, 19000222);
-        $InitializeCommonEvent(0, 90075210, 19000827, 19000820, 19000220);
-        $InitializeCommonEvent(0, 90075211, 19000821, 19000820, 19000221);
-        $InitializeCommonEvent(0, 90075212, 19000821, 19000825, 19000826, 19000220, 19000221, 19000222, 0);
+        InitializeCommonEvent(0, 90075902, 19005821, 0, 0);
+        InitializeCommonEvent(0, 90015012, 19005821, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90075200, 19005821, 19000827);
+        InitializeCommonEvent(0, 90075201, 19005821, 19000821, 19000820, 19000825, 19000826, 19000827, 19000220, 19000221, 19000222);
+        InitializeCommonEvent(0, 90075202, 19000827, 19000821, 19000820, 19000825, 19000826, 19000222);
+        InitializeCommonEvent(0, 99075205, 19000821, 19000820);
+        InitializeCommonEvent(0, 90075220, 19000825, 19000222);
+        InitializeCommonEvent(0, 90075210, 19000827, 19000820, 19000220);
+        InitializeCommonEvent(0, 90075211, 19000821, 19000820, 19000221);
+        InitializeCommonEvent(0, 90075212, 19000821, 19000825, 19000826, 19000220, 19000221, 19000222, 0);
         if (IsPlayerNo(1)) {
-            $InitializeCommonEvent(0, 90075230, 19000822, 10002, 1);
-            $InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19000822);
-            $InitializeCommonEvent(0, 90075232, 19000822);
-            $InitializeCommonEvent(0, 90075233, 19000822);
-            $InitializeCommonEvent(0, 90075234, 19000822);
+            InitializeCommonEvent(0, 90075230, 19000822, 10002, 1);
+            InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19000822);
+            InitializeCommonEvent(0, 90075232, 19000822);
+            InitializeCommonEvent(0, 90075233, 19000822);
+            InitializeCommonEvent(0, 90075234, 19000822);
         }
         if (IsPlayerNo(2)) {
-            $InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19000823, 10003, 1);
-            $InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19000823);
-            $InitializeCommonEvent(0, 90075232, 19000823);
-            $InitializeCommonEvent(0, 90075233, 19000823);
-            $InitializeCommonEvent(0, 90075234, 19000823);
+            InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19000823, 10003, 1);
+            InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19000823);
+            InitializeCommonEvent(0, 90075232, 19000823);
+            InitializeCommonEvent(0, 90075233, 19000823);
+            InitializeCommonEvent(0, 90075234, 19000823);
         }
         if (IsPlayerNo(3)) {
-            $InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19000824, 10004, 1);
-            $InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19000824);
-            $InitializeCommonEvent(0, 90075232, 19000824);
-            $InitializeCommonEvent(0, 90075233, 19000824);
-            $InitializeCommonEvent(0, 90075234, 19000824);
+            InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19000824, 10004, 1);
+            InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19000824);
+            InitializeCommonEvent(0, 90075232, 19000824);
+            InitializeCommonEvent(0, 90075233, 19000824);
+            InitializeCommonEvent(0, 90075234, 19000824);
         }
         if (IsPlayerNo(4)) {
-            $InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19000832, 10005, 1);
-            $InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19000832);
-            $InitializeCommonEvent(0, 90075232, 19000832);
-            $InitializeCommonEvent(0, 90075233, 19000832);
-            $InitializeCommonEvent(0, 90075234, 19000832);
+            InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19000832, 10005, 1);
+            InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19000832);
+            InitializeCommonEvent(0, 90075232, 19000832);
+            InitializeCommonEvent(0, 90075233, 19000832);
+            InitializeCommonEvent(0, 90075234, 19000832);
         }
         if (IsPlayerNo(5)) {
-            $InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19000833, 10006, 1);
-            $InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19000833);
-            $InitializeCommonEvent(0, 90075232, 19000833);
-            $InitializeCommonEvent(0, 90075233, 19000833);
-            $InitializeCommonEvent(0, 90075234, 19000833);
+            InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19000833, 10006, 1);
+            InitializeCommonEvent(0, 90075230, 19000834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19000833);
+            InitializeCommonEvent(0, 90075232, 19000833);
+            InitializeCommonEvent(0, 90075233, 19000833);
+            InitializeCommonEvent(0, 90075234, 19000833);
         }
         if (IsPlayerNo(6)) {
-            $InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19000834, 10007, 1);
-            $InitializeCommonEvent(0, 90075231, 19000834);
-            $InitializeCommonEvent(0, 90075232, 19000834);
-            $InitializeCommonEvent(0, 90075233, 19000834);
-            $InitializeCommonEvent(0, 90075234, 19000834);
+            InitializeCommonEvent(0, 90075230, 19000822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19000823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19000824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19000832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19000833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19000834, 10007, 1);
+            InitializeCommonEvent(0, 90075231, 19000834);
+            InitializeCommonEvent(0, 90075232, 19000834);
+            InitializeCommonEvent(0, 90075233, 19000834);
+            InitializeCommonEvent(0, 90075234, 19000834);
         }
-        $InitializeCommonEvent(0, 90015008, 7511, 7512, 752000, 19005821, 5105, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006821, 19005821, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006822, 19005821, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006823, 19005821, 5108, 0);
-        $InitializeCommonEvent(0, 90075240, 7511, 7512, 0, 19005821, 5108, 0);
+        InitializeCommonEvent(0, 90015008, 7511, 7512, 752000, 19005821, 5105, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006821, 19005821, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006822, 19005821, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006823, 19005821, 5108, 0);
+        InitializeCommonEvent(0, 90075240, 7511, 7512, 0, 19005821, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19000827);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(3)) {
-        $InitializeCommonEvent(0, 90075900, 19000830);
+        InitializeCommonEvent(0, 90075900, 19000830);
         $InitializeEvent(0, 190075901, 19000830, 754000, 907540000);
-        $InitializeCommonEvent(0, 90075902, 19000830, 0, 0);
-        $InitializeCommonEvent(0, 90015012, 19000830, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 90075300, 19000830, 19000220, 19000221);
-        $InitializeCommonEvent(0, 90075301, 19000830, 19005835, 19005836);
-        $InitializeCommonEvent(0, 90075310, 19000830, 19000200, 19000201, 19000202, 19000203, 19000204, 19000205, 19000206, 19000207, 19000208, 19000209, 19000210, 19000211, 19000212, 19000213, 19000214, 19000215, 19000216, 19000217, 19000218, 19000219);
-        $InitializeCommonEvent(0, 90075311, 19000830, 19000200, 19000201, 19000202, 19000203, 19000204, 19000205, 19000206, 19000207, 19000208, 19000209, 19000210, 19000211, 19000212, 19000213, 19000214, 19000215, 19000216, 19000217, 19000218, 19000219);
-        $InitializeCommonEvent(0, 90075312, 19000830, 19000200, 19000201, 19000202, 19000203, 19000204, 19000205, 19000206, 19000207, 19000208, 19000209, 19000210, 19000211, 19000212, 19000213, 19000214, 19000215, 19000216, 19000217);
-        $InitializeCommonEvent(0, 90075313, 19000830, 19000220, 19000221, 19000222);
-        $InitializeCommonEvent(0, 90075320, 19000830, 19005836);
-        $InitializeCommonEvent(0, 90075330, 19000830);
-        $InitializeCommonEvent(0, 90015008, 7511, 7512, 754000, 19000830, 5105, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006830, 19000830, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006831, 19000830, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006832, 19000830, 5108, 0);
-        $InitializeCommonEvent(0, 90075340, 7511, 7512, 0, 19000830, 5108, 0);
+        InitializeCommonEvent(0, 90075902, 19000830, 0, 0);
+        InitializeCommonEvent(0, 90015012, 19000830, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90075300, 19000830, 19000220, 19000221);
+        InitializeCommonEvent(0, 90075301, 19000830, 19005835, 19005836);
+        InitializeCommonEvent(0, 90075310, 19000830, 19000200, 19000201, 19000202, 19000203, 19000204, 19000205, 19000206, 19000207, 19000208, 19000209, 19000210, 19000211, 19000212, 19000213, 19000214, 19000215, 19000216, 19000217, 19000218, 19000219);
+        InitializeCommonEvent(0, 90075311, 19000830, 19000200, 19000201, 19000202, 19000203, 19000204, 19000205, 19000206, 19000207, 19000208, 19000209, 19000210, 19000211, 19000212, 19000213, 19000214, 19000215, 19000216, 19000217, 19000218, 19000219);
+        InitializeCommonEvent(0, 90075312, 19000830, 19000200, 19000201, 19000202, 19000203, 19000204, 19000205, 19000206, 19000207, 19000208, 19000209, 19000210, 19000211, 19000212, 19000213, 19000214, 19000215, 19000216, 19000217);
+        InitializeCommonEvent(0, 90075313, 19000830, 19000220, 19000221, 19000222);
+        InitializeCommonEvent(0, 90075320, 19000830, 19005836);
+        InitializeCommonEvent(0, 90075330, 19000830);
+        InitializeCommonEvent(0, 90015008, 7511, 7512, 754000, 19000830, 5105, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006830, 19000830, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006831, 19000830, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006832, 19000830, 5108, 0);
+        InitializeCommonEvent(0, 90075340, 7511, 7512, 0, 19000830, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19000830);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(3)) {
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000200);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000201);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000202);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000203);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000204);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000205);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000206);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000207);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000208);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000209);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000210);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000211);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000212);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000213);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000214);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000215);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000216);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000217);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000218);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000219);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000200);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000201);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000202);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000203);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000204);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000205);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000206);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000207);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000208);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000209);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000210);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000211);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000212);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000213);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000214);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000215);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000216);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000217);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000218);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000219);
     }
     if (IsMapVariation(3)) {
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000220);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000221);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000222);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000220);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000221);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000222);
     }
     if (IsMapVariation(3)) {
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000230);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000231);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000232);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000233);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000234);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000235);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000236);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000237);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000238);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000239);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000240);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000241);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000242);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000243);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000244);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000245);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000246);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000247);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000248);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000249);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000250);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000251);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000252);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000253);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000254);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000255);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000256);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000257);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000258);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000259);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000260);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000261);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000262);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000263);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000264);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000265);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000266);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000267);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000268);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000269);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000270);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000271);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000272);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000273);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000274);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000275);
-        $InitializeCommonEvent(0, 90075302, 19000830, 19000276);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000230);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000231);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000232);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000233);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000234);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000235);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000236);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000237);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000238);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000239);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000240);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000241);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000242);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000243);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000244);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000245);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000246);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000247);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000248);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000249);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000250);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000251);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000252);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000253);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000254);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000255);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000256);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000257);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000258);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000259);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000260);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000261);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000262);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000263);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000264);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000265);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000266);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000267);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000268);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000269);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000270);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000271);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000272);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000273);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000274);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000275);
+        InitializeCommonEvent(0, 90075302, 19000830, 19000276);
     }
     if (IsMapVariation(4)) {
-        $InitializeCommonEvent(0, 90075400, 19000840, 19000849, 19000440, 19000441, 19000442, 19000443, 19000444, 19000445, 19000446, 19000447);
-        $InitializeCommonEvent(0, 90075401, 19000849, 19000240, 19000241, 19000242);
-        $InitializeCommonEvent(0, 90075402, 19000849, 19000840, 19000240, 19000241, 19000242);
-        $InitializeCommonEvent(0, 90075403, 19000849, 19004740, 19004741, 19004742, 19000240, 19000242);
+        InitializeCommonEvent(0, 90075400, 19000840, 19000849, 19000440, 19000441, 19000442, 19000443, 19000444, 19000445, 19000446, 19000447);
+        InitializeCommonEvent(0, 90075401, 19000849, 19000240, 19000241, 19000242);
+        InitializeCommonEvent(0, 90075402, 19000849, 19000840, 19000240, 19000241, 19000242);
+        InitializeCommonEvent(0, 90075403, 19000849, 19004740, 19004741, 19004742, 19000240, 19000242);
         if (IsPlayerNo(1)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000243, 19004744, 19000246);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000243, 19004744, 19000246);
         }
         if (IsPlayerNo(2)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000244, 19004744, 19000247);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000244, 19004744, 19000247);
         }
         if (IsPlayerNo(3)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000245, 19004744, 19000248);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000245, 19004744, 19000248);
         }
         if (IsPlayerNo(4)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000343, 19004744, 19000346);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000343, 19004744, 19000346);
         }
         if (IsPlayerNo(5)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000344, 19004744, 19000347);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000344, 19004744, 19000347);
         }
         if (IsPlayerNo(6)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000345, 19004744, 19000348);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000345, 19004744, 19000348);
         }
         $InitializeEvent(0, 190075405, 19000240, 19000241, 19000246, 19000247, 19000248);
-        $InitializeCommonEvent(0, 99075406, 19000849, 19000240, 19000701, 19000241);
-        $InitializeCommonEvent(0, 99075410, 19000840);
-        $InitializeCommonEvent(0, 99075420, 19000840);
-        $InitializeCommonEvent(0, 99075421, 19000840);
-        $InitializeCommonEvent(0, 99075422, 19000840, 19002740, 19002741, 19002742, 19002743, 19002744, 19002745, 19002746, 19002747, 19000440, 19000441, 19000442, 19000443, 19000444, 19000445, 19000446, 19000447);
+        InitializeCommonEvent(0, 99075406, 19000849, 19000240, 19000701, 19000241);
+        InitializeCommonEvent(0, 99075410, 19000840);
+        InitializeCommonEvent(0, 99075420, 19000840);
+        InitializeCommonEvent(0, 99075421, 19000840);
+        InitializeCommonEvent(0, 99075422, 19000840, 19002740, 19002741, 19002742, 19002743, 19002744, 19002745, 19002746, 19002747, 19000440, 19000441, 19000442, 19000443, 19000444, 19000445, 19000446, 19000447);
         $InitializeEvent(0, 190075901, 19000840, 756000, 907550000);
-        $InitializeCommonEvent(0, 90075902, 19005840, 0, 0);
-        $InitializeCommonEvent(0, 90015012, 19005840, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 99075430, 19000840);
-        $InitializeCommonEvent(0, 90015018, 7511, 7512, 756000, 19000840, 45889, 1);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006840, 19000840, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006841, 19000840, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006842, 19000840, 5108, 0);
-        $InitializeCommonEvent(0, 99075440, 7511, 7512, 0, 19000840, 5108, 0);
+        InitializeCommonEvent(0, 90075902, 19005840, 0, 0);
+        InitializeCommonEvent(0, 90015012, 19005840, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 99075430, 19000840);
+        InitializeCommonEvent(0, 90015018, 7511, 7512, 756000, 19000840, 45889, 1065353216);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006840, 19000840, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006841, 19000840, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006842, 19000840, 5108, 0);
+        InitializeCommonEvent(0, 99075440, 7511, 7512, 0, 19000840, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19000840);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(5)) {
-        $InitializeCommonEvent(0, 90075900, 19000850);
+        InitializeCommonEvent(0, 90075900, 19000850);
         $InitializeEvent(0, 190075901, 19000850, 760000, 907610001);
-        $InitializeCommonEvent(0, 90075902, 19000850, 0, 0);
-        $InitializeCommonEvent(0, 90075500, 19000850);
-        $InitializeCommonEvent(0, 90075501, 19000850);
-        $InitializeCommonEvent(0, 90075510, 19000850);
-        $InitializeCommonEvent(0, 90015012, 19000850, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 90015008, 7511, 7512, 760000, 19000850, 5105, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006850, 19000850, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006851, 19000850, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006852, 19000850, 5108, 0);
-        $InitializeCommonEvent(0, 90075520, 7511, 7512, 0, 19000850, 5108, 0);
+        InitializeCommonEvent(0, 90075902, 19000850, 0, 0);
+        InitializeCommonEvent(0, 90075500, 19000850);
+        InitializeCommonEvent(0, 90075501, 19000850);
+        InitializeCommonEvent(0, 90075510, 19000850);
+        InitializeCommonEvent(0, 90015012, 19000850, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90015008, 7511, 7512, 760000, 19000850, 5105, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006850, 19000850, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006851, 19000850, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006852, 19000850, 5108, 0);
+        InitializeCommonEvent(0, 90075520, 7511, 7512, 0, 19000850, 5108, 0);
         
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19000850);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(6)) {
-        $InitializeCommonEvent(0, 90075900, 19000860);
+        InitializeCommonEvent(0, 90075900, 19000860);
         $InitializeEvent(0, 190075901, 19000860, 490000, 907620000);
-        $InitializeCommonEvent(0, 90075902, 19000860, 0, 0);
-        $InitializeCommonEvent(0, 90075600, 19000860, 19002860);
-        $InitializeCommonEvent(0, 90075601, 19000860);
-        $InitializeCommonEvent(0, 90015012, 19000860, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90075902, 19000860, 0, 0);
+        InitializeCommonEvent(0, 90075600, 19000860, 19002860);
+        InitializeCommonEvent(0, 90075601, 19000860);
+        InitializeCommonEvent(0, 90015012, 19000860, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
         $InitializeEvent(0, 190075610, 19000860);
         
-        $InitializeCommonEvent(0, 90015008, 7511, 7512, 490000, 19000860, 5105, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006860, 19000860, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006861, 19000860, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006862, 19000860, 5108, 0);
-        $InitializeCommonEvent(0, 99075620, 7511, 7512, 0, 19000860, 5108, 0);
-        $InitializeCommonEvent(0, 90075602, 19000860);
+        InitializeCommonEvent(0, 90015008, 7511, 7512, 490000, 19000860, 5105, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006860, 19000860, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006861, 19000860, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006862, 19000860, 5108, 0);
+        InitializeCommonEvent(0, 99075620, 7511, 7512, 0, 19000860, 5108, 0);
+        InitializeCommonEvent(0, 90075602, 19000860);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19000860);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(10)) {
-        $InitializeCommonEvent(0, 90075900, 19010800);
+        InitializeCommonEvent(0, 90075900, 19010800);
         $InitializeEvent(0, 190075901, 19010800, 750000, 907500000);
-        $InitializeCommonEvent(0, 90075902, 19010800, 19015801, 0);
-        $InitializeCommonEvent(0, 90015012, 19010800, 7511);
-        $InitializeCommonEvent(1, 90015012, 19015801, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 90075000, 19010800, 19015801);
-        $InitializeCommonEvent(0, 90075051, 19010800, 19015801, 19010801, 19010802);
-        $InitializeCommonEvent(0, 90075002, 19010800, 19010801, 19010802);
-        $InitializeCommonEvent(0, 90075005, 19010800, 19010801, 72, 5900);
-        $InitializeCommonEvent(0, 90075005, 19010800, 19010802, 2, 5901);
-        $InitializeCommonEvent(0, 90075006, 19010800, 19010801);
-        $InitializeCommonEvent(0, 90075006, 19010800, 19010802);
-        $InitializeCommonEvent(0, 90075060, 19010800, 19010801);
-        $InitializeCommonEvent(0, 90075060, 19010800, 19010802);
-        $InitializeCommonEvent(0, 90075070, 19010800, 19010801, 72, 5908, 51320);
-        $InitializeCommonEvent(0, 90075070, 19010800, 19010802, 72, 5909, 51321);
+        InitializeCommonEvent(0, 90075902, 19010800, 19015801, 0);
+        InitializeCommonEvent(0, 90015012, 19010800, 7511);
+        InitializeCommonEvent(1, 90015012, 19015801, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90075000, 19010800, 19015801);
+        InitializeCommonEvent(0, 90075051, 19010800, 19015801, 19010801, 19010802);
+        InitializeCommonEvent(0, 90075002, 19010800, 19010801, 19010802);
+        InitializeCommonEvent(0, 90075005, 19010800, 19010801, 72, 5900);
+        InitializeCommonEvent(0, 90075005, 19010800, 19010802, 2, 5901);
+        InitializeCommonEvent(0, 90075006, 19010800, 19010801);
+        InitializeCommonEvent(0, 90075006, 19010800, 19010802);
+        InitializeCommonEvent(0, 90075060, 19010800, 19010801);
+        InitializeCommonEvent(0, 90075060, 19010800, 19010802);
+        InitializeCommonEvent(0, 90075070, 19010800, 19010801, 72, 5908, 51320);
+        InitializeCommonEvent(0, 90075070, 19010800, 19010802, 72, 5909, 51321);
         $InitializeEvent(0, 190075950, 750000, 19010800, 5106, 0);
         
-        $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19010800, 0, 1);
-        $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19010800, 0, 1);
-        $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006802, 19010800, 0, 1);
-        $InitializeCommonEvent(0, 90075008, 6001, 7512, 0, 19010800, 0, 1);
+        InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19010800, 0, 1065353216);
+        InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19010800, 0, 1065353216);
+        InitializeCommonEvent(0, 90075910, 6001, 7512, 19006802, 19010800, 0, 1065353216);
+        InitializeCommonEvent(0, 90075008, 6001, 7512, 0, 19010800, 0, 1065353216);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19010800);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(11)) {
-        $InitializeCommonEvent(0, 90075161, 19010810);
-        $InitializeCommonEvent(0, 90075102, 19010810);
-        $InitializeCommonEvent(0, 90075900, 19010810);
+        InitializeCommonEvent(0, 90075161, 19010810);
+        InitializeCommonEvent(0, 90075102, 19010810);
+        InitializeCommonEvent(0, 90075900, 19010810);
         $InitializeEvent(0, 190075901, 19010810, 751000, 907510000);
-        $InitializeCommonEvent(0, 90075902, 19010810, 0, 0);
+        InitializeCommonEvent(0, 90075902, 19010810, 0, 0);
         $InitializeEvent(0, 190075950, 751000, 19010810, 5106, 0);
-        $InitializeCommonEvent(0, 90015012, 19010810, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006810, 19010810, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006811, 19010810, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006812, 19010810, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006813, 19010810, 5108, 0);
-        $InitializeCommonEvent(0, 90075150, 7511, 7512, 0, 19010810, 5108, 0);
-        $InitializeCommonEvent(0, 90075160, 19010810, 19010811, 19010812);
-        $InitializeCommonEvent(0, 90075162, 19010810, 19010811);
-        $InitializeCommonEvent(0, 90075163, 19010810, 19010811);
-        $InitializeCommonEvent(0, 90075164);
-        $InitializeCommonEvent(0, 90075165, 19010810);
+        InitializeCommonEvent(0, 90015012, 19010810, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006810, 19010810, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006811, 19010810, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006812, 19010810, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006813, 19010810, 5108, 0);
+        InitializeCommonEvent(0, 90075150, 7511, 7512, 0, 19010810, 5108, 0);
+        InitializeCommonEvent(0, 90075160, 19010810, 19010811, 19010812);
+        InitializeCommonEvent(0, 90075162, 19010810, 19010811);
+        InitializeCommonEvent(0, 90075163, 19010810, 19010811);
+        InitializeCommonEvent(0, 90075164, 0);
+        InitializeCommonEvent(0, 90075165, 19010810);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19010810);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(12)) {
-        $InitializeCommonEvent(0, 90075900, 19015821);
+        InitializeCommonEvent(0, 90075900, 19015821);
         $InitializeEvent(0, 190075901, 19010828, 752000, 907520002);
-        $InitializeCommonEvent(0, 90075903, 19, 19015821, 19010827, 0);
-        $InitializeCommonEvent(0, 90015012, 19015821, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90075903, 19, 19015821, 19010827, 0);
+        InitializeCommonEvent(0, 90015012, 19015821, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
         $InitializeEvent(0, 190075950, 752000, 19010828, 5106, 0);
-        $InitializeCommonEvent(0, 90075250, 19015821, 19010825, 19010826, 19010827);
-        $InitializeCommonEvent(0, 90075251, 19015821, 19010825, 19010826, 19010827, 19010828, 19002820, 19000220, 19000221, 19000222, 19000322);
-        $InitializeCommonEvent(0, 90075257, 19010827, 19010828, 19010825, 19010826);
-        $InitializeCommonEvent(0, 90075220, 19010825, 19000222);
-        $InitializeCommonEvent(0, 90075212, 19010827, 19010825, 19010826, 19000220, 19000221, 19000222, 1);
-        $InitializeCommonEvent(0, 90075266, 19010825, 1);
-        $InitializeCommonEvent(0, 90075266, 19010826, 0);
+        InitializeCommonEvent(0, 90075250, 19015821, 19010825, 19010826, 19010827);
+        InitializeCommonEvent(0, 90075251, 19015821, 19010825, 19010826, 19010827, 19010828, 19002820, 19000220, 19000221, 19000222, 19000322);
+        InitializeCommonEvent(0, 90075257, 19010827, 19010828, 19010825, 19010826);
+        InitializeCommonEvent(0, 90075220, 19010825, 19000222);
+        InitializeCommonEvent(0, 90075212, 19010827, 19010825, 19010826, 19000220, 19000221, 19000222, 1);
+        InitializeCommonEvent(0, 90075266, 19010825, 1);
+        InitializeCommonEvent(0, 90075266, 19010826, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19010828);
@@ -413,389 +413,389 @@ $Event(0, Default, function() {
     }
     if (IsMapVariation(12)) {
         if (IsPlayerNo(1)) {
-            $InitializeCommonEvent(0, 90075230, 19010822, 10002, 1);
-            $InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19010822);
-            $InitializeCommonEvent(0, 90075232, 19010822);
-            $InitializeCommonEvent(0, 90075233, 19010822);
-            $InitializeCommonEvent(0, 90075234, 19010822);
+            InitializeCommonEvent(0, 90075230, 19010822, 10002, 1);
+            InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19010822);
+            InitializeCommonEvent(0, 90075232, 19010822);
+            InitializeCommonEvent(0, 90075233, 19010822);
+            InitializeCommonEvent(0, 90075234, 19010822);
         }
         if (IsPlayerNo(2)) {
-            $InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19010823, 10003, 1);
-            $InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19010823);
-            $InitializeCommonEvent(0, 90075232, 19010823);
-            $InitializeCommonEvent(0, 90075233, 19010823);
-            $InitializeCommonEvent(0, 90075234, 19010823);
+            InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19010823, 10003, 1);
+            InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19010823);
+            InitializeCommonEvent(0, 90075232, 19010823);
+            InitializeCommonEvent(0, 90075233, 19010823);
+            InitializeCommonEvent(0, 90075234, 19010823);
         }
         if (IsPlayerNo(3)) {
-            $InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19010824, 10004, 1);
-            $InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19010824);
-            $InitializeCommonEvent(0, 90075232, 19010824);
-            $InitializeCommonEvent(0, 90075233, 19010824);
-            $InitializeCommonEvent(0, 90075234, 19010824);
+            InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19010824, 10004, 1);
+            InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19010824);
+            InitializeCommonEvent(0, 90075232, 19010824);
+            InitializeCommonEvent(0, 90075233, 19010824);
+            InitializeCommonEvent(0, 90075234, 19010824);
         }
         if (IsPlayerNo(4)) {
-            $InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19010832, 10005, 1);
-            $InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19010832);
-            $InitializeCommonEvent(0, 90075232, 19010832);
-            $InitializeCommonEvent(0, 90075233, 19010832);
-            $InitializeCommonEvent(0, 90075234, 19010832);
+            InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19010832, 10005, 1);
+            InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19010832);
+            InitializeCommonEvent(0, 90075232, 19010832);
+            InitializeCommonEvent(0, 90075233, 19010832);
+            InitializeCommonEvent(0, 90075234, 19010832);
         }
         if (IsPlayerNo(5)) {
-            $InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19010833, 10006, 1);
-            $InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
-            $InitializeCommonEvent(0, 90075231, 19010833);
-            $InitializeCommonEvent(0, 90075232, 19010833);
-            $InitializeCommonEvent(0, 90075233, 19010833);
-            $InitializeCommonEvent(0, 90075234, 19010833);
+            InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19010833, 10006, 1);
+            InitializeCommonEvent(0, 90075230, 19010834, 10007, 0);
+            InitializeCommonEvent(0, 90075231, 19010833);
+            InitializeCommonEvent(0, 90075232, 19010833);
+            InitializeCommonEvent(0, 90075233, 19010833);
+            InitializeCommonEvent(0, 90075234, 19010833);
         }
         if (IsPlayerNo(6)) {
-            $InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
-            $InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
-            $InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
-            $InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
-            $InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
-            $InitializeCommonEvent(0, 90075230, 19010834, 10007, 1);
-            $InitializeCommonEvent(0, 90075231, 19010834);
-            $InitializeCommonEvent(0, 90075232, 19010834);
-            $InitializeCommonEvent(0, 90075233, 19010834);
-            $InitializeCommonEvent(0, 90075234, 19010834);
+            InitializeCommonEvent(0, 90075230, 19010822, 10002, 0);
+            InitializeCommonEvent(0, 90075230, 19010823, 10003, 0);
+            InitializeCommonEvent(0, 90075230, 19010824, 10004, 0);
+            InitializeCommonEvent(0, 90075230, 19010832, 10005, 0);
+            InitializeCommonEvent(0, 90075230, 19010833, 10006, 0);
+            InitializeCommonEvent(0, 90075230, 19010834, 10007, 1);
+            InitializeCommonEvent(0, 90075231, 19010834);
+            InitializeCommonEvent(0, 90075232, 19010834);
+            InitializeCommonEvent(0, 90075233, 19010834);
+            InitializeCommonEvent(0, 90075234, 19010834);
         }
     }
     if (IsMapVariation(12)) {
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006821, 19015821, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006822, 19015821, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006823, 19015821, 5108, 0);
-        $InitializeCommonEvent(0, 90075240, 7511, 7512, 0, 19015821, 5108, 0);
-        $InitializeCommonEvent(0, 90075255, 19010825, 19010826, 19010828, 19010827, 19002820, 19000322);
-        $InitializeCommonEvent(0, 90075256, 19010825, 19010826, 19010828, 19010827, 19000322);
-        $InitializeCommonEvent(0, 90075263, 19010828);
-        $InitializeCommonEvent(0, 90075267, 19010825, 19010826, 19010828, 19000322, 19000323);
-        $InitializeCommonEvent(0, 90075260, 19010825, 19010828, 47150, 47152, 19000322);
-        $InitializeCommonEvent(0, 90075261, 19010825, 19010828, 47170, 47190, 19000322, 19000323);
-        $InitializeCommonEvent(0, 90075262, 19010825, 19010828, 19010827, 47111, 47190, 19000322, 19000323);
-        $InitializeCommonEvent(0, 90075264, 19010825, 19010828, 19000322);
-        $InitializeCommonEvent(0, 90075265, 19010825, 19010828, 47111, 19000322);
-        $InitializeCommonEvent(0, 90075260, 19010826, 19010828, 47151, 47153, 19000322);
-        $InitializeCommonEvent(0, 90075261, 19010826, 19010828, 47171, 47191, 19000322, 19000323);
-        $InitializeCommonEvent(0, 90075262, 19010826, 19010828, 19010827, 47116, 47191, 19000322, 19000323);
-        $InitializeCommonEvent(0, 90075264, 19010826, 19010828, 19000322);
-        $InitializeCommonEvent(0, 90075265, 19010826, 19010828, 47116, 19000322);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006821, 19015821, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006822, 19015821, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006823, 19015821, 5108, 0);
+        InitializeCommonEvent(0, 90075240, 7511, 7512, 0, 19015821, 5108, 0);
+        InitializeCommonEvent(0, 90075255, 19010825, 19010826, 19010828, 19010827, 19002820, 19000322);
+        InitializeCommonEvent(0, 90075256, 19010825, 19010826, 19010828, 19010827, 19000322);
+        InitializeCommonEvent(0, 90075263, 19010828);
+        InitializeCommonEvent(0, 90075267, 19010825, 19010826, 19010828, 19000322, 19000323);
+        InitializeCommonEvent(0, 90075260, 19010825, 19010828, 47150, 47152, 19000322);
+        InitializeCommonEvent(0, 90075261, 19010825, 19010828, 47170, 47190, 19000322, 19000323);
+        InitializeCommonEvent(0, 90075262, 19010825, 19010828, 19010827, 47111, 47190, 19000322, 19000323);
+        InitializeCommonEvent(0, 90075264, 19010825, 19010828, 19000322);
+        InitializeCommonEvent(0, 90075265, 19010825, 19010828, 47111, 19000322);
+        InitializeCommonEvent(0, 90075260, 19010826, 19010828, 47151, 47153, 19000322);
+        InitializeCommonEvent(0, 90075261, 19010826, 19010828, 47171, 47191, 19000322, 19000323);
+        InitializeCommonEvent(0, 90075262, 19010826, 19010828, 19010827, 47116, 47191, 19000322, 19000323);
+        InitializeCommonEvent(0, 90075264, 19010826, 19010828, 19000322);
+        InitializeCommonEvent(0, 90075265, 19010826, 19010828, 47116, 19000322);
     }
     if (IsMapVariation(13)) {
-        $InitializeCommonEvent(0, 90075900, 19010830);
+        InitializeCommonEvent(0, 90075900, 19010830);
         $InitializeEvent(0, 190075901, 19010831, 754000, 907540000);
-        $InitializeCommonEvent(0, 90075902, 19010830, 19010831, 0);
-        $InitializeCommonEvent(0, 90015012, 19010830, 7511);
-        $InitializeCommonEvent(0, 90015012, 19010831, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 90075350, 19010830, 19010831, 19010220, 19010221);
-        $InitializeCommonEvent(0, 90075351, 19010830, 19015835, 19015836, 19000230);
-        $InitializeCommonEvent(0, 90075352, 19010830, 19010831, 19000230);
-        $InitializeCommonEvent(0, 90075330, 19010830);
+        InitializeCommonEvent(0, 90075902, 19010830, 19010831, 0);
+        InitializeCommonEvent(0, 90015012, 19010830, 7511);
+        InitializeCommonEvent(0, 90015012, 19010831, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90075350, 19010830, 19010831, 19010220, 19010221);
+        InitializeCommonEvent(0, 90075351, 19010830, 19015835, 19015836, 19000230);
+        InitializeCommonEvent(0, 90075352, 19010830, 19010831, 19000230);
+        InitializeCommonEvent(0, 90075330, 19010830);
         $InitializeEvent(0, 190075950, 754000, 19010831, 5106, 0);
         
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006830, 19010830, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006831, 19010830, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006832, 19010830, 5108, 0);
-        $InitializeCommonEvent(0, 90075340, 7511, 7512, 0, 19010831, 5108, 0);
-        $InitializeCommonEvent(0, 90075360, 19010831, 45720, 10, NPCPartType.Part10, 1, 223, 12, 45721, 45740, 45725, 45730);
-        $InitializeCommonEvent(0, 90075360, 19010831, 45720, 11, NPCPartType.Part11, 1, 224, 13, 45721, 45741, 45725, 45731);
-        $InitializeCommonEvent(0, 90075360, 19010831, 45720, 12, NPCPartType.Part12, 1, 225, 14, 45721, 45742, 45725, 45732);
-        $InitializeCommonEvent(0, 90075360, 19010831, 45720, 13, NPCPartType.Part13, 1, 226, 10, 45721, 45743, 45725, 45733);
-        $InitializeCommonEvent(0, 90075360, 19010831, 45720, 14, NPCPartType.Part14, 1, 227, 11, 45721, 45744, 45725, 45734);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006830, 19010830, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006831, 19010830, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006832, 19010830, 5108, 0);
+        InitializeCommonEvent(0, 90075340, 7511, 7512, 0, 19010831, 5108, 0);
+        InitializeCommonEvent(0, 90075360, 19010831, 45720, 10, 10, 1, 223, 12, 45721, 45740, 45725, 45730);
+        InitializeCommonEvent(0, 90075360, 19010831, 45720, 11, 11, 1, 224, 13, 45721, 45741, 45725, 45731);
+        InitializeCommonEvent(0, 90075360, 19010831, 45720, 12, 12, 1, 225, 14, 45721, 45742, 45725, 45732);
+        InitializeCommonEvent(0, 90075360, 19010831, 45720, 13, 13, 1, 226, 10, 45721, 45743, 45725, 45733);
+        InitializeCommonEvent(0, 90075360, 19010831, 45720, 14, 14, 1, 227, 11, 45721, 45744, 45725, 45734);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19010831);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(13)) {
-        $InitializeCommonEvent(0, 90075310, 19010830, 19010200, 19010201, 19010202, 19010203, 19010204, 19010205, 19010206, 19010207, 19010208, 19010209, 19010210, 19010211, 19010212, 19010213, 19010214, 19010215, 19010216, 19010217, 19010218, 19010219);
-        $InitializeCommonEvent(0, 90075311, 19010830, 19010200, 19010201, 19010202, 19010203, 19010204, 19010205, 19010206, 19010207, 19010208, 19010209, 19010210, 19010211, 19010212, 19010213, 19010214, 19010215, 19010216, 19010217, 19010218, 19010219);
-        $InitializeCommonEvent(0, 90075312, 19010830, 19010200, 19010201, 19010202, 19010203, 19010204, 19010205, 19010206, 19010207, 19010208, 19010209, 19010210, 19010211, 19010212, 19010213, 19010214, 19010215, 19010216, 19010217);
-        $InitializeCommonEvent(0, 90075313, 19010830, 19010220, 19010221, 19010222);
-        $InitializeCommonEvent(0, 90075320, 19010830, 19015836);
+        InitializeCommonEvent(0, 90075310, 19010830, 19010200, 19010201, 19010202, 19010203, 19010204, 19010205, 19010206, 19010207, 19010208, 19010209, 19010210, 19010211, 19010212, 19010213, 19010214, 19010215, 19010216, 19010217, 19010218, 19010219);
+        InitializeCommonEvent(0, 90075311, 19010830, 19010200, 19010201, 19010202, 19010203, 19010204, 19010205, 19010206, 19010207, 19010208, 19010209, 19010210, 19010211, 19010212, 19010213, 19010214, 19010215, 19010216, 19010217, 19010218, 19010219);
+        InitializeCommonEvent(0, 90075312, 19010830, 19010200, 19010201, 19010202, 19010203, 19010204, 19010205, 19010206, 19010207, 19010208, 19010209, 19010210, 19010211, 19010212, 19010213, 19010214, 19010215, 19010216, 19010217);
+        InitializeCommonEvent(0, 90075313, 19010830, 19010220, 19010221, 19010222);
+        InitializeCommonEvent(0, 90075320, 19010830, 19015836);
     }
     if (IsMapVariation(13)) {
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010200);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010201);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010202);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010203);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010204);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010205);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010206);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010207);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010208);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010209);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010210);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010211);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010212);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010213);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010214);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010215);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010216);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010217);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010218);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010219);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010200);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010201);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010202);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010203);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010204);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010205);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010206);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010207);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010208);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010209);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010210);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010211);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010212);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010213);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010214);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010215);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010216);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010217);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010218);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010219);
     }
     if (IsMapVariation(13)) {
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010220);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010221);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010222);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010220);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010221);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010222);
     }
     if (IsMapVariation(13)) {
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010230);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010231);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010232);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010233);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010234);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010235);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010236);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010237);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010238);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010239);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010240);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010241);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010242);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010243);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010244);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010245);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010246);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010247);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010248);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010249);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010250);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010251);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010252);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010253);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010254);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010255);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010256);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010257);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010258);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010259);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010260);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010261);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010262);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010263);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010264);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010265);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010266);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010267);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010268);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010269);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010270);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010271);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010272);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010273);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010274);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010275);
-        $InitializeCommonEvent(0, 90075302, 19010830, 19010276);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010230);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010231);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010232);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010233);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010234);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010235);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010236);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010237);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010238);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010239);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010240);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010241);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010242);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010243);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010244);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010245);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010246);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010247);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010248);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010249);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010250);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010251);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010252);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010253);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010254);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010255);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010256);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010257);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010258);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010259);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010260);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010261);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010262);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010263);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010264);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010265);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010266);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010267);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010268);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010269);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010270);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010271);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010272);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010273);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010274);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010275);
+        InitializeCommonEvent(0, 90075302, 19010830, 19010276);
     }
     if (IsMapVariation(14)) {
         InitializeCommonEvent(0, 90075450, 19010840, 19010849, 19010440, 19010441, 19010442, 19010443, 19010444, 19010445, 19010446, 19010447, 19015842, 19015843, 19015844, 19015845, 19015846, 19015847);
-        $InitializeCommonEvent(0, 90075401, 19010849, 19000240, 19000241, 19000242);
+        InitializeCommonEvent(0, 90075401, 19010849, 19000240, 19000241, 19000242);
         $InitializeEvent(0, 190075452, 19010849, 19010840, 19000240, 19000241, 19000242);
-        $InitializeCommonEvent(0, 90075403, 19010849, 19004740, 19004741, 19004742, 19000240, 19000242);
+        InitializeCommonEvent(0, 90075403, 19010849, 19004740, 19004741, 19004742, 19000240, 19000242);
         if (IsPlayerNo(1)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000243, 19004744, 19000246);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000243, 19004744, 19000246);
         }
         if (IsPlayerNo(2)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000244, 19004744, 19000247);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000244, 19004744, 19000247);
         }
         if (IsPlayerNo(3)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000245, 19004744, 19000248);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000245, 19004744, 19000248);
         }
         if (IsPlayerNo(4)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000343, 19004744, 19000346);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000343, 19004744, 19000346);
         }
         if (IsPlayerNo(5)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000344, 19004744, 19000347);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000344, 19004744, 19000347);
         }
         if (IsPlayerNo(6)) {
-            $InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000345, 19004744, 19000348);
+            InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000345, 19004744, 19000348);
         }
         $InitializeEvent(0, 190075405, 19000240, 19000241, 19000246, 19000247, 19000248);
-        $InitializeCommonEvent(0, 99075406, 19010849, 19000240, 19000701, 19000241);
-        $InitializeCommonEvent(0, 99075410, 19010840);
-        $InitializeCommonEvent(0, 99075420, 19010840);
-        $InitializeCommonEvent(0, 99075421, 19010840);
-        $InitializeCommonEvent(0, 99075422, 19010840, 19002740, 19002741, 19002742, 19002743, 19002744, 19002745, 19002746, 19002747, 19010440, 19010441, 19010442, 19010443, 19010444, 19010445, 19010446, 19010447);
+        InitializeCommonEvent(0, 99075406, 19010849, 19000240, 19000701, 19000241);
+        InitializeCommonEvent(0, 99075410, 19010840);
+        InitializeCommonEvent(0, 99075420, 19010840);
+        InitializeCommonEvent(0, 99075421, 19010840);
+        InitializeCommonEvent(0, 99075422, 19010840, 19002740, 19002741, 19002742, 19002743, 19002744, 19002745, 19002746, 19002747, 19010440, 19010441, 19010442, 19010443, 19010444, 19010445, 19010446, 19010447);
         $InitializeEvent(0, 190075901, 19010840, 756000, 907550000);
-        $InitializeCommonEvent(0, 90075902, 19015840, 0, 0);
-        $InitializeCommonEvent(0, 90075902, 19015842, 19015843, 19015844);
-        $InitializeCommonEvent(0, 90075902, 19015845, 19015846, 19015847);
-        $InitializeCommonEvent(0, 90015012, 19015840, 7511);
-        $InitializeCommonEvent(0, 90015022, 19015842, 7511);
-        $InitializeCommonEvent(0, 90015022, 19015843, 7511);
-        $InitializeCommonEvent(0, 90015022, 19015844, 7511);
-        $InitializeCommonEvent(0, 90015022, 19015845, 7511);
-        $InitializeCommonEvent(0, 90015022, 19015846, 7511);
-        $InitializeCommonEvent(0, 90015022, 19015847, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 99075485, 19010840, 19000270);
+        InitializeCommonEvent(0, 90075902, 19015840, 0, 0);
+        InitializeCommonEvent(0, 90075902, 19015842, 19015843, 19015844);
+        InitializeCommonEvent(0, 90075902, 19015845, 19015846, 19015847);
+        InitializeCommonEvent(0, 90015012, 19015840, 7511);
+        InitializeCommonEvent(0, 90015022, 19015842, 7511);
+        InitializeCommonEvent(0, 90015022, 19015843, 7511);
+        InitializeCommonEvent(0, 90015022, 19015844, 7511);
+        InitializeCommonEvent(0, 90015022, 19015845, 7511);
+        InitializeCommonEvent(0, 90015022, 19015846, 7511);
+        InitializeCommonEvent(0, 90015022, 19015847, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 99075485, 19010840, 19000270);
         $InitializeEvent(0, 199075486, 19010840);
         $InitializeEvent(0, 190075950, 756000, 19010840, 5106, 0.5);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006840, 19010840, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006841, 19010840, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006842, 19010840, 5108, 0);
-        $InitializeCommonEvent(0, 99075440, 7511, 7512, 0, 19010840, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006840, 19010840, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006841, 19010840, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006842, 19010840, 5108, 0);
+        InitializeCommonEvent(0, 99075440, 7511, 7512, 0, 19010840, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19010840);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(14)) {
-        $InitializeCommonEvent(0, 90015012, 19015842, 7511);
-        $InitializeCommonEvent(0, 99075466, 19010840, 10002, 19010450, 110, 19011250, 19000250, 19000260);
-        $InitializeCommonEvent(0, 99075468, 19010840, 19010453, 113, 19011253, 19000250, 19000263);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010450, 19000260);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010453, 19000253);
-        $InitializeCommonEvent(0, 90015012, 19015843, 7511);
-        $InitializeCommonEvent(0, 99075466, 19010840, 10003, 19010451, 111, 19011251, 19000251, 19000261);
-        $InitializeCommonEvent(0, 99075468, 19010840, 19010454, 114, 19011254, 19000251, 19000264);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010451, 19000261);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010454, 19000254);
-        $InitializeCommonEvent(0, 90015012, 19015844, 7511);
-        $InitializeCommonEvent(0, 99075466, 19010840, 10004, 19010452, 112, 19011252, 19000252, 19000262);
-        $InitializeCommonEvent(0, 99075468, 19010840, 19010455, 115, 19011255, 19000252, 19000265);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010452, 19000262);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010455, 19000255);
-        $InitializeCommonEvent(0, 90015012, 19015845, 7511);
-        $InitializeCommonEvent(0, 99075466, 19010840, 10005, 19010460, 116, 19011350, 19000350, 19000360);
-        $InitializeCommonEvent(0, 99075468, 19010840, 19010463, 119, 19011353, 19000350, 19000363);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010460, 19000360);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010463, 19000353);
-        $InitializeCommonEvent(0, 90015012, 19015846, 7511);
-        $InitializeCommonEvent(0, 99075466, 19010840, 10006, 19010461, 117, 19011351, 19000351, 19000361);
-        $InitializeCommonEvent(0, 99075468, 19010840, 19010464, 120, 19011354, 19000351, 19000364);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010461, 19000361);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010464, 19000354);
-        $InitializeCommonEvent(0, 90015012, 19015847, 7511);
-        $InitializeCommonEvent(0, 99075466, 19010840, 10007, 19010462, 118, 19011352, 19000352, 19000362);
-        $InitializeCommonEvent(0, 99075468, 19010840, 19010465, 121, 19011355, 19000352, 19000365);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010462, 19000362);
-        $InitializeCommonEvent(0, 99075467, 19010840, 19010465, 19000355);
+        InitializeCommonEvent(0, 90015012, 19015842, 7511);
+        InitializeCommonEvent(0, 99075466, 19010840, 10002, 19010450, 110, 19011250, 19000250, 19000260);
+        InitializeCommonEvent(0, 99075468, 19010840, 19010453, 113, 19011253, 19000250, 19000263);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010450, 19000260);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010453, 19000253);
+        InitializeCommonEvent(0, 90015012, 19015843, 7511);
+        InitializeCommonEvent(0, 99075466, 19010840, 10003, 19010451, 111, 19011251, 19000251, 19000261);
+        InitializeCommonEvent(0, 99075468, 19010840, 19010454, 114, 19011254, 19000251, 19000264);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010451, 19000261);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010454, 19000254);
+        InitializeCommonEvent(0, 90015012, 19015844, 7511);
+        InitializeCommonEvent(0, 99075466, 19010840, 10004, 19010452, 112, 19011252, 19000252, 19000262);
+        InitializeCommonEvent(0, 99075468, 19010840, 19010455, 115, 19011255, 19000252, 19000265);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010452, 19000262);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010455, 19000255);
+        InitializeCommonEvent(0, 90015012, 19015845, 7511);
+        InitializeCommonEvent(0, 99075466, 19010840, 10005, 19010460, 116, 19011350, 19000350, 19000360);
+        InitializeCommonEvent(0, 99075468, 19010840, 19010463, 119, 19011353, 19000350, 19000363);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010460, 19000360);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010463, 19000353);
+        InitializeCommonEvent(0, 90015012, 19015846, 7511);
+        InitializeCommonEvent(0, 99075466, 19010840, 10006, 19010461, 117, 19011351, 19000351, 19000361);
+        InitializeCommonEvent(0, 99075468, 19010840, 19010464, 120, 19011354, 19000351, 19000364);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010461, 19000361);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010464, 19000354);
+        InitializeCommonEvent(0, 90015012, 19015847, 7511);
+        InitializeCommonEvent(0, 99075466, 19010840, 10007, 19010462, 118, 19011352, 19000352, 19000362);
+        InitializeCommonEvent(0, 99075468, 19010840, 19010465, 121, 19011355, 19000352, 19000365);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010462, 19000362);
+        InitializeCommonEvent(0, 99075467, 19010840, 19010465, 19000355);
         InitializeCommonEvent(0, 99075471, 19010840, 19000250, 19000260, 19000251, 19000261, 19000252, 19000262, 19000350, 19000360, 19000351, 19000361, 19000352, 19000362);
-        $InitializeCommonEvent(0, 99075470, 19010840, 49691, 8002);
+        InitializeCommonEvent(0, 99075470, 19010840, 49691, 8002);
     }
     if (IsMapVariation(14)) {
-        $InitializeCommonEvent(0, 99075480, 19010840, 20000, 49690, 49702, 0, 49703, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 20000, 49690, 446, 0, 447, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 20000, 49690, 49702, 0, 49703, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 20000, 49690, 446, 0, 447, 1);
         if (!IsPlayerNo(1)) {
-            $InitializeCommonEvent(0, 99075481, 19010840, 10002);
+            InitializeCommonEvent(0, 99075481, 19010840, 10002);
         }
         if (!IsPlayerNo(2)) {
-            $InitializeCommonEvent(0, 99075481, 19010840, 10003);
+            InitializeCommonEvent(0, 99075481, 19010840, 10003);
         }
         if (!IsPlayerNo(3)) {
-            $InitializeCommonEvent(0, 99075481, 19010840, 10004);
+            InitializeCommonEvent(0, 99075481, 19010840, 10004);
         }
         if (!IsPlayerNo(4)) {
-            $InitializeCommonEvent(0, 99075481, 19010840, 10005);
+            InitializeCommonEvent(0, 99075481, 19010840, 10005);
         }
         if (!IsPlayerNo(5)) {
-            $InitializeCommonEvent(0, 99075481, 19010840, 10006);
+            InitializeCommonEvent(0, 99075481, 19010840, 10006);
         }
         if (!IsPlayerNo(6)) {
-            $InitializeCommonEvent(0, 99075481, 19010840, 10007);
+            InitializeCommonEvent(0, 99075481, 19010840, 10007);
         }
-        $InitializeCommonEvent(0, 99075470, 19010840, 49690, 8001);
+        InitializeCommonEvent(0, 99075470, 19010840, 49690, 8001);
     }
     if (IsMapVariation(14)) {
-        $InitializeCommonEvent(0, 99075480, 19010840, 20000, 49692, 49720, 49721, 0, 0);
-        $InitializeCommonEvent(0, 99075480, 19010840, 20000, 49692, 49723, 0, 49724, 1);
-        $InitializeCommonEvent(0, 99075470, 19010840, 49692, 8003);
+        InitializeCommonEvent(0, 99075480, 19010840, 20000, 49692, 49720, 49721, 0, 0);
+        InitializeCommonEvent(0, 99075480, 19010840, 20000, 49692, 49723, 0, 49724, 1);
+        InitializeCommonEvent(0, 99075470, 19010840, 49692, 8003);
     }
     if (IsMapVariation(14)) {
-        $InitializeCommonEvent(0, 99075480, 19010840, 20000, 49693, 49731, 0, 49733, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010450, 49693, 49731, 0, 49733, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010451, 49693, 49731, 0, 49733, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010452, 49693, 49731, 0, 49733, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010460, 49693, 49731, 0, 49733, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010461, 49693, 49731, 0, 49733, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010462, 49693, 49731, 0, 49733, 1);
-        $InitializeCommonEvent(0, 99075470, 19010840, 49693, 8004);
+        InitializeCommonEvent(0, 99075480, 19010840, 20000, 49693, 49731, 0, 49733, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010450, 49693, 49731, 0, 49733, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010451, 49693, 49731, 0, 49733, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010452, 49693, 49731, 0, 49733, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010460, 49693, 49731, 0, 49733, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010461, 49693, 49731, 0, 49733, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010462, 49693, 49731, 0, 49733, 1);
+        InitializeCommonEvent(0, 99075470, 19010840, 49693, 8004);
     }
     if (IsMapVariation(14)) {
-        $InitializeCommonEvent(0, 99075480, 19010840, 20000, 49694, 49742, 0, 49747, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 20000, 49694, 49746, 0, 49748, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010450, 49694, 49741, 0, 49749, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010451, 49694, 49741, 0, 49749, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010452, 49694, 49741, 0, 49749, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010460, 49694, 49741, 0, 49749, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010461, 49694, 49741, 0, 49749, 1);
-        $InitializeCommonEvent(0, 99075480, 19010840, 19010462, 49694, 49741, 0, 49749, 1);
-        $InitializeCommonEvent(0, 99075470, 19010840, 49694, 8005);
+        InitializeCommonEvent(0, 99075480, 19010840, 20000, 49694, 49742, 0, 49747, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 20000, 49694, 49746, 0, 49748, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010450, 49694, 49741, 0, 49749, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010451, 49694, 49741, 0, 49749, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010452, 49694, 49741, 0, 49749, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010460, 49694, 49741, 0, 49749, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010461, 49694, 49741, 0, 49749, 1);
+        InitializeCommonEvent(0, 99075480, 19010840, 19010462, 49694, 49741, 0, 49749, 1);
+        InitializeCommonEvent(0, 99075470, 19010840, 49694, 8005);
     }
     if (IsMapVariation(14)) {
-        $InitializeCommonEvent(0, 99075483, 19010840);
-        $InitializeCommonEvent(0, 99075470, 19010840, 49695, 8006);
-        $InitializeCommonEvent(0, 99075482, 19010840);
+        InitializeCommonEvent(0, 99075483, 19010840);
+        InitializeCommonEvent(0, 99075470, 19010840, 49695, 8006);
+        InitializeCommonEvent(0, 99075482, 19010840);
     }
     if (IsMapVariation(15)) {
-        $InitializeCommonEvent(0, 90075900, 19010850);
+        InitializeCommonEvent(0, 90075900, 19010850);
         $InitializeEvent(0, 190075901, 19010850, 760000, 907610000);
-        $InitializeCommonEvent(0, 90075902, 19010850, 0, 0);
-        $InitializeCommonEvent(0, 90075500, 19010850);
-        $InitializeCommonEvent(0, 90075950, 760000, 19010850, 5106, 0);
-        $InitializeCommonEvent(0, 90075551, 19010850);
-        $InitializeCommonEvent(0, 90075510, 19010850);
-        $InitializeCommonEvent(0, 90015012, 19010850, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006850, 19010850, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006851, 19010850, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006852, 19010850, 5108, 0);
-        $InitializeCommonEvent(0, 90075520, 7511, 7512, 0, 19010850, 5108, 0);
+        InitializeCommonEvent(0, 90075902, 19010850, 0, 0);
+        InitializeCommonEvent(0, 90075500, 19010850);
+        InitializeCommonEvent(0, 90075950, 760000, 19010850, 5106, 0);
+        InitializeCommonEvent(0, 90075551, 19010850);
+        InitializeCommonEvent(0, 90075510, 19010850);
+        InitializeCommonEvent(0, 90015012, 19010850, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006850, 19010850, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006851, 19010850, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006852, 19010850, 5108, 0);
+        InitializeCommonEvent(0, 90075520, 7511, 7512, 0, 19010850, 5108, 0);
         
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19010850);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(16)) {
-        $InitializeCommonEvent(0, 90075900, 19010860);
+        InitializeCommonEvent(0, 90075900, 19010860);
         $InitializeEvent(0, 190075901, 19010860, 490000, 907620000);
-        $InitializeCommonEvent(0, 90075902, 19010860, 0, 0);
-        $InitializeCommonEvent(0, 90075600, 19010860, 19002860);
+        InitializeCommonEvent(0, 90075902, 19010860, 0, 0);
+        InitializeCommonEvent(0, 90075600, 19010860, 19002860);
         $InitializeEvent(0, 190075651, 19010860);
-        $InitializeCommonEvent(0, 90015012, 19010860, 7511);
-        $InitializeCommonEvent(0, 90015020, 7511, 7512);
+        InitializeCommonEvent(0, 90015012, 19010860, 7511);
+        InitializeCommonEvent(0, 90015020, 7511, 7512);
         $InitializeEvent(0, 190075610, 19010860);
-        $InitializeCommonEvent(0, 90075660, 19010860, 51001, 51002, 51030, 15, 120, 10, NPCPartType.Part1, 11, NPCPartType.Part6, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
-        $InitializeCommonEvent(0, 90075660, 19010860, 51003, 51004, 51031, 16, 130, 20, NPCPartType.Part2, 21, NPCPartType.Part3, 22, NPCPartType.Part4, 23, NPCPartType.Part5, 24, NPCPartType.Part8);
-        $InitializeCommonEvent(0, 90075660, 19010860, 51005, 51006, 51032, 17, 60, 30, NPCPartType.Part9, 31, NPCPartType.Part10, 32, NPCPartType.Part11, 33, NPCPartType.Part12, 0, NPCPartType.Part1);
-        $InitializeCommonEvent(0, 90075660, 19010860, 51007, 51008, 51033, 18, 120, 40, NPCPartType.Part7, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
+        InitializeCommonEvent(0, 90075660, 19010860, 51001, 51002, 51030, 15, 120, 10, 1, 11, 6, 0, 1, 0, 1, 0, 1);
+        InitializeCommonEvent(0, 90075660, 19010860, 51003, 51004, 51031, 16, 130, 20, 2, 21, 3, 22, 4, 23, 5, 24, 8);
+        InitializeCommonEvent(0, 90075660, 19010860, 51005, 51006, 51032, 17, 60, 30, 9, 31, 10, 32, 11, 33, 12, 0, 1);
+        InitializeCommonEvent(0, 90075660, 19010860, 51007, 51008, 51033, 18, 120, 40, 7, 0, 1, 0, 1, 0, 1, 0, 1);
         $InitializeEvent(0, 190075652, 19010860, 5105, 5106);
         $InitializeEvent(0, 190075950, 490000, 19010860, 5106, 0);
         
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006860, 19010860, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006861, 19010860, 5108, 0);
-        $InitializeCommonEvent(0, 90075910, 7511, 7512, 19006862, 19010860, 5108, 0);
-        $InitializeCommonEvent(0, 99075620, 7511, 7512, 0, 19010860, 5108, 0);
-        $InitializeCommonEvent(0, 90075602, 19010860);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006860, 19010860, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006861, 19010860, 5108, 0);
+        InitializeCommonEvent(0, 90075910, 7511, 7512, 19006862, 19010860, 5108, 0);
+        InitializeCommonEvent(0, 99075620, 7511, 7512, 0, 19010860, 5108, 0);
+        InitializeCommonEvent(0, 90075602, 19010860);
         
         $InitializeEvent(0, 19110900);  // 注册连战事件
         $InitializeEvent(0, 19210900, 19010860);
@@ -812,50 +812,50 @@ $Event(0, Default, function() {
     $InitializeEvent(0, 19002502);
     RegisterBonfire(19001500, 0, 5);
     RegisterBonfire(19001501, 0, 5);
-    $InitializeCommonEvent(0, 90075920, 0, 150, 9070);
-    $InitializeCommonEvent(1, 90075920, 1, 151, 9071);
-    $InitializeCommonEvent(2, 90075920, 2, 152, 9072);
-    $InitializeCommonEvent(3, 90075920, 3, 153, 9073);
-    $InitializeCommonEvent(4, 90075920, 4, 154, 9074);
-    $InitializeCommonEvent(5, 90075920, 5, 155, 9075);
-    $InitializeCommonEvent(6, 90075920, 6, 156, 9076);
-    $InitializeCommonEvent(0, 90075931);
-    $InitializeCommonEvent(0, 90015200, 9307, 0);
-    $InitializeCommonEvent(0, 90015200, 9308, 1);
-    $InitializeCommonEvent(0, 90015200, 9309, 2);
-    $InitializeCommonEvent(0, 90015200, 9310, 3);
-    $InitializeCommonEvent(0, 90015200, 9311, 4);
-    $InitializeCommonEvent(0, 90015200, 9312, 5);
-    $InitializeCommonEvent(0, 90015200, 9313, 6);
-    $InitializeCommonEvent(0, 90015200, 9307, 10);
-    $InitializeCommonEvent(0, 90015200, 9308, 11);
-    $InitializeCommonEvent(0, 90015200, 9309, 12);
-    $InitializeCommonEvent(0, 90015200, 9310, 13);
-    $InitializeCommonEvent(0, 90015200, 9311, 14);
-    $InitializeCommonEvent(0, 90015200, 9312, 15);
-    $InitializeCommonEvent(0, 90015200, 9313, 16);
-    $InitializeCommonEvent(0, 90015201, 9315, 0, 150);
-    $InitializeCommonEvent(0, 90015201, 9315, 1, 151);
-    $InitializeCommonEvent(0, 90015201, 9315, 2, 152);
-    $InitializeCommonEvent(0, 90015201, 9315, 3, 153);
-    $InitializeCommonEvent(0, 90015201, 9315, 4, 154);
-    $InitializeCommonEvent(0, 90015201, 9315, 5, 155);
-    $InitializeCommonEvent(0, 90015201, 9315, 6, 156);
-    $InitializeCommonEvent(0, 90015201, 9315, 10, 150);
-    $InitializeCommonEvent(0, 90015201, 9315, 11, 151);
-    $InitializeCommonEvent(0, 90015201, 9315, 12, 152);
-    $InitializeCommonEvent(0, 90015201, 9315, 13, 153);
-    $InitializeCommonEvent(0, 90015201, 9315, 14, 154);
-    $InitializeCommonEvent(0, 90015201, 9315, 15, 155);
-    $InitializeCommonEvent(0, 90015201, 9315, 16, 156);
-    $InitializeCommonEvent(0, 90085027, 203, 4, 9200, Hero.Guardian);
-    $InitializeCommonEvent(0, 90085027, 303, 5, 9211, Hero.Ironeye);
-    $InitializeCommonEvent(0, 90085027, 601, 0, 9214, Hero.Revenant);
-    $InitializeCommonEvent(0, 90085027, 601, 5, 9214, Hero.Revenant);
-    $InitializeCommonEvent(0, 90085027, 203, 14, 9200, Hero.Guardian);
-    $InitializeCommonEvent(0, 90085027, 303, 15, 9211, Hero.Ironeye);
-    $InitializeCommonEvent(0, 90085027, 601, 10, 9214, Hero.Revenant);
-    $InitializeCommonEvent(0, 90085027, 601, 15, 9214, Hero.Revenant);
+    InitializeCommonEvent(0, 90075920, 0, 150, 9070);
+    InitializeCommonEvent(1, 90075920, 1, 151, 9071);
+    InitializeCommonEvent(2, 90075920, 2, 152, 9072);
+    InitializeCommonEvent(3, 90075920, 3, 153, 9073);
+    InitializeCommonEvent(4, 90075920, 4, 154, 9074);
+    InitializeCommonEvent(5, 90075920, 5, 155, 9075);
+    InitializeCommonEvent(6, 90075920, 6, 156, 9076);
+    InitializeCommonEvent(0, 90075931, 0);
+    InitializeCommonEvent(0, 90015200, 9307, 0);
+    InitializeCommonEvent(0, 90015200, 9308, 1);
+    InitializeCommonEvent(0, 90015200, 9309, 2);
+    InitializeCommonEvent(0, 90015200, 9310, 3);
+    InitializeCommonEvent(0, 90015200, 9311, 4);
+    InitializeCommonEvent(0, 90015200, 9312, 5);
+    InitializeCommonEvent(0, 90015200, 9313, 6);
+    InitializeCommonEvent(0, 90015200, 9307, 10);
+    InitializeCommonEvent(0, 90015200, 9308, 11);
+    InitializeCommonEvent(0, 90015200, 9309, 12);
+    InitializeCommonEvent(0, 90015200, 9310, 13);
+    InitializeCommonEvent(0, 90015200, 9311, 14);
+    InitializeCommonEvent(0, 90015200, 9312, 15);
+    InitializeCommonEvent(0, 90015200, 9313, 16);
+    InitializeCommonEvent(0, 90015201, 9315, 0, 150);
+    InitializeCommonEvent(0, 90015201, 9315, 1, 151);
+    InitializeCommonEvent(0, 90015201, 9315, 2, 152);
+    InitializeCommonEvent(0, 90015201, 9315, 3, 153);
+    InitializeCommonEvent(0, 90015201, 9315, 4, 154);
+    InitializeCommonEvent(0, 90015201, 9315, 5, 155);
+    InitializeCommonEvent(0, 90015201, 9315, 6, 156);
+    InitializeCommonEvent(0, 90015201, 9315, 10, 150);
+    InitializeCommonEvent(0, 90015201, 9315, 11, 151);
+    InitializeCommonEvent(0, 90015201, 9315, 12, 152);
+    InitializeCommonEvent(0, 90015201, 9315, 13, 153);
+    InitializeCommonEvent(0, 90015201, 9315, 14, 154);
+    InitializeCommonEvent(0, 90015201, 9315, 15, 155);
+    InitializeCommonEvent(0, 90015201, 9315, 16, 156);
+    InitializeCommonEvent(0, 90085027, 262347, 9200, 2);
+    InitializeCommonEvent(0, 90085027, 327983, 9211, 3);
+    InitializeCommonEvent(0, 90085027, 601, 9214, 6);
+    InitializeCommonEvent(0, 90085027, 328281, 9214, 6);
+    InitializeCommonEvent(0, 90085027, 917707, 9200, 2);
+    InitializeCommonEvent(0, 90085027, 983343, 9211, 3);
+    InitializeCommonEvent(0, 90085027, 655961, 9214, 6);
+    InitializeCommonEvent(0, 90085027, 983641, 9214, 6);
 });
 
 $Event(50, Default, function() {
@@ -1604,6 +1604,7 @@ $Event(19110900, Default, function()
     SetNetworkconnectedEventFlagID(19002955, OFF);   // 连战夜王开始初始化FLAG
     SetNetworkconnectedEventFlagID(19002956, OFF);   // 连战夜王初始化成功FLAG
         SetNetworkconnectedEventFlagID(19300002, OFF);   // endless: first round done
+    SetNetworkconnectedEventFlagID(19300999, OFF);   // endless: never set (loop stop)
     SetNetworkconnectedEventFlagID(19300101, OFF);   // endless: kill counter
     SetNetworkconnectedEventFlagID(19300102, OFF);   // endless: kill counter
     SetNetworkconnectedEventFlagID(19300103, OFF);   // endless: kill counter
@@ -1694,8 +1695,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小狼入侵: EntityID: 19210800  NameID:907500000
     if (RandomAppearLot(19210800)) {
-        $InitializeCommonEvent(0, 90075100, 19210800);
-        $InitializeCommonEvent(0, 90015012, 19210800, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210800);
+        InitializeCommonEvent(0, 90015012, 19210800, 7511);        
         $InitializeEvent(0, 19212818, 19210800, 907500000, 20029);
         $InitializeEvent(0, 19212819, 19210800);
         $InitializeEvent(0, 19212820, 19210800, 3034);
@@ -1710,8 +1711,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小嘴入侵: EntityID: 19210810  NameID:907510000
     if (RandomAppearLot(19210810)) {
-        $InitializeCommonEvent(0, 90075100, 19210810);
-        $InitializeCommonEvent(0, 90015012, 19210810, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210810);
+        InitializeCommonEvent(0, 90015012, 19210810, 7511);        
         $InitializeEvent(0, 19212818, 19210810, 907510000, 20029);
         $InitializeEvent(0, 19212819, 19210810);
         $InitializeEvent(0, 19219920, 19214191);
@@ -1725,8 +1726,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小羊入侵: EntityID: 19210840  NameID:907550000
     if (RandomAppearLot(19210840)) {
-        $InitializeCommonEvent(0, 90075100, 19210840);
-        $InitializeCommonEvent(0, 90015012, 19210840, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210840);
+        InitializeCommonEvent(0, 90015012, 19210840, 7511);        
         $InitializeEvent(0, 19212818, 19210840, 907550000, 20029);
         $InitializeEvent(0, 19212819, 19210840);
         $InitializeEvent(0, 19219920, 19214191);
@@ -1740,8 +1741,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小马入侵: EntityID: 19210850  NameID:907610000
     if (RandomAppearLot(19210850)) {
-        $InitializeCommonEvent(0, 90075100, 19210850);
-        $InitializeCommonEvent(0, 90015012, 19210850, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210850);
+        InitializeCommonEvent(0, 90015012, 19210850, 7511);        
         $InitializeEvent(0, 19212818, 19210850, 907610000, 20029);
         $InitializeEvent(0, 19212819, 19210850);
         $InitializeEvent(0, 19219920, 19214191);
@@ -1755,8 +1756,8 @@ $Event(19210900, Default, function(chrEntityId)
     
     // 小龙入侵: EntityID: 19210860  NameID:907620000
     if (RandomAppearLot(19210860)) {
-        $InitializeCommonEvent(0, 90075100, 19210860);
-        $InitializeCommonEvent(0, 90015012, 19210860, 7511);        
+        InitializeCommonEvent(0, 90075100, 19210860);
+        InitializeCommonEvent(0, 90015012, 19210860, 7511);        
         $InitializeEvent(0, 19212818, 19210860, 907620000, 20029);
         $InitializeEvent(0, 19212819, 19210860);
         $InitializeEvent(0, 19219920, 19214191);
@@ -1782,26 +1783,28 @@ $Event(19113900, Default, function() {
     $InitializeEvent(0, 190075851, 19111803, 907580002);
     
     $InitializeEvent(0, 19309000, 19111803, 758000, 907580001, 19300020);
-    $InitializeCommonEvent(0, 90075902, 19005800, 19111803, 0);
-    $InitializeCommonEvent(0, 90015012, 19111803, 19002953);
-    $InitializeCommonEvent(0, 90075710, 19111803);
+    InitializeCommonEvent(0, 90075902, 19005800, 19111803, 0);
+    InitializeCommonEvent(0, 90015012, 19111803, 19002953);
+    InitializeCommonEvent(0, 90075710, 19111803);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
 // ================= 连战BOSS【圣牢布】激活相关事件相关事件===========
-$Event(19114900, Default, function() {
+$Event(19114900, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300020));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19111803);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300020));
+
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19111803);
 
     EnableCharacter(19111803);
         WaitFixedTimeFrames(1);
@@ -1821,9 +1824,8 @@ $Event(19114900, Default, function() {
     
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 // ================= 连战BOSS【米塔恩】初始化相关事件===========
@@ -1833,33 +1835,35 @@ $Event(19113901, Default, function() {
     $InitializeEvent(0, 190075900, 19110880);
     
     $InitializeEvent(0, 19309000, 19110880, 760000, 907610001, 19300021);
-    $InitializeCommonEvent(0, 90075902, 19110880, 0, 0);
-    $InitializeCommonEvent(0, 90075500, 19110880);
-    $InitializeCommonEvent(0, 90015012, 19110880, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90015008, 19002953, 7512, 760000, 19110880, 5105, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110880, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110880, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110880, 5108, 0);
+    InitializeCommonEvent(0, 90075902, 19110880, 0, 0);
+    InitializeCommonEvent(0, 90075500, 19110880);
+    InitializeCommonEvent(0, 90015012, 19110880, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90015008, 19002953, 7512, 760000, 19110880, 5105, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110880, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110880, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110880, 5108, 0);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
 // ================= 连战BOSS【米塔恩】激活相关事件相关事件===========
-$Event(19114901, Default, function() {
+$Event(19114901, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300021));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110880);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300021));
 
-    $InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110880, 5108, 0);
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110880);
+
+    InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110880, 5108, 0);
         DisableCharacterAI(19110880);
         WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
@@ -1871,9 +1875,8 @@ $Event(19114901, Default, function() {
         WaitFixedTimeSeconds(1);
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 // ================= 连战BOSS【王三狼】初始化相关事件===========
@@ -1884,22 +1887,22 @@ $Event(19113902, Default, function() {
 
     $InitializeEvent(0, 19309000, 19110800, 750000, 907500000, 19300022);
     $InitializeEvent(0, 190075902, 19110800, 19115801, 0);
-    $InitializeCommonEvent(0, 90015012, 19110800, 19002953);
-    $InitializeCommonEvent(1, 90015012, 19115801, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90075000, 19110800, 19115801);
-    $InitializeCommonEvent(0, 90075002, 19110800, 19110801, 19110802);
-    $InitializeCommonEvent(0, 90075005, 19110800, 19110801, 72, 5900);
-    $InitializeCommonEvent(0, 90075005, 19110800, 19110802, 2, 5901);
-    $InitializeCommonEvent(0, 90075006, 19110800, 19110801);
-    $InitializeCommonEvent(0, 90075006, 19110800, 19110802);
-    $InitializeCommonEvent(0, 90075060, 19110800, 19110801);
-    $InitializeCommonEvent(0, 90075060, 19110800, 19110802);
-    $InitializeCommonEvent(0, 90075070, 19110800, 19110801, 72, 5908, 51320);
-    $InitializeCommonEvent(0, 90075070, 19110800, 19110802, 72, 5909, 51321);
-    $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19110800, 0, 1);
-    $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19110800, 0, 1);
-    $InitializeCommonEvent(0, 90075910, 6001, 7512, 19006802, 19110800, 0, 1);
+    InitializeCommonEvent(0, 90015012, 19110800, 19002953);
+    InitializeCommonEvent(1, 90015012, 19115801, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90075000, 19110800, 19115801);
+    InitializeCommonEvent(0, 90075002, 19110800, 19110801, 19110802);
+    InitializeCommonEvent(0, 90075005, 19110800, 19110801, 72, 5900);
+    InitializeCommonEvent(0, 90075005, 19110800, 19110802, 2, 5901);
+    InitializeCommonEvent(0, 90075006, 19110800, 19110801);
+    InitializeCommonEvent(0, 90075006, 19110800, 19110802);
+    InitializeCommonEvent(0, 90075060, 19110800, 19110801);
+    InitializeCommonEvent(0, 90075060, 19110800, 19110802);
+    InitializeCommonEvent(0, 90075070, 19110800, 19110801, 72, 5908, 51320);
+    InitializeCommonEvent(0, 90075070, 19110800, 19110802, 72, 5909, 51321);
+    InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19110800, 0, 1065353216);
+    InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19110800, 0, 1065353216);
+    InitializeCommonEvent(0, 90075910, 6001, 7512, 19006802, 19110800, 0, 1065353216);
     $InitializeEvent(0, 190075008, 6001, 7512, 0, 19110800, 0, 1);
 
     SetNetworkconnectedEventFlagID(19002956, ON);
@@ -1907,18 +1910,20 @@ $Event(19113902, Default, function() {
 });
 
 // ================= 连战BOSS【王三狼】激活相关事件相关事件===========
-$Event(19114902, Default, function() {
+$Event(19114902, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300022));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110800);
-        EnableCharacter(19115801);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300022));
+
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110800);
+    EnableCharacter(19115801);
 
     WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
@@ -1928,9 +1933,8 @@ $Event(19114902, Default, function() {
         WaitFixedTimeSeconds(1);
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 
@@ -1940,34 +1944,36 @@ $Event(19113903, Default, function() {
     $InitializeEvent(0, 190075551, 19110850);
     $InitializeEvent(0, 290075950, 760000, 19110850, 5106, 0);
 
-    $InitializeCommonEvent(0, 90015012, 19110850, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90075902, 19110850, 0, 0);
+    InitializeCommonEvent(0, 90015012, 19110850, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90075902, 19110850, 0, 0);
     $InitializeEvent(0, 19309000, 19110850, 760000, 907610000, 19300023);
-    $InitializeCommonEvent(0, 90075500, 19110850);
-    $InitializeCommonEvent(0, 90075510, 19110850);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110850, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110850, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110850, 5108, 0);
+    InitializeCommonEvent(0, 90075500, 19110850);
+    InitializeCommonEvent(0, 90075510, 19110850);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006850, 19110850, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006851, 19110850, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006852, 19110850, 5108, 0);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
 // ================= 连战BOSS【王人马】激活相关事件相关事件===========
-$Event(19114903, Default, function() {
+$Event(19114903, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300023));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110850);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300023));
 
-    $InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110850, 0, 1);
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110850);
+
+    InitializeCommonEvent(0, 90075520, 19002953, 7512, 0, 19110850, 0, 1065353216);
         WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
         SetCameraAngle(5.42, 0);
@@ -1977,9 +1983,8 @@ $Event(19114903, Default, function() {
 
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 // ================= 连战BOSS【王冰龙】初始化相关事件===========
@@ -1988,41 +1993,43 @@ $Event(19113904, Default, function() {
     $InitializeEvent(0, 191175651, 19110860);
     $InitializeEvent(0, 290075950, 490000, 19110860, 5106, 0);
 
-    $InitializeCommonEvent(0, 90015012, 19110860, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90075902, 19110860, 0, 0);
+    InitializeCommonEvent(0, 90015012, 19110860, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90075902, 19110860, 0, 0);
     $InitializeEvent(0, 19309000, 19110860, 490000, 907620000, 19300024);
-    $InitializeCommonEvent(0, 90075600, 19110860, 19102860);
-    $InitializeCommonEvent(0, 90075610, 19110860);
+    InitializeCommonEvent(0, 90075600, 19110860, 19102860);
+    InitializeCommonEvent(0, 90075610, 19110860);
     $InitializeEvent(0, 191175652, 19110860, 5105, 5106);
-    $InitializeCommonEvent(0, 90075602, 19110860);
-    $InitializeCommonEvent(0, 90075660, 19110860, 51001, 51002, 51030, 15, 120, 10, NPCPartType.Part1, 11, NPCPartType.Part6, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
-    $InitializeCommonEvent(0, 90075660, 19110860, 51003, 51004, 51031, 16, 130, 20, NPCPartType.Part2, 21, NPCPartType.Part3, 22, NPCPartType.Part4, 23, NPCPartType.Part5, 24, NPCPartType.Part8);
-    $InitializeCommonEvent(0, 90075660, 19110860, 51005, 51006, 51032, 17, 60, 30, NPCPartType.Part9, 31, NPCPartType.Part10, 32, NPCPartType.Part11, 33, NPCPartType.Part12, 0, NPCPartType.Part1);
-    $InitializeCommonEvent(0, 90075660, 19110860, 51007, 51008, 51033, 18, 120, 40, NPCPartType.Part7, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1, 0, NPCPartType.Part1);
+    InitializeCommonEvent(0, 90075602, 19110860);
+    InitializeCommonEvent(0, 90075660, 19110860, 51001, 51002, 51030, 15, 120, 10, 1, 11, 6, 0, 1, 0, 1, 0, 1);
+    InitializeCommonEvent(0, 90075660, 19110860, 51003, 51004, 51031, 16, 130, 20, 2, 21, 3, 22, 4, 23, 5, 24, 8);
+    InitializeCommonEvent(0, 90075660, 19110860, 51005, 51006, 51032, 17, 60, 30, 9, 31, 10, 32, 11, 33, 12, 0, 1);
+    InitializeCommonEvent(0, 90075660, 19110860, 51007, 51008, 51033, 18, 120, 40, 7, 0, 1, 0, 1, 0, 1, 0, 1);
     
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006860, 19110860, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006861, 19110860, 5108, 0);
-    $InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006862, 19110860, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006860, 19110860, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006861, 19110860, 5108, 0);
+    InitializeCommonEvent(0, 90075910, 19002953, 7512, 19006862, 19110860, 5108, 0);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
 // ================= 连战BOSS【王冰龙】激活相关事件相关事件===========
-$Event(19114904, Default, function() {
+$Event(19114904, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300024));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110860);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300024));
 
-    $InitializeCommonEvent(0, 99075620, 19002953, 7512, 0, 19110860, 0, 1);
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110860);
+
+    InitializeCommonEvent(0, 99075620, 19002953, 7512, 0, 19110860, 0, 1065353216);
         WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
         SetCameraAngle(5.42, 0);
@@ -2031,9 +2038,8 @@ $Event(19114904, Default, function() {
         WaitFixedTimeSeconds(1);
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 // ================= 连战BOSS【垃圾王】初始化相关事件===========
@@ -2045,29 +2051,31 @@ $Event(19113905, Default, function() {
     $InitializeEvent(0, 190075780, 19110870, 16120220);
     $InitializeEvent(0, 190075773, 19110870, 16120220);
     $InitializeEvent(0, 190075774, 19110870, 16122890);
-    $InitializeCommonEvent(0, 90015012, 19110870, 19002953);
-    $InitializeCommonEvent(0, 90015020, 19002953, 7512);
-    $InitializeCommonEvent(0, 90075902, 19110870, 0, 0);
+    InitializeCommonEvent(0, 90015012, 19110870, 19002953);
+    InitializeCommonEvent(0, 90015020, 19002953, 7512);
+    InitializeCommonEvent(0, 90075902, 19110870, 0, 0);
     
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
 });
 
 // ================= 连战BOSS【垃圾王】激活相关事件相关事件===========
-$Event(19114905, Default, function() {
+$Event(19114905, Restart, function() {
+    // ===== ENDLESS GAUNTLET: one spawn per round =====
+    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        // wait until the round manager rolls this Nightlord
-        WaitFor(EventFlag(19002952) && EventFlag(19300025));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
+    }
 
-        // bring the boss back for this round (it was disabled by the death handler)
-        EnableCharacter(19110870);
+    // wait until the round manager rolls this Nightlord
+    WaitFor(EventFlag(19002952) && EventFlag(19300025));
 
-    $InitializeCommonEvent(0, 90075758);
-        $InitializeCommonEvent(0, 90075771, 19110870, 16126800, 16120220);
+    // bring the boss back for this round (it was disabled by the death handler)
+    EnableCharacter(19110870);
+
+    InitializeCommonEvent(0, 90075758, 0);
+        InitializeCommonEvent(0, 90075771, 19110870, 16126800, 16120220);
 
         EnableCharacter(19110870);
         DisableCharacterAI(19110870);
@@ -2075,7 +2083,7 @@ $Event(19114905, Default, function() {
         WaitFixedTimeFrames(1);
         WarpCharacterAndCopyFloor(19110870, TargetEntityType.Area, 19002910, -1, 19113910);
         ForceAnimationPlayback(19110870, 30029, true, false, false);
-        $InitializeCommonEvent(0, 90075760, 19110870);
+        InitializeCommonEvent(0, 90075760, 19110870);
         WaitFor(ElapsedSeconds(1));
         SetNetworkconnectedEventFlagID(19002955, ON);
         SetCameraAngle(5.42, 0);
@@ -2085,39 +2093,36 @@ $Event(19114905, Default, function() {
         WaitFixedTimeSeconds(2);
         SetNetworkconnectedEventFlagID(19002953, ON);
 
-        // round finished - wait for the death handler to clear the fight flag
-        WaitFor(!EventFlag(19002952));
-    }
+    // round finished - the death handler clears the fight flag
+    WaitFor(!EventFlag(19002952));
 });
 
 
 // =========重要：第一场夜王战结束后转连战夜王事件===========
 $Event(19002951, Restart, function() {
     // ===== ENDLESS GAUNTLET: round manager =====
-    // Replaces the original one-shot transition. Each round: warp the team into the
-    // arena, let the chained Nightlord spawn (flag 19002952), then wait until the
-    // fight is over (the death handler clears 19002952) and start the next round.
+    // This event is typed Restart, so the engine starts it over as soon as the body
+    // reaches its end: one pass of this body is one round.
     WaitFor(EventFlag(19002951));
-    while (true) {
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop the gauntlet
+    }
 
-        SetNetworkconnectedEventFlagID(19002952, OFF);
-        SetNetworkconnectedEventFlagID(19002953, OFF);
-        SetNetworkconnectedEventFlagID(19002955, OFF);
+    SetNetworkconnectedEventFlagID(19002952, OFF);
+    SetNetworkconnectedEventFlagID(19002953, OFF);
+    SetNetworkconnectedEventFlagID(19002955, OFF);
 
-        if (!EventFlag(19300002)) {
-            WaitFixedTimeSeconds(8);
-            DisplayTextEffectId(6015);
-            WaitFixedTimeSeconds(3);
-            SetNetworkconnectedEventFlagID(19300002, ON);
-        } else {
-            WaitFixedTimeSeconds(4);
-        }
+    if (!EventFlag(19300002)) {
+        WaitFixedTimeSeconds(8);
+        DisplayTextEffectId(6015);
+        WaitFixedTimeSeconds(3);
+        SetNetworkconnectedEventFlagID(19300002, ON);
+    } else {
+        WaitFixedTimeSeconds(4);
+    }
 
-        FadeToBlack(1, 1, true, -1);
-        WaitFor(ElapsedSeconds(1));
+    FadeToBlack(1, 1, true, -1);
+    WaitFor(ElapsedSeconds(1));
 
     if (IsPlayerNo(1)) {
         WarpCharacterAndCopyFloorUnknown200489(10002, TargetEntityType.Area, 19002920, -1, 10002, -1, -1);
@@ -2138,35 +2143,34 @@ $Event(19002951, Restart, function() {
         WarpCharacterAndCopyFloorUnknown200489(10007, TargetEntityType.Area, 19002925, -1, 10007, -1, -1);
     }
 
-        // ===== ENDLESS GAUNTLET: roll the Nightlord for this round =====
-        // The host sets one random flag of the six; they are network-connected, so
-        // every co-op peer sees the same pick.
-        BatchSetNetworkconnectedEventFlags(19300010, 19300015, OFF);
-        BatchSetNetworkconnectedEventFlags(19300020, 19300025, OFF);
-        if (HasMultiplayerState(MultiplayerState.Host) || PlayerIsInOwnWorld()) {
-            RandomlySetNetworkconnectedEventFlagInRange(19300010, 19300015, ON);
-        }
-        WaitFor(AnyBatchEventFlags(19300010, 19300015));
-        if (EventFlag(19300010)) {
-            SetNetworkconnectedEventFlagID(19300020, ON);
-        } else if (EventFlag(19300011)) {
-            SetNetworkconnectedEventFlagID(19300021, ON);
-        } else if (EventFlag(19300012)) {
-            SetNetworkconnectedEventFlagID(19300022, ON);
-        } else if (EventFlag(19300013)) {
-            SetNetworkconnectedEventFlagID(19300023, ON);
-        } else if (EventFlag(19300014)) {
-            SetNetworkconnectedEventFlagID(19300024, ON);
-        } else if (EventFlag(19300015)) {
-            SetNetworkconnectedEventFlagID(19300025, ON);
-        }
-
-        SetNetworkconnectedEventFlagID(19002952, ON);
-
-        // the death handler clears 19002952 when the current boss is dead
-        WaitFor(!EventFlag(19002952));
-        WaitFixedTimeSeconds(2);
+    // ===== ENDLESS GAUNTLET: roll the Nightlord for this round =====
+    // The host sets one random flag of the six; they are network-connected, so
+    // every co-op peer sees the same pick.
+    BatchSetNetworkconnectedEventFlags(19300010, 19300015, OFF);
+    BatchSetNetworkconnectedEventFlags(19300020, 19300025, OFF);
+    if (HasMultiplayerState(MultiplayerState.Host) || PlayerIsInOwnWorld()) {
+        RandomlySetNetworkconnectedEventFlagInRange(19300010, 19300015, ON);
     }
+    WaitFor(AnyBatchEventFlags(19300010, 19300015));
+    if (EventFlag(19300010)) {
+        SetNetworkconnectedEventFlagID(19300020, ON);
+    } else if (EventFlag(19300011)) {
+        SetNetworkconnectedEventFlagID(19300021, ON);
+    } else if (EventFlag(19300012)) {
+        SetNetworkconnectedEventFlagID(19300022, ON);
+    } else if (EventFlag(19300013)) {
+        SetNetworkconnectedEventFlagID(19300023, ON);
+    } else if (EventFlag(19300014)) {
+        SetNetworkconnectedEventFlagID(19300024, ON);
+    } else if (EventFlag(19300015)) {
+        SetNetworkconnectedEventFlagID(19300025, ON);
+    }
+
+    SetNetworkconnectedEventFlagID(19002952, ON);
+
+    // the death handler clears 19002952 when the current boss is dead
+    WaitFor(!EventFlag(19002952));
+    WaitFixedTimeSeconds(2);
 });
 
 // 重要：重写夜王死亡结算，让夜王死后不触发游戏结算
@@ -3113,92 +3117,89 @@ $Event(190075652, Restart, function(chrEntityId, spEffectId, spEffectId2) {
 });
 
 
-$Event(19309000, Default, function(chrEntityId, bgmBossConvParamId, logObjectId, selectionFlagId) {
+$Event(19309000, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId, selectionFlagId) {
     // ===== ENDLESS GAUNTLET: chained Nightlord death handler =====
     // Same defeat feedback as common_func 90075901, but it never sets flag 7512
     // (expedition finished). Instead it counts the kill, optionally replenishes
-    // consumables, and re-arms the round so the gauntlet continues.
-    while (true) {
-        // only the family that was rolled this round is hunted
-        WaitFor(EventFlag(19002953) && EventFlag(selectionFlagId));
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
-        WaitFor(HPRatio(chrEntityId) <= 0);
-        if (EventFlag(7512)) {
-            EndEvent();
-        }
-
-        SetNetworkconnectedEventFlagID(19002953, OFF);
-        SetNetworkconnectedEventFlagID(19002955, OFF);
-        SetNetworkconnectedEventFlagID(19002952, OFF);
-
-        DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
-        LinkToBossHealthBar(Disabled, logObjectId, 0);
-
-        SetSpEffect(10000, 509);
-        SetSpEffect(10001, 509);
-        SetSpEffect(10002, 509);
-        SetSpEffect(10003, 509);
-        SetSpEffect(10004, 509);
-        SetSpEffect(10005, 509);
-        SetSpEffect(10006, 509);
-        SetSpEffect(10007, 509);
-        SetSpEffect(10008, 509);
-        SetSpEffect(10009, 509);
-        SetSpEffect(10010, 509);
-
-        if (BossBGMPlaying(bgmBossConvParamId)) {
-            SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
-        }
-
-        IncrementTeamBossesKilled(1);
-        PlaySE(chrEntityId, SoundType.SFX, 888880000);
-        RecordUserDispLog(10111, 10000, LogObjectType.NpcName, logObjectId);
-
-        if (PlayerInMap(16, 0, 0, 0)) {
-            DisplayTextEffectId(1052);
-        }
-        if (PlayerInMap(16, 10, 0, 0)) {
-            DisplayTextEffectId(1053);
-        }
-        if (PlayerInMap(18, 0, 0, 0)) {
-            DisplayTextEffectId(1040);
-        }
-        if (PlayerInMap(19, 0, 0, 0)) {
-            DisplayTextEffectId(1051);
-        }
-
-        WaitFixedTimeSeconds(2);
-
-        if (EventFlag(19300101)) {
-            if (EventFlag(19300102)) {
-                // 3 bosses defeated: replenish consumables
-                SetSpEffect(10000, 509);
-                SetSpEffect(10001, 509);
-                SetSpEffect(10002, 509);
-                SetSpEffect(10003, 509);
-                SetSpEffect(10004, 509);
-                SetSpEffect(10005, 509);
-                SetSpEffect(10006, 509);
-                SetSpEffect(10007, 509);
-                SetSpEffect(10008, 509);
-                SetSpEffect(10009, 509);
-                SetSpEffect(10010, 509);
-                SetNetworkconnectedEventFlagID(19300101, OFF);
-                SetNetworkconnectedEventFlagID(19300102, OFF);
-            } else {
-                SetNetworkconnectedEventFlagID(19300102, ON);
-            }
-        } else {
-            SetNetworkconnectedEventFlagID(19300101, ON);
-        }
-
-        // leave a clean corpse so the next round spawns the boss at full health
-        DisableCharacterAI(chrEntityId);
-        DisableCharacterCollision(chrEntityId);
-        DisableCharacter(chrEntityId);
-
-        WaitFixedTimeSeconds(1);
+    // consumables, and lets the round manager start the next round.
+    // Typed Restart, so one pass of this body is one kill.
+    if (EventFlag(7512)) {
+        WaitFor(EventFlag(19300999));   // expedition finished - stop counting
     }
+
+    // only the family that was rolled this round is hunted
+    WaitFor(EventFlag(19002953) && EventFlag(selectionFlagId));
+    WaitFor(HPRatio(chrEntityId) <= 0);
+
+    SetNetworkconnectedEventFlagID(19002953, OFF);
+    SetNetworkconnectedEventFlagID(19002955, OFF);
+    SetNetworkconnectedEventFlagID(19002952, OFF);
+
+    DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
+    LinkToBossHealthBar(Disabled, logObjectId, 0);
+
+    SetSpEffect(10000, 509);
+    SetSpEffect(10001, 509);
+    SetSpEffect(10002, 509);
+    SetSpEffect(10003, 509);
+    SetSpEffect(10004, 509);
+    SetSpEffect(10005, 509);
+    SetSpEffect(10006, 509);
+    SetSpEffect(10007, 509);
+    SetSpEffect(10008, 509);
+    SetSpEffect(10009, 509);
+    SetSpEffect(10010, 509);
+
+    if (BossBGMPlaying(bgmBossConvParamId)) {
+        SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
+    }
+
+    IncrementTeamBossesKilled(1);
+    PlaySE(chrEntityId, SoundType.SFX, 888880000);
+    RecordUserDispLog(10111, 10000, LogObjectType.NpcName, logObjectId);
+
+    if (PlayerInMap(16, 0, 0, 0)) {
+        DisplayTextEffectId(1052);
+    }
+    if (PlayerInMap(16, 10, 0, 0)) {
+        DisplayTextEffectId(1053);
+    }
+    if (PlayerInMap(18, 0, 0, 0)) {
+        DisplayTextEffectId(1040);
+    }
+    if (PlayerInMap(19, 0, 0, 0)) {
+        DisplayTextEffectId(1051);
+    }
+
+    WaitFixedTimeSeconds(2);
+
+    if (EventFlag(19300101)) {
+        if (EventFlag(19300102)) {
+            // 3 bosses defeated: replenish consumables
+            SetSpEffect(10000, 509);
+            SetSpEffect(10001, 509);
+            SetSpEffect(10002, 509);
+            SetSpEffect(10003, 509);
+            SetSpEffect(10004, 509);
+            SetSpEffect(10005, 509);
+            SetSpEffect(10006, 509);
+            SetSpEffect(10007, 509);
+            SetSpEffect(10008, 509);
+            SetSpEffect(10009, 509);
+            SetSpEffect(10010, 509);
+            SetNetworkconnectedEventFlagID(19300101, OFF);
+            SetNetworkconnectedEventFlagID(19300102, OFF);
+        } else {
+            SetNetworkconnectedEventFlagID(19300102, ON);
+        }
+    } else {
+        SetNetworkconnectedEventFlagID(19300101, ON);
+    }
+
+    // leave a clean corpse so the next round spawns the boss at full health
+    DisableCharacterAI(chrEntityId);
+    DisableCharacterCollision(chrEntityId);
+    DisableCharacter(chrEntityId);
+
+    WaitFixedTimeSeconds(1);
 });
