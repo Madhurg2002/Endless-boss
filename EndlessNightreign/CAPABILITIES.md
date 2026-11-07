@@ -12,17 +12,19 @@ team is warped back into the arena and a new Nightlord spawns. This repeats inde
 until the run genuinely ends (team wipe, abort, or the game's own end-of-expedition path).
 
 **How:** the stock per-boss death handler (`common_func` event `90075901`, and `190075904` for
-垃圾王) is not registered any more; our replacement `19309000` plays the same defeat feedback
-but never sets flag `7512` ("expedition finished"), which is the flag that triggers the results
-screen. The round manager `19002951` and the six spawn events `19114900`–`19114905` are typed
-`Restart` instead of one-shot, so the engine re-runs their bodies once per round.
+垃圾王) is no longer registered for the chained Nightlords; that handler is what sets the
+"Nightlord is down" latch `7512` and finalises the expedition. Our replacement `19309000` plays
+the same defeat feedback but deliberately **never sets `7512`**, so the stock arena events that
+wind themselves down on it (`EndIfEventFlag … 7512 …`) simply keep running. The round manager
+`19002951` and the six spawn events `19114900`–`19114905` are typed `Restart` instead of
+one-shot, so the engine re-runs their bodies once per round.
 
 | Event | Role after the change |
 |---|---|
 | `19002951` | round manager: clear round flags → interlude → fade → warp → roll → wait for the boss to die |
 | `19114900`–`19114905` | per-family spawn: wait for this round's pick → re-enable the boss → entrance → fight live |
 | `19309000` | death handler: kill counter, refill, clear round flags, disable corpse, re-arm |
-| `7512` | never set by the chain — the only way out is the game ending the run |
+| `7512` | never set by the chain; the stock setters are untouched (field-boss deaths, `190075901`), and if one of those ever fires mid-chain the arena does wind down normally |
 
 ## 2. A different, randomly rolled Nightlord every round
 

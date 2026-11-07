@@ -79,7 +79,9 @@ played); all cleared in `19110900` on run start.
 
 ## 4. What was changed in the event scripts
 
-Flags kept from the original: `7512` = expedition finished (results), `19002951` = start
+Flags kept from the original: `7512` = "a Nightlord is down" latch (the stock arena events
+stop themselves once it is ON, and the stock death handler that sets it is what finalises the
+expedition), `19002951` = start
 chained fight, `19002952` = team warped / boss may spawn, `19002953` = chained fight live,
 `19002954` = map boss defeated latch, `19002955` = boss spawning, `19002956/57` = chain armed.
 
@@ -95,7 +97,8 @@ Per map script (`m16_00`, `m16_10`, `m18_00`, `m19_00`):
 3. **`19309000` (new; replaces the stock death handler for the chained boss)** - the same
    defeat feedback the game gives (`IncrementTeamBossesKilled`, SE, `RecordUserDispLog`, BGM
    stop, health bar hidden, heal `509`, victory text) but it **never sets `7512`**, so the
-   results screen does not trigger. It counts the kill, runs the refill block every N kills,
+   stock wind-down never happens and the arena keeps running instead of finalising the
+   expedition. It counts the kill, runs the refill block every N kills,
    and disables the corpse for the next round. Registered instead of common_func `90075901`
    for 圣牢布 / 米塔恩 / 王三狼 / 王人马 / 王冰龙, and instead of `190075904` for 垃圾王.
 4. **`190017580`** (extra 圣牢布 death handler that ended the run) - no longer initialized.
