@@ -18,6 +18,9 @@ Nightlord for one more fight; killing that one ends the run.
 | Which Nightlord | random once per expedition | **a fresh random Nightlord every round** |
 | Difficulty ramp | - | none; every round is a fresh full-HP boss |
 
+A complete, mechanism-level description of every capability (and of what the mod does *not*
+do) is in [`CAPABILITIES.md`](CAPABILITIES.md).
+
 ---
 
 ## 1. Ready to play - nothing to compile
