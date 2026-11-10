@@ -370,6 +370,11 @@ $Event(19110900, Default, function()
     DisableCharacterAI(19110888);
     DisableCharacterCollision(19110888);
     SetNetworkconnectedEventFlagID(19002957, ON);
+
+    // ===== ENDLESS GAUNTLET: banner on map load =====
+    // Proof the mod's scripts are live, before the first kill.
+    WaitFixedTimeSeconds(3);
+    DisplayTextEffectId(6015);
     EndEvent();
 });
 

@@ -1,4 +1,4 @@
-# Endless Nightreign v1.0.1
+# Endless Nightreign v1.0.2
 
 Fixes the endless loop, and removes the scarab and the golem from the arena.
 
@@ -7,6 +7,12 @@ The chain never looped because the scripts assumed a `Restart`-typed event resta
 when its body ends — it does not (that type only restarts the event on map load). Every loop
 in 1.0.0 ran exactly once. The loops are now written explicitly with a `L0:` label and
 `Goto(L0)`, which is how the game's own event scripts loop.
+
+## New in v1.0.2
+
+- **You can see the mod is loaded**: three seconds after an expedition map loads, the game's own
+  "another Nightlord" callout appears. Plain DoubleBOSS only shows it when a chained fight
+  starts, so it is on-screen proof before the first kill.
 
 ## What changed in v1.0.1
 
@@ -24,13 +30,13 @@ in 1.0.0 ran exactly once. The loops are now written explicitly with a `L0:` lab
 
 ## Download
 
-`EndlessNightreign-v1.0.1.zip` — includes the four compiled `.emevd.dcx` event files, so
+`EndlessNightreign-v1.0.2.zip` — includes the four compiled `.emevd.dcx` event files, so
 nothing needs compiling.
 
 ## Install
 
 1. Unzip anywhere.
-2. Copy `nrsc.dll` (Seamless Co-op for Nightreign) to `EndlessNightreign-v1.0.1/SeamlessCoop/nrsc.dll`.
+2. Copy `nrsc.dll` (Seamless Co-op for Nightreign) to `EndlessNightreign-v1.0.2/SeamlessCoop/nrsc.dll`.
    It is not bundled — get it from its own Nexus page.
 3. `me3 launch -p EndlessNightreign-v1.0.1/EndlessNightreign.me3`, or pick that profile in me3.
 
@@ -51,7 +57,7 @@ Exactly the same procedure as the original DoubleBOSS mod: same folder shape, sa
   Oodle compression is Windows-only. If the map fails to load, recompile the four `.js` in
   DarkScript3 on Windows and swap those `.dcx` in.
 
-Full details: `EndlessNightreign-v1.0.1/CAPABILITIES.md`, `CHANGELOG.md`, and the risk list in
+Full details: `EndlessNightreign-v1.0.2/CAPABILITIES.md`, `CHANGELOG.md`, and the risk list in
 `README.md`.
 
 ## Rollback

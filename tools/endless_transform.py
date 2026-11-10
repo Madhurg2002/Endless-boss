@@ -44,6 +44,13 @@ EVENT_DIR = "mod/event"
 REFILL_EVERY = 3          # 0 disables the refill entirely
 REFILL_SPEFFECT = 509     # the restore the game itself applies on a boss kill
 
+# Show a banner as soon as an expedition map loads, so the mod is obviously active
+# before the first kill. Text ids come from the game's own message data: new strings
+# would require editing menu.msgbnd.dcx, which is not part of this mod.
+BANNER = True
+BANNER_TEXT_ID = 6015     # the mod's own "another Nightlord" callout
+BANNER_DELAY = 3
+
 # Game flags used by this mod (kept next to the original mod's 190029xx block).
 FLAG_DONE_FIRST = 19300002   # "one round already happened" (shortens the interlude)
 FLAG_NEVER = 19300999     # never set: used as a "wait forever" guard
@@ -593,6 +600,12 @@ def transform(text, name):
              "    DisableCharacterAI(19110888);" + eol +
              "    DisableCharacterCollision(19110888);" + eol +
              "    SetNetworkconnectedEventFlagID(19002957, ON);")
+    if BANNER:
+        golem += (eol + eol +
+                  "    // ===== ENDLESS GAUNTLET: banner on map load =====" + eol +
+                  "    // Proof the mod's scripts are live, before the first kill." + eol +
+                  "    WaitFixedTimeSeconds(%d);" % BANNER_DELAY + eol +
+                  "    DisplayTextEffectId(%d);" % BANNER_TEXT_ID)
     text, k = pat.subn(golem, text)
     if k:
         report.append("golem 19110888 removed")

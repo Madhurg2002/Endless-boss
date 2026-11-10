@@ -132,7 +132,30 @@ DoubleBOSS adds to the arena are gone. Nothing else about the double-boss encoun
   by setting `19002973`, so that flag is now set directly when the boss drops below 70 % HP —
   the invasion still happens, at the same moment, just without the beetle to hunt first.
 
-## 9. Rollback
+## 9. On-screen confirmation that the mod is live
+
+**Capability:** 3 seconds after an expedition map loads, the game's own "another Nightlord"
+callout (text effect `6015`) is displayed — before any kill. DoubleBOSS only ever shows that
+callout when a chained fight begins, so seeing it on map load is proof that these scripts, not
+the stock ones, are running.
+
+**How:** `19110900` (which every expedition map runs once at load) ends with
+`WaitFixedTimeSeconds(3)` + `DisplayTextEffectId(6015)`.
+
+Configurable in `tools/endless_transform.py`:
+
+```python
+BANNER = True          # False removes the banner entirely
+BANNER_TEXT_ID = 6015  # any existing text-effect id from the game's message data
+BANNER_DELAY = 3       # seconds after map load
+```
+
+The text itself cannot be authored here: that would mean editing `menu.msgbnd.dcx`, which this
+mod does not ship. The title screen's version line and the Roundtable hub are likewise outside
+the mod's reach — they are different maps/files, and overriding them would mean replacing their
+entire event scripts.
+
+## 10. Rollback
 
 The original `DoubleBOSS/` folder (compiled two-boss version, untouched) sits next to this one;
 launching `DoubleBOSS.me3` restores the original mod. Nothing here modifies

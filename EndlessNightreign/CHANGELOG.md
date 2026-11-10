@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.0.2
+
+- **On-screen confirmation.** Three seconds after an expedition map loads, the game's own
+  "another Nightlord" callout (text `6015`) is shown. DoubleBOSS only shows it when a chained
+  fight starts, so seeing it on map load proves these scripts are running. Toggle with
+  `BANNER`, `BANNER_TEXT_ID`, `BANNER_DELAY` in `tools/endless_transform.py`.
+- Nothing else changed; the endless loop, per-round roll, refill and the scarab/golem removal
+  are as in 1.0.1.
+
+
 ## v1.0.1
 
 **The endless loop now actually loops.** v1.0.0 was behaviourally identical to plain
