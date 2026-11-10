@@ -134,20 +134,22 @@ DoubleBOSS adds to the arena are gone. Nothing else about the double-boss encoun
 
 ## 9. On-screen confirmation that the mod is live
 
-**Capability:** 3 seconds after an expedition map loads, the game's own "another Nightlord"
-callout (text effect `6015`) is displayed — before any kill. DoubleBOSS only ever shows that
-callout when a chained fight begins, so seeing it on map load is proof that these scripts, not
-the stock ones, are running.
+**Capability:** after an expedition map loads, the game's own "another Nightlord" callout (text
+effect `6015`) is displayed five times over the first ~21 seconds — before any kill. DoubleBOSS
+only ever shows that callout when a chained fight begins, so seeing it on map load is proof that
+these scripts, not the stock ones, are running.
 
-**How:** `19110900` (which every expedition map runs once at load) ends with
-`WaitFixedTimeSeconds(3)` + `DisplayTextEffectId(6015)`.
+**How:** `19110900` (which every expedition map runs once at load) ends with five pairs of
+`WaitFixedTimeSeconds(...)` + `DisplayTextEffectId(6015)`. A single call 3 s after load was never
+seen in game: the effect landed while the map was still fading in, so the call is repeated —
+`DisplayTextEffectId` does not stack, each repetition is a fresh callout.
 
 Configurable in `tools/endless_transform.py`:
 
 ```python
-BANNER = True          # False removes the banner entirely
-BANNER_TEXT_ID = 6015  # any existing text-effect id from the game's message data
-BANNER_DELAY = 3       # seconds after map load
+BANNER = True            # False removes the banner entirely
+BANNER_TEXT_ID = 6015    # any existing text-effect id from the game's message data
+BANNER_TIMES = [5, 4, 4, 4, 4]   # one callout after each of these waits
 ```
 
 The text itself cannot be authored here: that would mean editing `menu.msgbnd.dcx`, which this

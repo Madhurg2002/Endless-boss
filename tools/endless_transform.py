@@ -49,7 +49,9 @@ REFILL_SPEFFECT = 509     # the restore the game itself applies on a boss kill
 # would require editing menu.msgbnd.dcx, which is not part of this mod.
 BANNER = True
 BANNER_TEXT_ID = 6015     # the mod's own "another Nightlord" callout
-BANNER_DELAY = 3
+# Seconds between the banner repetitions. A single effect at +3 s was shown while the map was
+# still fading in and the HUD was not up yet, so nobody saw it - it is repeated instead.
+BANNER_TIMES = [5, 4, 4, 4, 4]
 
 # Game flags used by this mod (kept next to the original mod's 190029xx block).
 FLAG_DONE_FIRST = 19300002   # "one round already happened" (shortens the interlude)
@@ -684,9 +686,12 @@ def transform(text, name):
     if BANNER:
         golem += (eol + eol +
                   "    // ===== ENDLESS GAUNTLET: banner on map load =====" + eol +
-                  "    // Proof the mod's scripts are live, before the first kill." + eol +
-                  "    WaitFixedTimeSeconds(%d);" % BANNER_DELAY + eol +
-                  "    DisplayTextEffectId(%d);" % BANNER_TEXT_ID)
+                  "    // Proof the mod's scripts are live, before the first kill. Repeated because a" + eol +
+                  "    // single effect lands while the map is still loading and is never seen.")
+        for wait in BANNER_TIMES:
+            golem += (eol +
+                      "    WaitFixedTimeSeconds(%d);" % wait + eol +
+                      "    DisplayTextEffectId(%d);" % BANNER_TEXT_ID)
     text, k = pat.subn(golem, text)
     if k:
         report.append("golem 19110888 removed")

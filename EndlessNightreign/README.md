@@ -1,6 +1,10 @@
 # Endless Nightlord Gauntlet - a DoubleBOSS (Nexus #952) variant
 
-**Version 1.0.4** - see [CHANGELOG.md](CHANGELOG.md).
+**Version 1.0.5** - see [CHANGELOG.md](CHANGELOG.md).
+
+The map-load banner (the game's "another Nightlord" callout) now repeats five times over the
+first ~21 seconds. A single callout 3 seconds after load was never visible in game: it landed
+while the map was still fading in.
 
 If you played 1.0.0-1.0.3 you saw the chain stop after the second Nightlord: the results screen
 rolled even though the loop events themselves were looping. The reason was outside the loop. The

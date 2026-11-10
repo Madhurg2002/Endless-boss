@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.0.5
+
+- **The map-load banner is now actually visible.** It was a single `DisplayTextEffectId(6015)`
+  3 seconds after the map loaded, which lands while the map is still fading in, so nobody ever
+  saw it - including in the 1.0.2 test. It is now shown five times, at +5 s and then every 4 s
+  (~21 s total), so at least one lands on a settled HUD. The timing lives in `BANNER_TIMES` in
+  `tools/endless_transform.py`; `BANNER = False` still removes it entirely.
+- Nothing else changed: the endless chain, per-round roll, refill and the scarab/golem removal
+  are as in 1.0.4, and the compiled files still contain no instruction that can end a run on
+  its own (0 writes of flag `7512`, no `FinalizeExpedition`).
+
 ## v1.0.4
 
 **The run no longer ends by itself.** 1.0.0-1.0.3 looped correctly, but the results screen still

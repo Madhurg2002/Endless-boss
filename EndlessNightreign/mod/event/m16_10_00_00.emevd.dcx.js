@@ -341,8 +341,17 @@ $Event(19110900, Default, function()
     SetNetworkconnectedEventFlagID(19002957, ON);
 
     // ===== ENDLESS GAUNTLET: banner on map load =====
-    // Proof the mod's scripts are live, before the first kill.
-    WaitFixedTimeSeconds(3);
+    // Proof the mod's scripts are live, before the first kill. Repeated because a
+    // single effect lands while the map is still loading and is never seen.
+    WaitFixedTimeSeconds(5);
+    DisplayTextEffectId(6015);
+    WaitFixedTimeSeconds(4);
+    DisplayTextEffectId(6015);
+    WaitFixedTimeSeconds(4);
+    DisplayTextEffectId(6015);
+    WaitFixedTimeSeconds(4);
+    DisplayTextEffectId(6015);
+    WaitFixedTimeSeconds(4);
     DisplayTextEffectId(6015);
     EndEvent();
 });
