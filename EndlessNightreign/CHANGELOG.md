@@ -1,5 +1,30 @@
 # Changelog
 
+## v1.0.4
+
+**The run no longer ends by itself.** 1.0.0-1.0.3 looped correctly, but the results screen still
+rolled a few seconds after the second chained kill, because the loop was not the only thing that
+could finish an expedition:
+
+- Every map's own boss-death handler (`190075901`, and `290075904` in `m16_10`, plus the
+  `190075904` copies) is written as "first kill arms the chain, later kills finish the run". Its
+  second half applies the victory spEffect, increments the team kill count and sets flag `7512`
+  ("expedition finished"). After the map boss died that handler re-armed on the still-dead boss
+  and ran the tail immediately, ending the run between rounds - and the 30 s
+  "no next round started" fallback inside the same branch set `7512` too. The tail is now
+  removed and the handler parks once the chain is live; the 30 s fallback is gone, and the
+  "chain not armed" branch arms the chain instead of ending the run.
+- `m18` has an extra direct `FinalizeExpedition()` call (event `18002620`, gated by `18002800`)
+  that bypasses `7512` completely. It is gone, as are the `7512` writes in `18002800` (m18) and
+  `19002870` (m19).
+- Verified on the compiled files, not just the sources: decompiling the four shipped `.dcx`
+  shows **zero** instructions writing `7512` and no `FinalizeExpedition` left; the round manager
+  and all six spawn events still loop, and the only added event is the death handler `19309000`.
+- Rebuilding 1.0.3's sources with the same toolchain reproduces 1.0.3's `.dcx` byte for byte, so
+  the compiler itself is unchanged.
+
+Nothing else changed: same refill, same per-round roll, same golem/scarab removal.
+
 ## v1.0.3
 
 Packaging and verification release; the event scripts are unchanged from v1.0.2.

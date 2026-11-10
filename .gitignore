@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+
+# build output of tools/compiler (rebuild with dotnet build, see tools/compiler/README.md)
+tools/compiler/bin/
+tools/compiler/obj/

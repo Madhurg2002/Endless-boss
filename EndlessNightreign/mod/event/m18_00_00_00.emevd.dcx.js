@@ -139,7 +139,7 @@ $Event(18002620, Default, function() {
     EndIf(IsPlayMode(2));
     WaitFor(EventFlag(18002800) && EventFlag(18002615));
     SetEventFlagID(6020, ON);
-    FinalizeExpedition();
+    // Endless: the expedition never finalises on its own
 });
 
 $Event(18002800, Default, function(chrEntityId) {
@@ -150,7 +150,7 @@ $Event(18002800, Default, function(chrEntityId) {
         DisplayTextEffectId(1040);
         SetBossBGM(758000, BossBGMState.Stop2);
         IncrementTeamBossesKilled(1);
-        SetNetworkconnectedEventFlagID(7512, ON);
+        // Endless: 7512 (expedition finished) is never set
         DisplayNetworkconnectedPermanentBuffPopup(130);
         SetSpEffect(20000, 9730);
         SetNetworkconnectedEventFlagID(18002800, ON);
@@ -915,61 +915,20 @@ $Event(190075901, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId
             SetNetworkconnectedEventFlagID(19002951, ON);
         }
         else {
-            SetNetworkconnectedEventFlagID(7512, ON);
+            // Endless: the chain is always armed - never end the run here
+            SetNetworkconnectedEventFlagID(19002951, ON);
             EndEvent();
         }
         
-        WaitFixedTimeSeconds(30);
-        if(!EventFlag(19002953)){
-            SetNetworkconnectedEventFlagID(7512, ON);
-        }
+
         
         EndEvent();
     }
     
-    SetSpEffect(10000, 509);
-    SetSpEffect(10001, 509);
-    SetSpEffect(10002, 509);
-    SetSpEffect(10003, 509);
-    SetSpEffect(10004, 509);
-    SetSpEffect(10005, 509);
-    SetSpEffect(10006, 509);
-    SetSpEffect(10007, 509);
-    SetSpEffect(10008, 509);
-    SetSpEffect(10009, 509);
-    SetSpEffect(10010, 509);
-
-    EnableCharacterImmortality(20000);
-    SetNetworkconnectedEventFlagID(7513, ON);
-    WaitFixedTimeSeconds(5);
-    
-    PlaySE(chrEntityId, SoundType.SFX, 888880000);
-    
-    RecordUserDispLog(10111, 10000, LogObjectType.NpcName, logObjectId);
-    
-    if (PlayerInMap(16, 0, 0, 0)) {
-        DisplayTextEffectId(1052);
-    }
-    if (PlayerInMap(16, 10, 0, 0)) {
-        DisplayTextEffectId(1053);
-    }
-    if (PlayerInMap(18, 0, 0, 0)) {
-        DisplayTextEffectId(1040);
-    }
-    if (PlayerInMap(19, 0, 0, 0)) {
-        DisplayTextEffectId(1051);
-    }
-    
-    if (BossBGMPlaying(bgmBossConvParamId)) {
-        SetBossBGM(bgmBossConvParamId, BossBGMState.Stop2);
-    }
-    IncrementTeamBossesKilled(1);
-    DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
-    
-    SetNetworkconnectedEventFlagID(7512, ON);
-    WaitFixedTimeSeconds(0.1);
-    
-    SetSpEffect(20000, 102121);
+    // Endless: the stock "expedition finished" tail (victory spEffect,
+    // kill count, flag 7512) is removed. Once the chain runs, this handler
+    // only parks here so it can never end the run.
+    WaitFor(!EventFlag(19002954));
 });
 
 // ================ 重写普通BOSS的BGM切换：通用 =================
@@ -1378,7 +1337,7 @@ $Event(190075904, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId
     IncrementTeamBossesKilled(1);
     DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
     
-    SetNetworkconnectedEventFlagID(7512, ON);
+    // Endless: 7512 (expedition finished) is never set
     WaitFixedTimeSeconds(0.1);
     
     SetSpEffect(20000, 102121);
@@ -1503,8 +1462,7 @@ $Event(190017580, Default, function(chrEntityId) {
     WaitFixedTimeSeconds(3);
     DisplayBossHealthBar(Disabled, chrEntityId, 0, 0);
 
-    SetNetworkconnectedEventFlagID(7512, ON);
-    
+    // Endless: 7512 (expedition finished) is never set
     WaitFixedTimeSeconds(24);
     DisableCharacter(chrEntityId);
     DisableCharacterAI(chrEntityId);

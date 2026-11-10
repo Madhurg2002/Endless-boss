@@ -87,6 +87,11 @@ SPAWN_EVENTS = {
 PLAYERS = [10000, 10001, 10002, 10003, 10004, 10005,
            10006, 10007, 10008, 10009, 10010]
 
+# The original mod's per-map boss death handlers. Their second half is the "expedition
+# finished" tail (victory spEffect, kill count, flag 7512) - the thing that rolls the
+# results screen after the chained Nightlord dies. It has to go, or the run always ends.
+DEATH_HANDLERS = {190075901, 190075904, 290075904}
+
 
 # ---------------------------------------------------------------------------
 # helpers
@@ -339,6 +344,78 @@ def roll_block(indent):
 # ---------------------------------------------------------------------------
 # generated event bodies
 # ---------------------------------------------------------------------------
+def neutralise_finalisers(text, eol):
+    """Make sure the expedition cannot reach the results screen on its own."""
+    report = []
+
+    # 1. "chain not armed" branch: arm the chain instead of finishing the expedition
+    pat = re.compile(r"else \{\s*SetNetworkconnectedEventFlagID\(7512, ON\);\s*EndEvent\(\);\s*\}")
+    text, k = pat.subn("else {" + eol +
+                       "            // Endless: the chain is always armed - never end the run here" + eol +
+                       "            SetNetworkconnectedEventFlagID(19002951, ON);" + eol +
+                       "            EndEvent();" + eol +
+                       "        }", text)
+    if k:
+        report.append("chain-not-armed branch arms the chain x%d" % k)
+
+    # 2. the "next round never started within 30 s" fallback used to end the run
+    pat = re.compile(r"[ \t]*WaitFixedTimeSeconds\(30\);\s*if\(!EventFlag\(19002953\)\)\{\s*"
+                     r"SetNetworkconnectedEventFlagID\(7512, ON\);\s*\}")
+    text, k = pat.subn("", text)
+    if k:
+        report.append("removed the 30 s run-ending fallback x%d" % k)
+
+    # 3. drop the stock victory tail of the map's own death handlers. After the first
+    #    kill they re-arm on the (still dead) map boss and ran the tail immediately,
+    #    setting 7512 - that is what rolled the results screen mid-gauntlet.
+    lines = text.splitlines(keepends=True)
+    out = []
+    i = 0
+    n = 0
+    cur = None
+    seen_chain = False
+    while i < len(lines):
+        ln = lines[i]
+        m = re.match(r"\$Event\((\d+),", ln)
+        if m:
+            cur, seen_chain = int(m.group(1)), False
+        if cur in DEATH_HANDLERS and "SetNetworkconnectedEventFlagID(19002954, ON);" in ln:
+            seen_chain = True
+        if (cur in DEATH_HANDLERS and seen_chain
+                and re.match(r"^ {4}SetSpEffect\(10000, 509\);\s*$", ln)):
+            while i < len(lines) and not re.match(r"^\}\);", lines[i]):
+                i += 1
+            i += 1
+            out.append("    // Endless: the stock \"expedition finished\" tail (victory spEffect," + eol)
+            out.append("    // kill count, flag 7512) is removed. Once the chain runs, this handler" + eol)
+            out.append("    // only parks here so it can never end the run." + eol)
+            out.append("    WaitFor(!EventFlag(19002954));" + eol)
+            out.append("});" + eol)
+            n += 1
+            continue
+        out.append(ln)
+        i += 1
+    if n:
+        text = "".join(out)
+        report.append("stock victory tail removed x%d" % n)
+
+    # 4. any write of 7512 left over (map-specific "boss down" events)
+    pat = re.compile(r"^([ \t]*)SetNetworkconnectedEventFlagID\(7512, ON\);\s*$", re.M)
+    text, k = pat.subn(lambda m: m.group(1) + "// Endless: 7512 (expedition finished) is never set",
+                       text)
+    if k:
+        report.append("7512 writes neutralised x%d" % k)
+
+    # 5. m18 finishes the expedition directly, not through 7512
+    pat = re.compile(r"^( *)FinalizeExpedition\(\);\s*$", re.M)
+    text, k = pat.subn(lambda m: m.group(1) + "// Endless: the expedition never finalises on its own",
+                       text)
+    if k:
+        report.append("FinalizeExpedition removed x%d" % k)
+
+    return text, report
+
+
 def manager_body(warp_block):
     return """    // ===== ENDLESS GAUNTLET: round manager =====
     // The loop is written out explicitly (label + Goto) because an event body that
@@ -533,6 +610,10 @@ def transform(text, name):
     if pat in text:
         text = text.replace(pat, "// Endless: 190017580 removed (it ends the run on death)")
         report.append("removed 190017580 (圣牢布)")
+
+    # 3b. no path may end the run by itself ----------------------------------
+    text, finalisers = neutralise_finalisers(text, eol)
+    report.extend(finalisers)
 
     # 4. append the new death handler ---------------------------------------
     text = text.rstrip() + eol + eol + eol + \

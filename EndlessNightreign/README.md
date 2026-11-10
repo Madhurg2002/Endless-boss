@@ -1,9 +1,13 @@
 # Endless Nightlord Gauntlet - a DoubleBOSS (Nexus #952) variant
 
-**Version 1.0.3** - see [CHANGELOG.md](CHANGELOG.md). If you tried 1.0.0 and got exactly the
-same thing as plain DoubleBOSS, that was a bug that no longer exists: the endless loop used to
-rely on a misreading of the event type `Restart`, so it never actually looped. The loops are now
-written explicitly (`L0:` + `Goto(L0)`), which is how the game's own scripts loop.
+**Version 1.0.4** - see [CHANGELOG.md](CHANGELOG.md).
+
+If you played 1.0.0-1.0.3 you saw the chain stop after the second Nightlord: the results screen
+rolled even though the loop events themselves were looping. The reason was outside the loop. The
+maps' own boss-death handlers (and one direct `FinalizeExpedition()` call in `m18`) still ran
+their stock "expedition finished" tail, which sets flag `7512`. Every one of those paths is now
+disabled: nothing in these scripts can roll the results screen any more, so the chain only ends
+when the team is wiped.
 
 Built on top of **DoubleBOSS** by the original author. Same delivery format (a `mod/`
 folder loaded by a **me3** profile with Seamless Co-op), same assets - only the event
@@ -118,7 +122,14 @@ Per map script (`m16_00`, `m16_10`, `m18_00`, `m19_00`):
    family as fallback, so the round can never stall), and only that family's spawn event and
    death handler react to the round. The flags are network-connected, so all co-op peers see
    the same pick.
-7. **Golem and scarab removed** - `19110900` now disables `19110888` (golem) and sets the chain
+7. **The "expedition finished" paths are disabled.** The stock death handlers of each map
+   (events `190075901`, `190075904`, `290075904`) no longer reach their second half - the tail
+   that applies the victory spEffect, counts the kill and sets flag `7512`. After the first kill
+   they park instead. The 30 s "next round never started" fallback that also set `7512` is gone,
+   the "chain is not armed" branch now arms the chain instead of ending the run, and m18's spare
+   `FinalizeExpedition()` call is gone. Verified on the compiled files: no instruction in any of
+   the four scripts writes `7512` any more.
+8. **Golem and scarab removed** - `19110900` now disables `19110888` (golem) and sets the chain
    gate `19002957` itself, instead of waiting for the golem to die before the chain can start;
    the scarab `19214191` is disabled at map load and its job (unlocking the invading second
    Nightlord, flag `19002973`) is done directly when the boss reaches 70 % HP. See section 8 of
@@ -141,8 +152,10 @@ compiler path is sound - but the game logic itself is untested. Check these firs
    `19002953`; the loop clears that flag on death, which could cut a phase-2 transition short.
 3. **BGM / health bar leftovers** between rounds for 米塔恩 and 王冰龙, whose entrance events
    were written to run once.
-4. `IncrementTeamBossesKilled(1)` now fires every round; if the kill counter is capped or
-   feeds the rewards screen, the run may still end after some number of kills.
+4. `IncrementTeamBossesKilled(1)` now fires every round; if the game ends the expedition on its
+   own after a fixed number of team kills, the run would still stop after that many kills even
+   though the scripts never ask for it. This is the one remaining way the run can end besides a
+   team wipe.
 5. Interlude timing: 4 s between later rounds may be too short while the team loots - raise
    the `WaitFixedTimeSeconds(4)` in the round manager.
 6. **Round lottery.** If a round starts and no Nightlord shows up (the fight flag `19002953`
