@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.0.3
+
+Packaging and verification release; the event scripts are unchanged from v1.0.2.
+
+- **The download is now only what the game loads.** The decompiled `.js` sources and the
+  "compile me first" note are no longer shipped in the release archive; they stay in the
+  repository (`mod/event/`, `tools/`). The archive drops from 43 to 37 entries
+  (21 real files, the rest are folders).
+- **The bundled copy of the original mod and the previous release archives were removed from the
+  repository**, so the repository holds this mod's own files plus the untouched `DoubleBOSS/`
+  reference folder.
+- README corrected: it now says where the sources live and how to return to the original mod,
+  instead of pointing at siblings of the release folder that a download does not contain.
+- Full rebuild verification (see below). Regenerating the sources and recompiling from scratch
+  reproduces the four shipped `.dcx` files **byte for byte**, and an event-level diff against the
+  untouched original shows exactly one added event (`19309000`), no removed events and the same
+  15 modified events in every map.
+
 ## v1.0.2
 
 - **On-screen confirmation.** Three seconds after an expedition map loads, the game's own
