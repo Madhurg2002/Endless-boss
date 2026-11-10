@@ -24,7 +24,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075845, 7511, 16000800, 16005800, 16006800, 5108, 0);
 
         $InitializeEvent(0, 19110900);
-        InitializeEvent(0, 19210900, 16000807);
+        // Endless: the second-Nightlord invasion is disabled - one boss at a time
         $InitializeEvent(0, 19002951);
 
     }
@@ -83,7 +83,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075853, 16005860, 16000867, 16000250);
 
         $InitializeEvent(0, 19110900);
-        InitializeEvent(0, 19210900, 16000857);
+        // Endless: the second-Nightlord invasion is disabled - one boss at a time
         $InitializeEvent(0, 19002951);
 
     }
@@ -307,9 +307,10 @@ $Event(19210900, Default, function(chrEntityId)
         DisableCharacterCollision(19214191);   // scarab removed
 
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
-        DisplayTextEffectId(6019);
-        SetNetworkconnectedEventFlagID(19002975, ON);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
     }
     
     // 小嘴入侵: EntityID: 19210810  NameID:907510000
@@ -323,9 +324,10 @@ $Event(19210900, Default, function(chrEntityId)
         DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
-        DisplayTextEffectId(6019);
-        SetNetworkconnectedEventFlagID(19002975, ON);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
     }
     
     // 小羊入侵: EntityID: 19210840  NameID:907550000
@@ -339,9 +341,10 @@ $Event(19210900, Default, function(chrEntityId)
         DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
-        DisplayTextEffectId(6019);
-        SetNetworkconnectedEventFlagID(19002975, ON);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
     }
     
     // 小马入侵: EntityID: 19210850  NameID:907610000
@@ -355,9 +358,10 @@ $Event(19210900, Default, function(chrEntityId)
         DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
-        DisplayTextEffectId(6019);
-        SetNetworkconnectedEventFlagID(19002975, ON);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
     }
     
     // 小龙入侵: EntityID: 19210860  NameID:907620000
@@ -371,9 +375,10 @@ $Event(19210900, Default, function(chrEntityId)
         DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
-        DisplayTextEffectId(6019);
-        SetNetworkconnectedEventFlagID(19002975, ON);
+        if (EventFlag(19002973)) {
+            DisplayTextEffectId(6019);
+            SetNetworkconnectedEventFlagID(19002975, ON);
+        }
     }
     
     // 龙王入侵: EntityID: 19210817  NameID:907620001
@@ -722,28 +727,9 @@ L0:
         WaitFixedTimeSeconds(4);
     }
 
-    FadeToBlack(1, 1, true, -1);
-    WaitFor(ElapsedSeconds(1));
-
-    if (IsPlayerNo(1)) {
-        WarpCharacterAndCopyFloorUnknown200489(10002, TargetEntityType.Area, 19002920, -1, 10002, -1, -1);
-    }
-    if (IsPlayerNo(2)) {
-        WarpCharacterAndCopyFloorUnknown200489(10003, TargetEntityType.Area, 19002921, -1, 10003, -1, -1);
-    }
-    if (IsPlayerNo(3)) {
-        WarpCharacterAndCopyFloorUnknown200489(10004, TargetEntityType.Area, 19002922, -1, 10004, -1, -1);
-    }
-    if (IsPlayerNo(4)) {
-        WarpCharacterAndCopyFloorUnknown200489(10005, TargetEntityType.Area, 19002923, -1, 10005, -1, -1);
-    }
-    if (IsPlayerNo(5)) {
-        WarpCharacterAndCopyFloorUnknown200489(10006, TargetEntityType.Area, 19002924, -1, 10006, -1, -1);
-    }
-    if (IsPlayerNo(6)) {
-        WarpCharacterAndCopyFloorUnknown200489(10007, TargetEntityType.Area, 19002925, -1, 10007, -1, -1);
-    }
-
+    // No fade-out and no player teleport here. The next Nightlord's own spawn event
+    // warps it into the arena and fades the screen back in; fading out first left the
+    // screen black when that spawn did not complete.
     // ===== ENDLESS GAUNTLET: roll the Nightlord for this round =====
     // The host sets one random flag of the six; they are network-connected, so
     // every co-op peer sees the same pick.
@@ -768,6 +754,10 @@ L0:
     }
 
     SetNetworkconnectedEventFlagID(19002952, ON);
+
+    // safety net: the screen is never left black, whatever the spawn event does
+    WaitFixedTimeSeconds(8);
+    FadeToBlack(0, 1, false, -1);
 
     // the death handler clears 19002952 when this round's Nightlord is dead
     WaitFor(!EventFlag(19002952));

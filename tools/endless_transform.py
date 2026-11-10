@@ -44,6 +44,11 @@ EVENT_DIR = "mod/event"
 REFILL_EVERY = 3          # 0 disables the refill entirely
 REFILL_SPEFFECT = 509     # the restore the game itself applies on a boss kill
 
+# The original mod's "dual boss" system: when a Nightlord drops below 70 % HP a second,
+# invading Nightlord joins the fight (event 19212818, driven by 19210900). That is the
+# "two bosses at once" behaviour - off means exactly one Nightlord is on the field.
+DUAL_BOSS = False
+
 # Show a banner as soon as an expedition map loads, so the mod is obviously active
 # before the first kill. Text ids come from the game's own message data: new strings
 # would require editing menu.msgbnd.dcx, which is not part of this mod.
@@ -418,7 +423,7 @@ def neutralise_finalisers(text, eol):
     return text, report
 
 
-def manager_body(warp_block):
+def manager_body():
     return """    // ===== ENDLESS GAUNTLET: round manager =====
     // The loop is written out explicitly (label + Goto) because an event body that
     // simply reaches its end does NOT start over - only RestartEvent() or Goto loop.
@@ -440,20 +445,22 @@ L0:
         WaitFixedTimeSeconds(4);
     }
 
-    FadeToBlack(1, 1, true, -1);
-    WaitFor(ElapsedSeconds(1));
-
-%s
-
+    // No fade-out and no player teleport here. The next Nightlord's own spawn event
+    // warps it into the arena and fades the screen back in; fading out first left the
+    // screen black when that spawn did not complete.
 %s
 
     SetNetworkconnectedEventFlagID(19002952, ON);
+
+    // safety net: the screen is never left black, whatever the spawn event does
+    WaitFixedTimeSeconds(8);
+    FadeToBlack(0, 1, false, -1);
 
     // the death handler clears 19002952 when this round's Nightlord is dead
     WaitFor(!EventFlag(19002952));
     WaitFixedTimeSeconds(2);
     Goto(L0);
-""" % (FLAG_NEVER, FLAG_DONE_FIRST, FLAG_DONE_FIRST, warp_block, roll_block("    "))
+""" % (FLAG_NEVER, FLAG_DONE_FIRST, FLAG_DONE_FIRST, roll_block("    "))
 
 
 def spawn_body(original_body, entities, eol, sel_flag):
@@ -563,16 +570,7 @@ def transform(text, name):
     span = find_event_span(text, 19002951)
     if not span:
         raise SystemExit("%s: event 19002951 not found" % name)
-    orig = text[span[0]:span[1]].replace("\r\n", "\n")
-    m = re.search(r"( *)if \(IsPlayerNo\(1\)\)", orig)
-    if not m:
-        raise SystemExit("%s: warp block not found in 19002951" % name)
-    warp_start = m.start()
-    tail = orig.find("SetNetworkconnectedEventFlagID(19002952, ON);", warp_start)
-    if tail < 0:
-        raise SystemExit("%s: warp block end not found" % name)
-    warp_block = orig[warp_start:tail].rstrip()
-    text, ok = replace_event_body(text, 19002951, manager_body(warp_block), eol)
+    text, ok = replace_event_body(text, 19002951, manager_body(), eol)
     text, _ = set_event_type(text, 19002951, "Restart")
     report.append("19002951 round manager (Restart)")
 
@@ -663,15 +661,23 @@ def transform(text, name):
                              "        DisableCharacterCollision(19214191);   // scarab removed"))
         report.append("scarab 19214191 disabled x%d" % n)
 
-    pat = re.compile(r"if \(EventFlag\(19002973\)\) \{\s*DisplayTextEffectId\(6019\);\s*"
-                     r"SetNetworkconnectedEventFlagID\(19002975, ON\);\s*\}")
-    def unlock(m):
-        return ("SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked" + eol +
-                "        DisplayTextEffectId(6019);" + eol +
-                "        SetNetworkconnectedEventFlagID(19002975, ON);")
-    text, k = pat.subn(unlock, text)
-    if k:
-        report.append("invasion unlocked (no scarab) x%d" % k)
+    # the mod's second Nightlord invasion ("dual boss") - off means one boss at a time
+    if not DUAL_BOSS:
+        pat = re.compile(r"^([ \t]*)\$?InitializeEvent\(0, 19210900,\s*[^)]*\);[^\r\n]*\r?$", re.M)
+        text, k = pat.subn(lambda m: m.group(1) + "// Endless: the second-Nightlord invasion is disabled "
+                                         "- one boss at a time", text)
+        if k:
+            report.append("dual-boss invasion disabled x%d" % k)
+    else:
+        pat = re.compile(r"if \(EventFlag\(19002973\)\) \{\s*DisplayTextEffectId\(6019\);\s*"
+                         r"SetNetworkconnectedEventFlagID\(19002975, ON\);\s*\}")
+        def unlock(m):
+            return ("SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked" + eol +
+                    "        DisplayTextEffectId(6019);" + eol +
+                    "        SetNetworkconnectedEventFlagID(19002975, ON);")
+        text, k = pat.subn(unlock, text)
+        if k:
+            report.append("invasion unlocked (no scarab) x%d" % k)
 
     pat = re.compile(r"// 连战开关：魔像\s*WaitFor\(HPRatio\(19110888\) <= 0\);\s*"
                      r"WaitFixedTimeSeconds\(1\);\s*if \(EventFlag\(19002956\)\) \{\s*"

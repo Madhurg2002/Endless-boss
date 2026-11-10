@@ -27,7 +27,7 @@ that misreading, which is why it behaved exactly like the original mod. `Restart
 
 | Event | Role after the change |
 |---|---|
-| `19002951` | round manager: clear round flags → interlude → fade → warp → roll → wait for the boss to die |
+| `19002951` | round manager: clear round flags → interlude → roll → arm the round → guaranteed fade-in → wait for the boss to die |
 | `19114900`–`19114905` | per-family spawn: wait for this round's pick → re-enable the boss → entrance → fight live |
 | `19309000` | death handler: kill counter, refill, clear round flags, disable corpse, re-arm |
 | `7512` | never set by the chain; the stock setters are untouched (field-boss deaths, `190075901`), and if one of those ever fires mid-chain the arena does wind down normally |
@@ -87,7 +87,10 @@ and replays the original entrance sequence before setting the fight-live flag `1
 | first | 8 s → text `6015` ("a Nightlord approaches"-style callout) → 3 s |
 | later | 4 s |
 
-Both are followed by a fade, a warp, and a 2 s settle after the previous boss is confirmed dead.
+Both are followed by the roll, the round being armed, and a 2 s settle after the previous boss is
+confirmed dead. There is deliberately **no fade-out and no teleport** any more: the next boss's
+spawn event fades the screen back in, and the manager also fades in unconditionally 8 s after
+arming, so a round that fails to start can no longer leave the screen black.
 `19002951` stays set for the whole gauntlet; flag `19300002` records "one round already
 happened" and is what switches the interlude to the short form. All of these flags are cleared
 in `19110900` at run start, so a new expedition starts clean.
@@ -129,8 +132,12 @@ DoubleBOSS adds to the arena are gone. Nothing else about the double-boss encoun
   would have made the expedition end on the first kill.
 - **Scarab** — the five per-boss `19219920` watchers that enable/disable the scarab are replaced
   with a disable at map load. The scarab's only job was to unlock the invading second Nightlord
-  by setting `19002973`, so that flag is now set directly when the boss drops below 70 % HP —
-  the invasion still happens, at the same moment, just without the beetle to hunt first.
+  (flag `19002973`).
+- **Second Nightlord invasion ("dual boss")** — `19210900`, the event that spawns an invading
+  Nightlord once the current boss drops below 70 % HP, is no longer initialised in any of the
+  four maps (13 registrations in `m19`, 2 in `m16_00`, 1 each in `m16_10`/`m18`). The event
+  definition is still in the file but nothing starts it, so exactly one Nightlord is on the
+  field at a time. Controlled by `DUAL_BOSS` in `tools/endless_transform.py`.
 
 ## 9. On-screen confirmation that the mod is live
 
@@ -175,7 +182,8 @@ launching `DoubleBOSS.me3` restores the original mod. Nothing here modifies
 - **No custom rules for team wipe** — dying still ends the run the normal way.
 - **Not play-tested here.** The shipped binaries were verified by decompiling them back out
   (handler registered 6×, `Goto` loops present in manager, spawn events and handler, scarab and
-  golem disabled, invasion unlocked, no stock run-ending handler left registered), and the
+  golem disabled, the dual-boss invasion not initialised, no stock run-ending handler left
+  registered, manager with no fade-out/teleport and an unconditional fade-in), and the
   compile path reproduces the four retail files byte-for-byte. Actual in-game behaviour has not
   been observed by the author of this variant. The one environmental risk is the container:
   the shipped `.dcx` use DCX **DFLT** (zlib) instead of the retail DCX_KRAK, because Oodle

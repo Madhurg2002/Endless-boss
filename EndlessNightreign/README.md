@@ -1,10 +1,19 @@
 # Endless Nightlord Gauntlet - a DoubleBOSS (Nexus #952) variant
 
-**Version 1.0.5** - see [CHANGELOG.md](CHANGELOG.md).
+**Version 1.0.6** - see [CHANGELOG.md](CHANGELOG.md).
 
-The map-load banner (the game's "another Nightlord" callout) now repeats five times over the
-first ~21 seconds. A single callout 3 seconds after load was never visible in game: it landed
-while the map was still fading in.
+**One boss at a time.** The original mod's "dual boss" system is off: no invading second
+Nightlord joins the fight at 70 % HP any more, so a round is exactly the Nightlord you are
+fighting.
+
+**The black screen after a kill is fixed.** The round manager used to fade to black and teleport
+the team before the next boss was armed; when that hand-off did not complete, the screen stayed
+black. The fade-out and the teleport are gone - the next Nightlord's own spawn event brings it
+in and fades the screen back, and the manager fades in unconditionally 8 s after arming the
+round as a safety net.
+
+The map-load banner (the game's "another Nightlord" callout) repeats five times over the
+first ~21 seconds, because a single callout 3 seconds after load was never visible in game.
 
 If you played 1.0.0-1.0.3 you saw the chain stop after the second Nightlord: the results screen
 rolled even though the loop events themselves were looping. The reason was outside the loop. The
@@ -103,9 +112,11 @@ chained fight, `19002952` = team warped / boss may spawn, `19002953` = chained f
 Per map script (`m16_00`, `m16_10`, `m18_00`, `m19_00`):
 
 1. **`19002951` (round manager)** - the one-shot "warp the team into the arena" transition is
-   now a loop: clear `19002952/53/55`, show the "next Nightlord" interlude, warp everybody,
-   set `19002952`; wait until the death handler clears `19002952`; repeat. The first interlude
-   keeps the original 8 s + 3 s + text `6015`, later ones are 4 s.
+   now a loop: clear `19002952/53/55`, show the "next Nightlord" interlude, roll the family,
+   set `19002952`, then fade in 8 s later as a guarantee; wait until the death handler clears
+   `19002952`; repeat. The original fade-out and the per-player teleport into the arena were
+   removed: they ran before the next boss was armed and could leave the screen black. The first
+   interlude keeps the original 8 s + 3 s + text `6015`, later ones are 4 s.
 2. **`19114900`-`19114905` (per-Nightlord spawn)** - each spawn event loops instead of ending:
    wait for `19002952`, re-`EnableCharacter` the boss (the death handler disabled the corpse),
    play the original entrance sequence, set `19002953`, then wait for the round to finish.
@@ -135,9 +146,9 @@ Per map script (`m16_00`, `m16_10`, `m18_00`, `m19_00`):
    the four scripts writes `7512` any more.
 8. **Golem and scarab removed** - `19110900` now disables `19110888` (golem) and sets the chain
    gate `19002957` itself, instead of waiting for the golem to die before the chain can start;
-   the scarab `19214191` is disabled at map load and its job (unlocking the invading second
-   Nightlord, flag `19002973`) is done directly when the boss reaches 70 % HP. See section 8 of
-   `CAPABILITIES.md`.
+   the scarab `19214191` is disabled at map load. The second-Nightlord invasion it used to gate
+   (`19210900`) is no longer initialised in any map, so only one Nightlord is ever on the field.
+   See section 8 of `CAPABILITIES.md`.
 
 ## 5. Known risks (please read before reporting a bug)
 

@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.0.6
+
+Two fixes from the in-game test of 1.0.5.
+
+- **One boss at a time.** The original mod's "dual boss" system is disabled: event `19210900`
+  (which spawned an invading second Nightlord once the current boss dropped below 70 % HP on
+  `19002973`) is no longer initialised in any map. Its definition stays in the file, nothing
+  starts it. Controlled by `DUAL_BOSS` in `tools/endless_transform.py`.
+- **No more black screen after a kill.** The round manager faded to black and teleported the team
+  into the arena *before* the next boss was armed. When that hand-off did not complete, the
+  screen stayed black with the "another Nightlord" callout already shown - exactly the reported
+  symptom. The fade-out and the per-player teleport are removed: the next Nightlord's own spawn
+  event warps it in and fades the screen back, and the manager additionally fades in
+  unconditionally 8 s after arming the round.
+- Nothing else changed: endless chain, per-round roll, 3-kill refill and the scarab/golem
+  removal are as in 1.0.5 (still 0 writes of flag `7512`, no `FinalizeExpedition`).
+
+
 ## v1.0.5
 
 - **The map-load banner is now actually visible.** It was a single `DisplayTextEffectId(6015)`
