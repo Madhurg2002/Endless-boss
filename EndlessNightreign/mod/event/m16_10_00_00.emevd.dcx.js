@@ -1,6 +1,6 @@
 // ==EMEVD==
 // @docs    nr-common.emedf.json
-// @compress    DCX_KRAK
+// @compress    DCX_DFLT_10000_44_9
 // @game    Sekiro
 // @string    "W:\\CL\\data\\Param\\event\\common_func.emevd\u0000W:\\CL\\data\\Param\\event\\common_macro.emevd\u0000\u0000\u0000\u0000\u0000\u0000"
 // @linked    [0,82]
@@ -11,7 +11,7 @@ $Event(0, Default, function() {
     $InitializeEvent(0, 16102500);
     $InitializeEvent(0, 16102590);
     InitializeCommonEvent(0, 90075751, 16100800);
-    $InitializeEvent(0, 290075904, 16100800, 761000, 907630001, 7, 60517, 4);
+    InitializeEvent(0, 290075904, 16100800, 761000, 907630001, 1088421888, 60517, 1082130432);
     InitializeCommonEvent(0, 90075902, 16100800, 0, 0);
     InitializeCommonEvent(0, 90015012, 16100800, 7511);
     InitializeCommonEvent(0, 90015020, 7511, 19002954);
@@ -28,9 +28,9 @@ $Event(0, Default, function() {
     InitializeCommonEvent(0, 90075756, 16100800, 16103822, 16100822, 16103832, 16100832, 1045220557, 16100212, 16100220);
     InitializeCommonEvent(0, 90075757, 16100800, 16105810, 16100220);
     InitializeCommonEvent(0, 90075760, 16100800);
-    $InitializeEvent(0, 290075770, 16100800, 16102810, 16100220);
+    InitializeEvent(0, 290075770, 16100800, 16102810, 16100220);
     InitializeCommonEvent(0, 90075771, 16100800, 16106800, 16100220);
-    $InitializeEvent(0, 290075780, 16100800, 16100220);
+    InitializeEvent(0, 290075780, 16100800, 16100220);
     InitializeCommonEvent(0, 90075772, 16100800, 16105810, 16100220);
     InitializeCommonEvent(0, 90075773, 16100800, 16100220);
     InitializeCommonEvent(0, 90075774, 16100800, 16102890);
@@ -40,7 +40,7 @@ $Event(0, Default, function() {
     $InitializeEvent(0, 16102830);
     
     $InitializeEvent(0, 19110900);
-    $InitializeEvent(0, 19210900, 16100800);
+    InitializeEvent(0, 19210900, 16100800);
     $InitializeEvent(0, 19002951);
 
 });
@@ -367,15 +367,11 @@ $Event(19110900, Default, function()
     
     $InitializeEvent(0, 19113905);
     
-    // 连战开关：魔像
-    WaitFor(HPRatio(19110888) <= 0);
-    WaitFixedTimeSeconds(1);
-    if (EventFlag(19002956)) {
-        if (!EventFlag(19002954)) {
-            SetNetworkconnectedEventFlagID(19002957, ON);
-            DisplayTextEffectId(6017);
-        }
-    }
+    // 连战开关：魔像 removed - the golem never spawns, so the gate opens at once
+    DisableCharacter(19110888);
+    DisableCharacterAI(19110888);
+    DisableCharacterCollision(19110888);
+    SetNetworkconnectedEventFlagID(19002957, ON);
     EndEvent();
 });
 
@@ -394,76 +390,81 @@ $Event(19210900, Default, function(chrEntityId)
     if (RandomAppearLot(19210800)) {
         InitializeCommonEvent(0, 90075100, 19210800);
         InitializeCommonEvent(0, 90015012, 19210800, 7511);        
-        $InitializeEvent(0, 19212818, 19210800, 907500000, 20029);
-        $InitializeEvent(0, 19212819, 19210800);
-        $InitializeEvent(0, 19212820, 19210800, 3034);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210800, 907500000, 20029);
+        InitializeEvent(0, 19212819, 19210800);
+        InitializeEvent(0, 19212820, 19210800, 3034);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
 
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 小嘴入侵: EntityID: 19210810  NameID:907510000
     if (RandomAppearLot(19210810)) {
         InitializeCommonEvent(0, 90075100, 19210810);
         InitializeCommonEvent(0, 90015012, 19210810, 7511);        
-        $InitializeEvent(0, 19212818, 19210810, 907510000, 20029);
-        $InitializeEvent(0, 19212819, 19210810);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210810, 907510000, 20029);
+        InitializeEvent(0, 19212819, 19210810);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 小羊入侵: EntityID: 19210840  NameID:907550000
     if (RandomAppearLot(19210840)) {
         InitializeCommonEvent(0, 90075100, 19210840);
         InitializeCommonEvent(0, 90015012, 19210840, 7511);        
-        $InitializeEvent(0, 19212818, 19210840, 907550000, 20029);
-        $InitializeEvent(0, 19212819, 19210840);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210840, 907550000, 20029);
+        InitializeEvent(0, 19212819, 19210840);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 小马入侵: EntityID: 19210850  NameID:907610000
     if (RandomAppearLot(19210850)) {
         InitializeCommonEvent(0, 90075100, 19210850);
         InitializeCommonEvent(0, 90015012, 19210850, 7511);        
-        $InitializeEvent(0, 19212818, 19210850, 907610000, 20029);
-        $InitializeEvent(0, 19212819, 19210850);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210850, 907610000, 20029);
+        InitializeEvent(0, 19212819, 19210850);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 小龙入侵: EntityID: 19210860  NameID:907620000
     if (RandomAppearLot(19210860)) {
         InitializeCommonEvent(0, 90075100, 19210860);
         InitializeCommonEvent(0, 90015012, 19210860, 7511);        
-        $InitializeEvent(0, 19212818, 19210860, 907620000, 20029);
-        $InitializeEvent(0, 19212819, 19210860);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210860, 907620000, 20029);
+        InitializeEvent(0, 19212819, 19210860);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 龙王入侵: EntityID: 19210817  NameID:907620001
@@ -475,7 +476,7 @@ $Event(19210900, Default, function(chrEntityId)
 $Event(19113900, Default, function() {
     $InitializeEvent(0, 19114900);
     // Endless: 190017580 removed (it ends the run on death)
-    $InitializeEvent(0, 190075851, 19111803, 907580002);
+    InitializeEvent(0, 190075851, 19111803, 907580002);
     
     $InitializeEvent(0, 19309000, 19111803, 758000, 907580001, 19300020);
     InitializeCommonEvent(0, 90075902, 19005800, 19111803, 0);
@@ -488,12 +489,12 @@ $Event(19113900, Default, function() {
 
 $Event(19114900, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300020));
 
@@ -520,12 +521,13 @@ $Event(19114900, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 $Event(19113901, Default, function() {
     $InitializeEvent(0, 19114901);
-    $InitializeEvent(0, 190075501, 19110880, 907610001);
-    $InitializeEvent(0, 190075900, 19110880);
+    InitializeEvent(0, 190075501, 19110880, 907610001);
+    InitializeEvent(0, 190075900, 19110880);
     
     $InitializeEvent(0, 19309000, 19110880, 760000, 907610001, 19300021);
     InitializeCommonEvent(0, 90075902, 19110880, 0, 0);
@@ -543,12 +545,12 @@ $Event(19113901, Default, function() {
 
 $Event(19114901, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300021));
 
@@ -569,16 +571,17 @@ $Event(19114901, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 
 $Event(19113902, Default, function() {
     $InitializeEvent(0, 19114902);
-    $InitializeEvent(0, 190075051, 19110800, 19115801, 19110801, 19110802);
-    $InitializeEvent(0, 290075950, 750000, 19110800, 5106, 0);
+    InitializeEvent(0, 190075051, 19110800, 19115801, 19110801, 19110802);
+    InitializeEvent(0, 290075950, 750000, 19110800, 5106, 0);
 
     $InitializeEvent(0, 19309000, 19110800, 750000, 907500000, 19300022);
-    $InitializeEvent(0, 190075902, 19110800, 19115801, 0);
+    InitializeEvent(0, 190075902, 19110800, 19115801, 0);
     InitializeCommonEvent(0, 90015012, 19110800, 19002953);
     InitializeCommonEvent(1, 90015012, 19115801, 19002953);
     InitializeCommonEvent(0, 90015020, 19002953, 7512);
@@ -595,7 +598,7 @@ $Event(19113902, Default, function() {
     InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19110800, 0, 1065353216);
     InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19110800, 0, 1065353216);
     InitializeCommonEvent(0, 90075910, 6001, 7512, 19006802, 19110800, 0, 1065353216);
-    $InitializeEvent(0, 190075008, 6001, 7512, 0, 19110800, 0, 1);
+    InitializeEvent(0, 190075008, 6001, 7512, 0, 19110800, 0, 1065353216);
 
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
@@ -603,12 +606,12 @@ $Event(19113902, Default, function() {
 
 $Event(19114902, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300022));
 
@@ -626,12 +629,13 @@ $Event(19114902, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 $Event(19113903, Default, function() {
     $InitializeEvent(0, 19114903);
-    $InitializeEvent(0, 190075551, 19110850);
-    $InitializeEvent(0, 290075950, 760000, 19110850, 5106, 0);
+    InitializeEvent(0, 190075551, 19110850);
+    InitializeEvent(0, 290075950, 760000, 19110850, 5106, 0);
 
     InitializeCommonEvent(0, 90015012, 19110850, 19002953);
     InitializeCommonEvent(0, 90015020, 19002953, 7512);
@@ -649,12 +653,12 @@ $Event(19113903, Default, function() {
 
 $Event(19114903, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300023));
 
@@ -673,13 +677,14 @@ $Event(19114903, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 
 $Event(19113904, Default, function() {
     $InitializeEvent(0, 19114904);
-    $InitializeEvent(0, 191175651, 19110860);
-    $InitializeEvent(0, 290075950, 490000, 19110860, 5106, 0);
+    InitializeEvent(0, 191175651, 19110860);
+    InitializeEvent(0, 290075950, 490000, 19110860, 5106, 0);
 
     InitializeCommonEvent(0, 90015012, 19110860, 19002953);
     InitializeCommonEvent(0, 90015020, 19002953, 7512);
@@ -687,7 +692,7 @@ $Event(19113904, Default, function() {
     $InitializeEvent(0, 19309000, 19110860, 490000, 907620000, 19300024);
     InitializeCommonEvent(0, 90075600, 19110860, 19102860);
     InitializeCommonEvent(0, 90075610, 19110860);
-    $InitializeEvent(0, 191175652, 19110860, 5105, 5106);
+    InitializeEvent(0, 191175652, 19110860, 5105, 5106);
     InitializeCommonEvent(0, 90075602, 19110860);
     InitializeCommonEvent(0, 90075660, 19110860, 51001, 51002, 51030, 15, 120, 10, 1, 11, 6, 0, 1, 0, 1, 0, 1);
     InitializeCommonEvent(0, 90075660, 19110860, 51003, 51004, 51031, 16, 130, 20, 2, 21, 3, 22, 4, 23, 5, 24, 8);
@@ -704,12 +709,12 @@ $Event(19113904, Default, function() {
 
 $Event(19114904, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300024));
 
@@ -727,17 +732,18 @@ $Event(19114904, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 
 $Event(19113905, Default, function() {
     $InitializeEvent(0, 19114905);
-    $InitializeEvent(0, 190075770, 19110870, 16122810, 16120220);
-    $InitializeEvent(0, 190075752, 19110870, 16120220);
+    InitializeEvent(0, 190075770, 19110870, 16122810, 16120220);
+    InitializeEvent(0, 190075752, 19110870, 16120220);
     $InitializeEvent(0, 19309000, 19110870, 761000, 907630001, 19300025);
-    $InitializeEvent(0, 190075780, 19110870, 16120220);
-    $InitializeEvent(0, 190075773, 19110870, 16120220);
-    $InitializeEvent(0, 190075774, 19110870, 16122890);
+    InitializeEvent(0, 190075780, 19110870, 16120220);
+    InitializeEvent(0, 190075773, 19110870, 16120220);
+    InitializeEvent(0, 190075774, 19110870, 16122890);
     InitializeCommonEvent(0, 90015012, 19110870, 19002953);
     InitializeCommonEvent(0, 90015020, 19002953, 7512);
     InitializeCommonEvent(0, 90075902, 19110870, 0, 0);
@@ -748,12 +754,12 @@ $Event(19113905, Default, function() {
 
 $Event(19114905, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300025));
 
@@ -781,18 +787,19 @@ $Event(19114905, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 
 $Event(19002951, Restart, function() {
     // ===== ENDLESS GAUNTLET: round manager =====
-    // This event is typed Restart, so the engine starts it over as soon as the body
-    // reaches its end: one pass of this body is one round.
+    // The loop is written out explicitly (label + Goto) because an event body that
+    // simply reaches its end does NOT start over - only RestartEvent() or Goto loop.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop the gauntlet
     }
-
+L0:
     SetNetworkconnectedEventFlagID(19002952, OFF);
     SetNetworkconnectedEventFlagID(19002953, OFF);
     SetNetworkconnectedEventFlagID(19002955, OFF);
@@ -833,10 +840,8 @@ $Event(19002951, Restart, function() {
     // every co-op peer sees the same pick.
     BatchSetNetworkconnectedEventFlags(19300010, 19300015, OFF);
     BatchSetNetworkconnectedEventFlags(19300020, 19300025, OFF);
-    if (HasMultiplayerState(MultiplayerState.Host) || PlayerIsInOwnWorld()) {
-        RandomlySetNetworkconnectedEventFlagInRange(19300010, 19300015, ON);
-    }
-    WaitFor(AnyBatchEventFlags(19300010, 19300015));
+    RandomlySetNetworkconnectedEventFlagInRange(19300010, 19300015, ON);
+    // resolve the roll to exactly one family - never two in the same round
     if (EventFlag(19300010)) {
         SetNetworkconnectedEventFlagID(19300020, ON);
     } else if (EventFlag(19300011)) {
@@ -849,13 +854,16 @@ $Event(19002951, Restart, function() {
         SetNetworkconnectedEventFlagID(19300024, ON);
     } else if (EventFlag(19300015)) {
         SetNetworkconnectedEventFlagID(19300025, ON);
+    } else {
+        SetNetworkconnectedEventFlagID(19300020, ON);   // roll failed - default family
     }
 
     SetNetworkconnectedEventFlagID(19002952, ON);
 
-    // the death handler clears 19002952 when the current boss is dead
+    // the death handler clears 19002952 when this round's Nightlord is dead
     WaitFor(!EventFlag(19002952));
     WaitFixedTimeSeconds(2);
+    Goto(L0);
 });
 
 
@@ -1607,7 +1615,8 @@ $Event(19309000, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId,
     // Same defeat feedback as common_func 90075901, but it never sets flag 7512
     // (expedition finished). Instead it counts the kill, optionally replenishes
     // consumables, and lets the round manager start the next round.
-    // Typed Restart, so one pass of this body is one kill.
+    // Explicit loop: one pass of this body is one kill.
+L0:
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop counting
     }
@@ -1687,4 +1696,5 @@ $Event(19309000, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId,
     DisableCharacter(chrEntityId);
 
     WaitFixedTimeSeconds(1);
+    Goto(L0);
 });

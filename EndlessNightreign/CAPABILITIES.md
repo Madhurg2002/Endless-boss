@@ -15,9 +15,15 @@ until the run genuinely ends (team wipe, abort, or the game's own end-of-expedit
 垃圾王) is no longer registered for the chained Nightlords; that handler is what sets the
 "Nightlord is down" latch `7512` and finalises the expedition. Our replacement `19309000` plays
 the same defeat feedback but deliberately **never sets `7512`**, so the stock arena events that
-wind themselves down on it (`EndIfEventFlag … 7512 …`) simply keep running. The round manager
-`19002951` and the six spawn events `19114900`–`19114905` are typed `Restart` instead of
-one-shot, so the engine re-runs their bodies once per round.
+wind themselves down on it (`EndIfEventFlag … 7512 …`) simply keep running.
+
+The loop itself is written out explicitly in all three affected events (round manager
+`19002951`, the six spawn events `19114900`–`19114905`, death handler `19309000`): a `L0:`
+label at the top, `Goto(L0)` at the bottom. This matters — an event body that merely reaches
+its end does **not** start over, and the event type `Restart` does not mean "loop" either
+(despite the name, it only restarts the event when the map loads). Version 1.0.0 relied on
+that misreading, which is why it behaved exactly like the original mod. `RestartEvent()` and
+`Goto` are the only loop primitives, and the game's own scripts use both.
 
 | Event | Role after the change |
 |---|---|
@@ -90,9 +96,9 @@ in `19110900` at run start, so a new expedition starts clean.
 
 **Capability:** designed for Seamless Co-op, host-authoritative.
 
-- The roll is executed only on the host (`HasMultiplayerState(MultiplayerState.Host) ||
-  PlayerIsInOwnWorld()`); all round flags are *network-connected*, so clients see the same pick
-  and the same round state.
+- The roll and every round flag are *network-connected*, so clients see the same pick and the
+  same round state. The roll no longer waits for a host-only condition: if the roll somehow
+  produces no flag, the manager falls back to the first family instead of stalling the round.
 - Refill spEffect `509` is applied to every player slot, not just the host.
 - Delivery format is unchanged from DoubleBOSS: `mod/` folder + `EndlessNightreign.me3` profile,
   `savefile = "NR0000.co2"`, Seamless Co-op `nrsc.dll` in `SeamlessCoop/`.
@@ -110,7 +116,23 @@ hand-edited binaries.
   four retail `.emevd` files **byte-for-byte** — so the compile path is exact.
 - `.dcx` files are edited normally by opening a `.js` in DarkScript3 and pressing Ctrl+S.
 
-## 8. Rollback
+## 8. No scarab, no golem
+
+**Capability:** the dung beetle (scarab, entity `19214191`) and the golem (`19110888`) that
+DoubleBOSS adds to the arena are gone. Nothing else about the double-boss encounter changes.
+
+**How:**
+
+- **Golem** — `19110900` no longer waits for `HPRatio(19110888) <= 0`; it disables the golem
+  (`DisableCharacter` + AI + collision) and sets the chain gate `19002957` immediately. In
+  DoubleBOSS that gate is what lets the chain start at all, so removing the golem without this
+  would have made the expedition end on the first kill.
+- **Scarab** — the five per-boss `19219920` watchers that enable/disable the scarab are replaced
+  with a disable at map load. The scarab's only job was to unlock the invading second Nightlord
+  by setting `19002973`, so that flag is now set directly when the boss drops below 70 % HP —
+  the invasion still happens, at the same moment, just without the beetle to hunt first.
+
+## 9. Rollback
 
 The original `DoubleBOSS/` folder (compiled two-boss version, untouched) sits next to this one;
 launching `DoubleBOSS.me3` restores the original mod. Nothing here modifies
@@ -126,8 +148,10 @@ launching `DoubleBOSS.me3` restores the original mod. Nothing here modifies
 - **No reward/loot changes** — kill counting is for the refill only; it does not add drops.
 - **No save-file format changes** — only in-memory event flags are used.
 - **No custom rules for team wipe** — dying still ends the run the normal way.
-- **Not play-tested.** The scripts compile cleanly and the shipped binaries were verified by
-  decompiling them back out (new handler registered 6×, stock handler absent, manager and spawn
-  events `Restart`, roll present). Actual in-game behaviour is unverified — see the risk list in
-  `README.md`, first item: the shipped `.dcx` use DCX **DFLT** (zlib) compression instead of the
-  retail KRAK, because Oodle compression is Windows-only.
+- **Not play-tested here.** The shipped binaries were verified by decompiling them back out
+  (handler registered 6×, `Goto` loops present in manager, spawn events and handler, scarab and
+  golem disabled, invasion unlocked, no stock run-ending handler left registered), and the
+  compile path reproduces the four retail files byte-for-byte. Actual in-game behaviour has not
+  been observed by the author of this variant. The one environmental risk is the container:
+  the shipped `.dcx` use DCX **DFLT** (zlib) instead of the retail DCX_KRAK, because Oodle
+  compression is Windows-only.

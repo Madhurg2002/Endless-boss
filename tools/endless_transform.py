@@ -233,8 +233,6 @@ def plain_inits(text, own_events, orig_calls):
 
     def repl(m):
         name, slot, eid, args = m.group(1), m.group(2), int(m.group(3)), m.group(4).strip()
-        if eid in own_events:
-            return m.group(0)   # typed form resolves fine for same-file events
         js_tokens = [t for t in args.split(",")] if args else []
         for i, (iname, ieid, iargs) in enumerate(orig_calls):
             if used[i] or ieid != eid or iname != name:
@@ -242,6 +240,8 @@ def plain_inits(text, own_events, orig_calls):
             if _compatible(iargs, js_tokens):
                 used[i] = True
                 return "%s(%s, %d%s)" % (name, slot, eid, "".join(", %d" % a for a in iargs))
+        if eid in own_events:
+            return m.group(0)   # typed form resolves fine for same-file events
         warnings.append("no binary match for %s(%s, %d)" % (name, slot, eid))
         # a vararg instruction always carries at least one parameter; the typed form emits 0
         # for an event that takes none, so mirror that here
@@ -312,11 +312,9 @@ def roll_block(indent):
         "%s// every co-op peer sees the same pick." % pad,
         "%sBatchSetNetworkconnectedEventFlags(%d, %d, OFF);" % (pad, ROLL_FLAGS[0], ROLL_FLAGS[-1]),
         "%sBatchSetNetworkconnectedEventFlags(%d, %d, OFF);" % (pad, RESOLVED_FLAGS[0], RESOLVED_FLAGS[-1]),
-        "%sif (HasMultiplayerState(MultiplayerState.Host) || PlayerIsInOwnWorld()) {" % pad,
-        "%s    RandomlySetNetworkconnectedEventFlagInRange(%d, %d, ON);"
+        "%sRandomlySetNetworkconnectedEventFlagInRange(%d, %d, ON);"
         % (pad, ROLL_FLAGS[0], ROLL_FLAGS[-1]),
-        "%s}" % pad,
-        "%sWaitFor(AnyBatchEventFlags(%d, %d));" % (pad, ROLL_FLAGS[0], ROLL_FLAGS[-1]),
+        "%s// resolve the roll to exactly one family - never two in the same round" % pad,
     ]
     for i, flag in enumerate(ROLL_FLAGS):
         if i == 0:
@@ -324,6 +322,9 @@ def roll_block(indent):
         else:
             lines.append("%s} else if (EventFlag(%d)) {" % (pad, flag))
         lines.append("%s    SetNetworkconnectedEventFlagID(%d, ON);" % (pad, RESOLVED_FLAGS[i]))
+    lines.append("%s} else {" % pad)
+    lines.append("%s    SetNetworkconnectedEventFlagID(%d, ON);   // roll failed - default family"
+                 % (pad, RESOLVED_FLAGS[0]))
     lines.append("%s}" % pad)
     return "\n".join(lines)
 
@@ -333,13 +334,13 @@ def roll_block(indent):
 # ---------------------------------------------------------------------------
 def manager_body(warp_block):
     return """    // ===== ENDLESS GAUNTLET: round manager =====
-    // This event is typed Restart, so the engine starts it over as soon as the body
-    // reaches its end: one pass of this body is one round.
+    // The loop is written out explicitly (label + Goto) because an event body that
+    // simply reaches its end does NOT start over - only RestartEvent() or Goto loop.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(%d));   // expedition finished - stop the gauntlet
     }
-
+L0:
     SetNetworkconnectedEventFlagID(19002952, OFF);
     SetNetworkconnectedEventFlagID(19002953, OFF);
     SetNetworkconnectedEventFlagID(19002955, OFF);
@@ -362,9 +363,10 @@ def manager_body(warp_block):
 
     SetNetworkconnectedEventFlagID(19002952, ON);
 
-    // the death handler clears 19002952 when the current boss is dead
+    // the death handler clears 19002952 when this round's Nightlord is dead
     WaitFor(!EventFlag(19002952));
     WaitFixedTimeSeconds(2);
+    Goto(L0);
 """ % (FLAG_NEVER, FLAG_DONE_FIRST, FLAG_DONE_FIRST, warp_block, roll_block("    "))
 
 
@@ -379,12 +381,12 @@ def spawn_body(original_body, entities, eol, sel_flag):
     body = "\n".join(("    " + line) if line.strip() else line for line in body.split("\n"))
     enables = "\n".join("    EnableCharacter(%d);" % e for e in entities)
     return """    // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(%d));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(%d));
 
@@ -395,6 +397,7 @@ def spawn_body(original_body, entities, eol, sel_flag):
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 """ % (FLAG_NEVER, sel_flag, enables, body)
 
 
@@ -403,7 +406,8 @@ def death_handler_body():
     // Same defeat feedback as common_func 90075901, but it never sets flag 7512
     // (expedition finished). Instead it counts the kill, optionally replenishes
     // consumables, and lets the round manager start the next round.
-    // Typed Restart, so one pass of this body is one kill.
+    // Explicit loop: one pass of this body is one kill.
+L0:
     if (EventFlag(7512)) {
         WaitFor(EventFlag(%d));   // expedition finished - stop counting
     }
@@ -452,6 +456,7 @@ def death_handler_body():
     DisableCharacter(chrEntityId);
 
     WaitFixedTimeSeconds(1);
+    Goto(L0);
 """ % (FLAG_NEVER, sp_effects("    "), refill_block("    "))
 
 
@@ -461,6 +466,12 @@ def death_handler_body():
 def transform(text, name):
     eol = "\r\n" if "\r\n" in text else "\n"
     report = []
+
+    # 0. the container we can write on Linux is zlib, not Oodle -------------
+    # SoulsFormats picks the writer from this header, and Oodle only exists on Windows.
+    if "@compress    DCX_KRAK" in text:
+        text = text.replace("@compress    DCX_KRAK", "@compress    DCX_DFLT_10000_44_9")
+        report.append("header DCX_DFLT")
 
     # 1. round manager -------------------------------------------------------
     span = find_event_span(text, 19002951)
@@ -552,6 +563,41 @@ def transform(text, name):
             report.append("counter reset in 19110900")
 
         text = text[:s] + body.replace("\n", eol) + text[e:]
+
+    # 6. scarab (dung beetle) and golem removed from the arena -----------------
+    n = text.count("$InitializeEvent(0, 19219920, 19214191);")
+    if n:
+        text = text.replace("$InitializeEvent(0, 19219920, 19214191);",
+                            ("DisableCharacter(19214191);" + eol +
+                             "        DisableCharacterAI(19214191);" + eol +
+                             "        DisableCharacterCollision(19214191);   // scarab removed"))
+        report.append("scarab 19214191 disabled x%d" % n)
+
+    pat = re.compile(r"if \(EventFlag\(19002973\)\) \{\s*DisplayTextEffectId\(6019\);\s*"
+                     r"SetNetworkconnectedEventFlagID\(19002975, ON\);\s*\}")
+    def unlock(m):
+        return ("SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked" + eol +
+                "        DisplayTextEffectId(6019);" + eol +
+                "        SetNetworkconnectedEventFlagID(19002975, ON);")
+    text, k = pat.subn(unlock, text)
+    if k:
+        report.append("invasion unlocked (no scarab) x%d" % k)
+
+    pat = re.compile(r"// 连战开关：魔像\s*WaitFor\(HPRatio\(19110888\) <= 0\);\s*"
+                     r"WaitFixedTimeSeconds\(1\);\s*if \(EventFlag\(19002956\)\) \{\s*"
+                     r"if \(!EventFlag\(19002954\)\) \{\s*"
+                     r"SetNetworkconnectedEventFlagID\(19002957, ON\);\s*"
+                     r"DisplayTextEffectId\(6017\);\s*\}\s*\}")
+    golem = ("// 连战开关：魔像 removed - the golem never spawns, so the gate opens at once" + eol +
+             "    DisableCharacter(19110888);" + eol +
+             "    DisableCharacterAI(19110888);" + eol +
+             "    DisableCharacterCollision(19110888);" + eol +
+             "    SetNetworkconnectedEventFlagID(19002957, ON);")
+    text, k = pat.subn(golem, text)
+    if k:
+        report.append("golem 19110888 removed")
+    else:
+        report.append("WARNING: golem block not matched")
 
     own_events = {int(m) for m in re.findall(r"\$Event\((\d+)", text)}
     orig_calls = ORIGINAL_INITS.get(name.rsplit(".", 3)[0], [])

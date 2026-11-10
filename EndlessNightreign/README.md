@@ -1,5 +1,10 @@
 # Endless Nightlord Gauntlet - a DoubleBOSS (Nexus #952) variant
 
+**Version 1.0.1** - see [CHANGELOG.md](CHANGELOG.md). If you tried 1.0.0 and got exactly the
+same thing as plain DoubleBOSS, that was the bug fixed here: the endless loop relied on a
+misreading of the event type `Restart`, so it never actually looped. The loops are now written
+explicitly (`L0:` + `Goto(L0)`), which is how the game's own scripts loop.
+
 Built on top of **DoubleBOSS** by the original author. Same delivery format (a `mod/`
 folder loaded by a **me3** profile with Seamless Co-op), same assets - only the event
 scripts are changed.
@@ -105,11 +110,17 @@ Per map script (`m16_00`, `m16_10`, `m18_00`, `m19_00`):
 5. **`19110900`** - arms **all six** Nightlord families (the original arms only the one
    `RandomAppearLot` rolled, which is why DoubleBOSS always repeats that one) and clears the
    round-pick flags on run start.
-6. **Per-round lottery** - at the start of every round the host sets one random flag out of
-   `19300010`-`19300015` with `RandomlySetNetworkconnectedEventFlagInRange`; the round manager
-   resolves the result into exactly one of `19300020`-`19300025` (lowest index wins if the
-   game ever sets more than one), and only that family's spawn event and death handler react
-   to the round. The flags are network-connected, so all co-op peers see the same pick.
+6. **Per-round lottery** - at the start of every round the manager sets one random flag out of
+   `19300010`-`19300015` with `RandomlySetNetworkconnectedEventFlagInRange`; it then resolves
+   the result into exactly one of `19300020`-`19300025` (first match wins, with the first
+   family as fallback, so the round can never stall), and only that family's spawn event and
+   death handler react to the round. The flags are network-connected, so all co-op peers see
+   the same pick.
+7. **Golem and scarab removed** - `19110900` now disables `19110888` (golem) and sets the chain
+   gate `19002957` itself, instead of waiting for the golem to die before the chain can start;
+   the scarab `19214191` is disabled at map load and its job (unlocking the invading second
+   Nightlord, flag `19002973`) is done directly when the boss reaches 70 % HP. See section 8 of
+   `CAPABILITIES.md`.
 
 ## 5. Known risks (please read before reporting a bug)
 
@@ -134,11 +145,10 @@ compiler path is sound - but the game logic itself is untested. Check these firs
    the `WaitFixedTimeSeconds(4)` in the round manager.
 6. **Round lottery.** If a round starts and no Nightlord shows up (the fight flag `19002953`
    never comes on), the roll/selection path is the suspect: inspect `19300010`-`19300015`
-   (raw roll) and `19300020`-`19300025` (resolved pick) in a flag debugger. The roll is done
-   by the host only; if a client thinks it is the host and rolls independently, two families
-   can be armed - the manager resolves that to one, but the pick may then disagree between
-   peers. `RandomlySetNetworkconnectedEventFlagInRange` is a stock instruction the game itself
-   uses, but it is called from a map event here.
+   (raw roll) and `19300020`-`19300025` (resolved pick) in a flag debugger.
+   `RandomlySetNetworkconnectedEventFlagInRange` is a stock instruction the game itself uses,
+   but it is called from a map event here. If co-op peers disagree on the pick, the resolved
+   flags are the place to look; worst case, replace the roll with a fixed family order.
 7. All six families' init events now run at run start, so all their per-family common-event
    registrations (BGM heat-up, health-bar links, buffs) are live at once. That is what makes
    rotation possible and is the part I would watch most closely in the first real session.

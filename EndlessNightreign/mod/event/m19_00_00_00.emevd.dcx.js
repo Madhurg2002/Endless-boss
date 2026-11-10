@@ -1,6 +1,6 @@
 // ==EMEVD==
 // @docs    nr-common.emedf.json
-// @compress    DCX_KRAK
+// @compress    DCX_DFLT_10000_44_9
 // @game    Sekiro
 // @string    "W:\\CL\\data\\Param\\event\\common_func.emevd\u0000W:\\CL\\data\\Param\\event\\common_macro.emevd\u0000\u0000\u0000\u0000\u0000\u0000"
 // @linked    [0,82]
@@ -14,7 +14,7 @@ $Event(0, Default, function() {
         
         InitializeCommonEvent(0, 90075900, 19000800);
         // 重写夜王死亡结算，让夜王死后不触发游戏结算
-        $InitializeEvent(0, 190075901, 19000800, 750000, 907500000);
+        InitializeEvent(0, 190075901, 19000800, 750000, 907500000);
         InitializeCommonEvent(0, 90075902, 19000800, 19005801, 0);
         InitializeCommonEvent(0, 90015012, 19000800, 7511);
         InitializeCommonEvent(1, 90015012, 19005801, 7511);
@@ -35,7 +35,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90065920, 19005801, 7320);
         
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19000800); // 注册双夜王事件
+        InitializeEvent(0, 19210900, 19000800); // 注册双夜王事件
         // 重写游戏结束事件（连战重要实现：劫持结算事件，在击败夜王前插入连战夜王相关事件）
         $InitializeEvent(0, 19002951);  
     }
@@ -44,7 +44,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075101, 19000810);
         InitializeCommonEvent(0, 90075102, 19000810);
         InitializeCommonEvent(0, 90075900, 19000810);
-        $InitializeEvent(0, 190075901, 19000810, 751000, 907510000);
+        InitializeEvent(0, 190075901, 19000810, 751000, 907510000);
         InitializeCommonEvent(0, 90075902, 19000810, 0, 0);
         InitializeCommonEvent(0, 90015012, 19000810, 7511);
         InitializeCommonEvent(0, 90015020, 7511, 7512);
@@ -56,12 +56,12 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075150, 7511, 7512, 0, 19000810, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19000810);
+        InitializeEvent(0, 19210900, 19000810);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(2)) {
         InitializeCommonEvent(0, 90075900, 19005821);
-        $InitializeEvent(0, 190075901, 19000827, 752000, 907520000);
+        InitializeEvent(0, 190075901, 19000827, 752000, 907520000);
         InitializeCommonEvent(0, 90075902, 19005821, 0, 0);
         InitializeCommonEvent(0, 90015012, 19005821, 7511);
         InitializeCommonEvent(0, 90015020, 7511, 7512);
@@ -152,12 +152,12 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075240, 7511, 7512, 0, 19005821, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19000827);
+        InitializeEvent(0, 19210900, 19000827);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(3)) {
         InitializeCommonEvent(0, 90075900, 19000830);
-        $InitializeEvent(0, 190075901, 19000830, 754000, 907540000);
+        InitializeEvent(0, 190075901, 19000830, 754000, 907540000);
         InitializeCommonEvent(0, 90075902, 19000830, 0, 0);
         InitializeCommonEvent(0, 90015012, 19000830, 7511);
         InitializeCommonEvent(0, 90015020, 7511, 7512);
@@ -176,7 +176,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075340, 7511, 7512, 0, 19000830, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19000830);
+        InitializeEvent(0, 19210900, 19000830);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(3)) {
@@ -278,13 +278,13 @@ $Event(0, Default, function() {
         if (IsPlayerNo(6)) {
             InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000345, 19004744, 19000348);
         }
-        $InitializeEvent(0, 190075405, 19000240, 19000241, 19000246, 19000247, 19000248);
+        InitializeEvent(0, 190075405, 19000240, 19000241, 19000246, 19000247, 19000248);
         InitializeCommonEvent(0, 99075406, 19000849, 19000240, 19000701, 19000241);
         InitializeCommonEvent(0, 99075410, 19000840);
         InitializeCommonEvent(0, 99075420, 19000840);
         InitializeCommonEvent(0, 99075421, 19000840);
         InitializeCommonEvent(0, 99075422, 19000840, 19002740, 19002741, 19002742, 19002743, 19002744, 19002745, 19002746, 19002747, 19000440, 19000441, 19000442, 19000443, 19000444, 19000445, 19000446, 19000447);
-        $InitializeEvent(0, 190075901, 19000840, 756000, 907550000);
+        InitializeEvent(0, 190075901, 19000840, 756000, 907550000);
         InitializeCommonEvent(0, 90075902, 19005840, 0, 0);
         InitializeCommonEvent(0, 90015012, 19005840, 7511);
         InitializeCommonEvent(0, 90015020, 7511, 7512);
@@ -296,12 +296,12 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 99075440, 7511, 7512, 0, 19000840, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19000840);
+        InitializeEvent(0, 19210900, 19000840);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(5)) {
         InitializeCommonEvent(0, 90075900, 19000850);
-        $InitializeEvent(0, 190075901, 19000850, 760000, 907610001);
+        InitializeEvent(0, 190075901, 19000850, 760000, 907610001);
         InitializeCommonEvent(0, 90075902, 19000850, 0, 0);
         InitializeCommonEvent(0, 90075500, 19000850);
         InitializeCommonEvent(0, 90075501, 19000850);
@@ -315,18 +315,18 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075520, 7511, 7512, 0, 19000850, 5108, 0);
         
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19000850);
+        InitializeEvent(0, 19210900, 19000850);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(6)) {
         InitializeCommonEvent(0, 90075900, 19000860);
-        $InitializeEvent(0, 190075901, 19000860, 490000, 907620000);
+        InitializeEvent(0, 190075901, 19000860, 490000, 907620000);
         InitializeCommonEvent(0, 90075902, 19000860, 0, 0);
         InitializeCommonEvent(0, 90075600, 19000860, 19002860);
         InitializeCommonEvent(0, 90075601, 19000860);
         InitializeCommonEvent(0, 90015012, 19000860, 7511);
         InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeEvent(0, 190075610, 19000860);
+        InitializeEvent(0, 190075610, 19000860);
         
         InitializeCommonEvent(0, 90015008, 7511, 7512, 490000, 19000860, 5105, 0);
         InitializeCommonEvent(0, 90075910, 7511, 7512, 19006860, 19000860, 5108, 0);
@@ -336,12 +336,12 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075602, 19000860);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19000860);
+        InitializeEvent(0, 19210900, 19000860);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(10)) {
         InitializeCommonEvent(0, 90075900, 19010800);
-        $InitializeEvent(0, 190075901, 19010800, 750000, 907500000);
+        InitializeEvent(0, 190075901, 19010800, 750000, 907500000);
         InitializeCommonEvent(0, 90075902, 19010800, 19015801, 0);
         InitializeCommonEvent(0, 90015012, 19010800, 7511);
         InitializeCommonEvent(1, 90015012, 19015801, 7511);
@@ -357,7 +357,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075060, 19010800, 19010802);
         InitializeCommonEvent(0, 90075070, 19010800, 19010801, 72, 5908, 51320);
         InitializeCommonEvent(0, 90075070, 19010800, 19010802, 72, 5909, 51321);
-        $InitializeEvent(0, 190075950, 750000, 19010800, 5106, 0);
+        InitializeEvent(0, 190075950, 750000, 19010800, 5106, 0);
         
         InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19010800, 0, 1065353216);
         InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19010800, 0, 1065353216);
@@ -365,16 +365,16 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075008, 6001, 7512, 0, 19010800, 0, 1065353216);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19010800);
+        InitializeEvent(0, 19210900, 19010800);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(11)) {
         InitializeCommonEvent(0, 90075161, 19010810);
         InitializeCommonEvent(0, 90075102, 19010810);
         InitializeCommonEvent(0, 90075900, 19010810);
-        $InitializeEvent(0, 190075901, 19010810, 751000, 907510000);
+        InitializeEvent(0, 190075901, 19010810, 751000, 907510000);
         InitializeCommonEvent(0, 90075902, 19010810, 0, 0);
-        $InitializeEvent(0, 190075950, 751000, 19010810, 5106, 0);
+        InitializeEvent(0, 190075950, 751000, 19010810, 5106, 0);
         InitializeCommonEvent(0, 90015012, 19010810, 7511);
         InitializeCommonEvent(0, 90015020, 7511, 7512);
         InitializeCommonEvent(0, 90075910, 7511, 7512, 19006810, 19010810, 5108, 0);
@@ -389,16 +389,16 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075165, 19010810);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19010810);
+        InitializeEvent(0, 19210900, 19010810);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(12)) {
         InitializeCommonEvent(0, 90075900, 19015821);
-        $InitializeEvent(0, 190075901, 19010828, 752000, 907520002);
+        InitializeEvent(0, 190075901, 19010828, 752000, 907520002);
         InitializeCommonEvent(0, 90075903, 19, 19015821, 19010827, 0);
         InitializeCommonEvent(0, 90015012, 19015821, 7511);
         InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeEvent(0, 190075950, 752000, 19010828, 5106, 0);
+        InitializeEvent(0, 190075950, 752000, 19010828, 5106, 0);
         InitializeCommonEvent(0, 90075250, 19015821, 19010825, 19010826, 19010827);
         InitializeCommonEvent(0, 90075251, 19015821, 19010825, 19010826, 19010827, 19010828, 19002820, 19000220, 19000221, 19000222, 19000322);
         InitializeCommonEvent(0, 90075257, 19010827, 19010828, 19010825, 19010826);
@@ -408,7 +408,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075266, 19010826, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19010828);
+        InitializeEvent(0, 19210900, 19010828);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(12)) {
@@ -507,7 +507,7 @@ $Event(0, Default, function() {
     }
     if (IsMapVariation(13)) {
         InitializeCommonEvent(0, 90075900, 19010830);
-        $InitializeEvent(0, 190075901, 19010831, 754000, 907540000);
+        InitializeEvent(0, 190075901, 19010831, 754000, 907540000);
         InitializeCommonEvent(0, 90075902, 19010830, 19010831, 0);
         InitializeCommonEvent(0, 90015012, 19010830, 7511);
         InitializeCommonEvent(0, 90015012, 19010831, 7511);
@@ -516,7 +516,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075351, 19010830, 19015835, 19015836, 19000230);
         InitializeCommonEvent(0, 90075352, 19010830, 19010831, 19000230);
         InitializeCommonEvent(0, 90075330, 19010830);
-        $InitializeEvent(0, 190075950, 754000, 19010831, 5106, 0);
+        InitializeEvent(0, 190075950, 754000, 19010831, 5106, 0);
         
         InitializeCommonEvent(0, 90075910, 7511, 7512, 19006830, 19010830, 5108, 0);
         InitializeCommonEvent(0, 90075910, 7511, 7512, 19006831, 19010830, 5108, 0);
@@ -529,7 +529,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075360, 19010831, 45720, 14, 14, 1, 227, 11, 45721, 45744, 45725, 45734);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19010831);
+        InitializeEvent(0, 19210900, 19010831);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(13)) {
@@ -618,7 +618,7 @@ $Event(0, Default, function() {
     if (IsMapVariation(14)) {
         InitializeCommonEvent(0, 90075450, 19010840, 19010849, 19010440, 19010441, 19010442, 19010443, 19010444, 19010445, 19010446, 19010447, 19015842, 19015843, 19015844, 19015845, 19015846, 19015847);
         InitializeCommonEvent(0, 90075401, 19010849, 19000240, 19000241, 19000242);
-        $InitializeEvent(0, 190075452, 19010849, 19010840, 19000240, 19000241, 19000242);
+        InitializeEvent(0, 190075452, 19010849, 19010840, 19000240, 19000241, 19000242);
         InitializeCommonEvent(0, 90075403, 19010849, 19004740, 19004741, 19004742, 19000240, 19000242);
         if (IsPlayerNo(1)) {
             InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000243, 19004744, 19000246);
@@ -638,13 +638,13 @@ $Event(0, Default, function() {
         if (IsPlayerNo(6)) {
             InitializeCommonEvent(0, 90075404, 19000240, 19004743, 19000345, 19004744, 19000348);
         }
-        $InitializeEvent(0, 190075405, 19000240, 19000241, 19000246, 19000247, 19000248);
+        InitializeEvent(0, 190075405, 19000240, 19000241, 19000246, 19000247, 19000248);
         InitializeCommonEvent(0, 99075406, 19010849, 19000240, 19000701, 19000241);
         InitializeCommonEvent(0, 99075410, 19010840);
         InitializeCommonEvent(0, 99075420, 19010840);
         InitializeCommonEvent(0, 99075421, 19010840);
         InitializeCommonEvent(0, 99075422, 19010840, 19002740, 19002741, 19002742, 19002743, 19002744, 19002745, 19002746, 19002747, 19010440, 19010441, 19010442, 19010443, 19010444, 19010445, 19010446, 19010447);
-        $InitializeEvent(0, 190075901, 19010840, 756000, 907550000);
+        InitializeEvent(0, 190075901, 19010840, 756000, 907550000);
         InitializeCommonEvent(0, 90075902, 19015840, 0, 0);
         InitializeCommonEvent(0, 90075902, 19015842, 19015843, 19015844);
         InitializeCommonEvent(0, 90075902, 19015845, 19015846, 19015847);
@@ -657,15 +657,15 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90015022, 19015847, 7511);
         InitializeCommonEvent(0, 90015020, 7511, 7512);
         InitializeCommonEvent(0, 99075485, 19010840, 19000270);
-        $InitializeEvent(0, 199075486, 19010840);
-        $InitializeEvent(0, 190075950, 756000, 19010840, 5106, 0.5);
+        InitializeEvent(0, 199075486, 19010840);
+        InitializeEvent(0, 190075950, 756000, 19010840, 5106, 1056964608);
         InitializeCommonEvent(0, 90075910, 7511, 7512, 19006840, 19010840, 5108, 0);
         InitializeCommonEvent(0, 90075910, 7511, 7512, 19006841, 19010840, 5108, 0);
         InitializeCommonEvent(0, 90075910, 7511, 7512, 19006842, 19010840, 5108, 0);
         InitializeCommonEvent(0, 99075440, 7511, 7512, 0, 19010840, 5108, 0);
                 
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19010840);
+        InitializeEvent(0, 19210900, 19010840);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(14)) {
@@ -758,7 +758,7 @@ $Event(0, Default, function() {
     }
     if (IsMapVariation(15)) {
         InitializeCommonEvent(0, 90075900, 19010850);
-        $InitializeEvent(0, 190075901, 19010850, 760000, 907610000);
+        InitializeEvent(0, 190075901, 19010850, 760000, 907610000);
         InitializeCommonEvent(0, 90075902, 19010850, 0, 0);
         InitializeCommonEvent(0, 90075500, 19010850);
         InitializeCommonEvent(0, 90075950, 760000, 19010850, 5106, 0);
@@ -772,24 +772,24 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075520, 7511, 7512, 0, 19010850, 5108, 0);
         
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19010850);
+        InitializeEvent(0, 19210900, 19010850);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(16)) {
         InitializeCommonEvent(0, 90075900, 19010860);
-        $InitializeEvent(0, 190075901, 19010860, 490000, 907620000);
+        InitializeEvent(0, 190075901, 19010860, 490000, 907620000);
         InitializeCommonEvent(0, 90075902, 19010860, 0, 0);
         InitializeCommonEvent(0, 90075600, 19010860, 19002860);
-        $InitializeEvent(0, 190075651, 19010860);
+        InitializeEvent(0, 190075651, 19010860);
         InitializeCommonEvent(0, 90015012, 19010860, 7511);
         InitializeCommonEvent(0, 90015020, 7511, 7512);
-        $InitializeEvent(0, 190075610, 19010860);
+        InitializeEvent(0, 190075610, 19010860);
         InitializeCommonEvent(0, 90075660, 19010860, 51001, 51002, 51030, 15, 120, 10, 1, 11, 6, 0, 1, 0, 1, 0, 1);
         InitializeCommonEvent(0, 90075660, 19010860, 51003, 51004, 51031, 16, 130, 20, 2, 21, 3, 22, 4, 23, 5, 24, 8);
         InitializeCommonEvent(0, 90075660, 19010860, 51005, 51006, 51032, 17, 60, 30, 9, 31, 10, 32, 11, 33, 12, 0, 1);
         InitializeCommonEvent(0, 90075660, 19010860, 51007, 51008, 51033, 18, 120, 40, 7, 0, 1, 0, 1, 0, 1, 0, 1);
-        $InitializeEvent(0, 190075652, 19010860, 5105, 5106);
-        $InitializeEvent(0, 190075950, 490000, 19010860, 5106, 0);
+        InitializeEvent(0, 190075652, 19010860, 5105, 5106);
+        InitializeEvent(0, 190075950, 490000, 19010860, 5106, 0);
         
         InitializeCommonEvent(0, 90075910, 7511, 7512, 19006860, 19010860, 5108, 0);
         InitializeCommonEvent(0, 90075910, 7511, 7512, 19006861, 19010860, 5108, 0);
@@ -798,7 +798,7 @@ $Event(0, Default, function() {
         InitializeCommonEvent(0, 90075602, 19010860);
         
         $InitializeEvent(0, 19110900);  // 注册连战事件
-        $InitializeEvent(0, 19210900, 19010860);
+        InitializeEvent(0, 19210900, 19010860);
         $InitializeEvent(0, 19002951);
     }
     if (IsMapVariation(2)) {
@@ -859,13 +859,13 @@ $Event(0, Default, function() {
 });
 
 $Event(50, Default, function() {
-    $InitializeEvent(0, 19004500, 150, 19000800);
-    $InitializeEvent(1, 19004500, 151, 19000810);
-    $InitializeEvent(2, 19004500, 152, 19000827);
-    $InitializeEvent(3, 19004500, 153, 19000830);
-    $InitializeEvent(4, 19004500, 154, 19000840);
-    $InitializeEvent(5, 19004500, 155, 19000850);
-    $InitializeEvent(6, 19004500, 156, 19000860);
+    InitializeEvent(0, 19004500, 150, 19000800);
+    InitializeEvent(1, 19004500, 151, 19000810);
+    InitializeEvent(2, 19004500, 152, 19000827);
+    InitializeEvent(3, 19004500, 153, 19000830);
+    InitializeEvent(4, 19004500, 154, 19000840);
+    InitializeEvent(5, 19004500, 155, 19000850);
+    InitializeEvent(6, 19004500, 156, 19000860);
     $InitializeEvent(0, 19002470);
 });
 
@@ -1669,15 +1669,11 @@ $Event(19110900, Default, function()
     
     $InitializeEvent(0, 19113905);
     
-    // 连战开关：魔像
-    WaitFor(HPRatio(19110888) <= 0);
-    WaitFixedTimeSeconds(1);
-    if (EventFlag(19002956)) {
-        if (!EventFlag(19002954)) {
-            SetNetworkconnectedEventFlagID(19002957, ON);
-            DisplayTextEffectId(6017);
-        }
-    }
+    // 连战开关：魔像 removed - the golem never spawns, so the gate opens at once
+    DisableCharacter(19110888);
+    DisableCharacterAI(19110888);
+    DisableCharacterCollision(19110888);
+    SetNetworkconnectedEventFlagID(19002957, ON);
     EndEvent();
 });
 
@@ -1697,76 +1693,81 @@ $Event(19210900, Default, function(chrEntityId)
     if (RandomAppearLot(19210800)) {
         InitializeCommonEvent(0, 90075100, 19210800);
         InitializeCommonEvent(0, 90015012, 19210800, 7511);        
-        $InitializeEvent(0, 19212818, 19210800, 907500000, 20029);
-        $InitializeEvent(0, 19212819, 19210800);
-        $InitializeEvent(0, 19212820, 19210800, 3034);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210800, 907500000, 20029);
+        InitializeEvent(0, 19212819, 19210800);
+        InitializeEvent(0, 19212820, 19210800, 3034);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
 
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 小嘴入侵: EntityID: 19210810  NameID:907510000
     if (RandomAppearLot(19210810)) {
         InitializeCommonEvent(0, 90075100, 19210810);
         InitializeCommonEvent(0, 90015012, 19210810, 7511);        
-        $InitializeEvent(0, 19212818, 19210810, 907510000, 20029);
-        $InitializeEvent(0, 19212819, 19210810);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210810, 907510000, 20029);
+        InitializeEvent(0, 19212819, 19210810);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 小羊入侵: EntityID: 19210840  NameID:907550000
     if (RandomAppearLot(19210840)) {
         InitializeCommonEvent(0, 90075100, 19210840);
         InitializeCommonEvent(0, 90015012, 19210840, 7511);        
-        $InitializeEvent(0, 19212818, 19210840, 907550000, 20029);
-        $InitializeEvent(0, 19212819, 19210840);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210840, 907550000, 20029);
+        InitializeEvent(0, 19212819, 19210840);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 小马入侵: EntityID: 19210850  NameID:907610000
     if (RandomAppearLot(19210850)) {
         InitializeCommonEvent(0, 90075100, 19210850);
         InitializeCommonEvent(0, 90015012, 19210850, 7511);        
-        $InitializeEvent(0, 19212818, 19210850, 907610000, 20029);
-        $InitializeEvent(0, 19212819, 19210850);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210850, 907610000, 20029);
+        InitializeEvent(0, 19212819, 19210850);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 小龙入侵: EntityID: 19210860  NameID:907620000
     if (RandomAppearLot(19210860)) {
         InitializeCommonEvent(0, 90075100, 19210860);
         InitializeCommonEvent(0, 90015012, 19210860, 7511);        
-        $InitializeEvent(0, 19212818, 19210860, 907620000, 20029);
-        $InitializeEvent(0, 19212819, 19210860);
-        $InitializeEvent(0, 19219920, 19214191);
+        InitializeEvent(0, 19212818, 19210860, 907620000, 20029);
+        InitializeEvent(0, 19212819, 19210860);
+        DisableCharacter(19214191);
+        DisableCharacterAI(19214191);
+        DisableCharacterCollision(19214191);   // scarab removed
         
         WaitFor(HPRatio(chrEntityId) < 0.7);
-        if (EventFlag(19002973)) {
-            DisplayTextEffectId(6019);
-            SetNetworkconnectedEventFlagID(19002975, ON);
-        }
+        SetNetworkconnectedEventFlagID(19002973, ON);   // scarab removed: invasion unlocked
+        DisplayTextEffectId(6019);
+        SetNetworkconnectedEventFlagID(19002975, ON);
     }
     
     // 龙王入侵: EntityID: 19210817  NameID:907620001
@@ -1780,7 +1781,7 @@ $Event(19210900, Default, function(chrEntityId)
 $Event(19113900, Default, function() {
     $InitializeEvent(0, 19114900);
     // Endless: 190017580 removed (it ends the run on death)
-    $InitializeEvent(0, 190075851, 19111803, 907580002);
+    InitializeEvent(0, 190075851, 19111803, 907580002);
     
     $InitializeEvent(0, 19309000, 19111803, 758000, 907580001, 19300020);
     InitializeCommonEvent(0, 90075902, 19005800, 19111803, 0);
@@ -1794,12 +1795,12 @@ $Event(19113900, Default, function() {
 // ================= 连战BOSS【圣牢布】激活相关事件相关事件===========
 $Event(19114900, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300020));
 
@@ -1826,13 +1827,14 @@ $Event(19114900, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 // ================= 连战BOSS【米塔恩】初始化相关事件===========
 $Event(19113901, Default, function() {
     $InitializeEvent(0, 19114901);
-    $InitializeEvent(0, 190075501, 19110880, 907610001);
-    $InitializeEvent(0, 190075900, 19110880);
+    InitializeEvent(0, 190075501, 19110880, 907610001);
+    InitializeEvent(0, 190075900, 19110880);
     
     $InitializeEvent(0, 19309000, 19110880, 760000, 907610001, 19300021);
     InitializeCommonEvent(0, 90075902, 19110880, 0, 0);
@@ -1851,12 +1853,12 @@ $Event(19113901, Default, function() {
 // ================= 连战BOSS【米塔恩】激活相关事件相关事件===========
 $Event(19114901, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300021));
 
@@ -1877,16 +1879,17 @@ $Event(19114901, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 // ================= 连战BOSS【王三狼】初始化相关事件===========
 $Event(19113902, Default, function() {
     $InitializeEvent(0, 19114902);
-    $InitializeEvent(0, 190075051, 19110800, 19115801, 19110801, 19110802);
-    $InitializeEvent(0, 290075950, 750000, 19110800, 5106, 0);
+    InitializeEvent(0, 190075051, 19110800, 19115801, 19110801, 19110802);
+    InitializeEvent(0, 290075950, 750000, 19110800, 5106, 0);
 
     $InitializeEvent(0, 19309000, 19110800, 750000, 907500000, 19300022);
-    $InitializeEvent(0, 190075902, 19110800, 19115801, 0);
+    InitializeEvent(0, 190075902, 19110800, 19115801, 0);
     InitializeCommonEvent(0, 90015012, 19110800, 19002953);
     InitializeCommonEvent(1, 90015012, 19115801, 19002953);
     InitializeCommonEvent(0, 90015020, 19002953, 7512);
@@ -1903,7 +1906,7 @@ $Event(19113902, Default, function() {
     InitializeCommonEvent(0, 90075910, 6001, 7512, 19006800, 19110800, 0, 1065353216);
     InitializeCommonEvent(0, 90075910, 6001, 7512, 19006801, 19110800, 0, 1065353216);
     InitializeCommonEvent(0, 90075910, 6001, 7512, 19006802, 19110800, 0, 1065353216);
-    $InitializeEvent(0, 190075008, 6001, 7512, 0, 19110800, 0, 1);
+    InitializeEvent(0, 190075008, 6001, 7512, 0, 19110800, 0, 1065353216);
 
     SetNetworkconnectedEventFlagID(19002956, ON);
     EndEvent();
@@ -1912,12 +1915,12 @@ $Event(19113902, Default, function() {
 // ================= 连战BOSS【王三狼】激活相关事件相关事件===========
 $Event(19114902, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300022));
 
@@ -1935,14 +1938,15 @@ $Event(19114902, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 
 // ================= 连战BOSS【王人马】初始化相关事件===========
 $Event(19113903, Default, function() {
     $InitializeEvent(0, 19114903);
-    $InitializeEvent(0, 190075551, 19110850);
-    $InitializeEvent(0, 290075950, 760000, 19110850, 5106, 0);
+    InitializeEvent(0, 190075551, 19110850);
+    InitializeEvent(0, 290075950, 760000, 19110850, 5106, 0);
 
     InitializeCommonEvent(0, 90015012, 19110850, 19002953);
     InitializeCommonEvent(0, 90015020, 19002953, 7512);
@@ -1961,12 +1965,12 @@ $Event(19113903, Default, function() {
 // ================= 连战BOSS【王人马】激活相关事件相关事件===========
 $Event(19114903, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300023));
 
@@ -1985,13 +1989,14 @@ $Event(19114903, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 // ================= 连战BOSS【王冰龙】初始化相关事件===========
 $Event(19113904, Default, function() {
     $InitializeEvent(0, 19114904);
-    $InitializeEvent(0, 191175651, 19110860);
-    $InitializeEvent(0, 290075950, 490000, 19110860, 5106, 0);
+    InitializeEvent(0, 191175651, 19110860);
+    InitializeEvent(0, 290075950, 490000, 19110860, 5106, 0);
 
     InitializeCommonEvent(0, 90015012, 19110860, 19002953);
     InitializeCommonEvent(0, 90015020, 19002953, 7512);
@@ -1999,7 +2004,7 @@ $Event(19113904, Default, function() {
     $InitializeEvent(0, 19309000, 19110860, 490000, 907620000, 19300024);
     InitializeCommonEvent(0, 90075600, 19110860, 19102860);
     InitializeCommonEvent(0, 90075610, 19110860);
-    $InitializeEvent(0, 191175652, 19110860, 5105, 5106);
+    InitializeEvent(0, 191175652, 19110860, 5105, 5106);
     InitializeCommonEvent(0, 90075602, 19110860);
     InitializeCommonEvent(0, 90075660, 19110860, 51001, 51002, 51030, 15, 120, 10, 1, 11, 6, 0, 1, 0, 1, 0, 1);
     InitializeCommonEvent(0, 90075660, 19110860, 51003, 51004, 51031, 16, 130, 20, 2, 21, 3, 22, 4, 23, 5, 24, 8);
@@ -2017,12 +2022,12 @@ $Event(19113904, Default, function() {
 // ================= 连战BOSS【王冰龙】激活相关事件相关事件===========
 $Event(19114904, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300024));
 
@@ -2040,17 +2045,18 @@ $Event(19114904, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 // ================= 连战BOSS【垃圾王】初始化相关事件===========
 $Event(19113905, Default, function() {
     $InitializeEvent(0, 19114905);
-    $InitializeEvent(0, 190075770, 19110870, 16122810, 16120220);
-    $InitializeEvent(0, 190075752, 19110870, 16120220);
+    InitializeEvent(0, 190075770, 19110870, 16122810, 16120220);
+    InitializeEvent(0, 190075752, 19110870, 16120220);
     $InitializeEvent(0, 19309000, 19110870, 761000, 907630001, 19300025);
-    $InitializeEvent(0, 190075780, 19110870, 16120220);
-    $InitializeEvent(0, 190075773, 19110870, 16120220);
-    $InitializeEvent(0, 190075774, 19110870, 16122890);
+    InitializeEvent(0, 190075780, 19110870, 16120220);
+    InitializeEvent(0, 190075773, 19110870, 16120220);
+    InitializeEvent(0, 190075774, 19110870, 16122890);
     InitializeCommonEvent(0, 90015012, 19110870, 19002953);
     InitializeCommonEvent(0, 90015020, 19002953, 7512);
     InitializeCommonEvent(0, 90075902, 19110870, 0, 0);
@@ -2062,12 +2068,12 @@ $Event(19113905, Default, function() {
 // ================= 连战BOSS【垃圾王】激活相关事件相关事件===========
 $Event(19114905, Restart, function() {
     // ===== ENDLESS GAUNTLET: one spawn per round =====
-    // Typed Restart: the engine re-runs this body for every round of the gauntlet.
+    // Explicit loop: each pass arms this Nightlord for one round of the gauntlet.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop spawning
     }
-
+L0:
     // wait until the round manager rolls this Nightlord
     WaitFor(EventFlag(19002952) && EventFlag(19300025));
 
@@ -2095,19 +2101,20 @@ $Event(19114905, Restart, function() {
 
     // round finished - the death handler clears the fight flag
     WaitFor(!EventFlag(19002952));
+    Goto(L0);
 });
 
 
 // =========重要：第一场夜王战结束后转连战夜王事件===========
 $Event(19002951, Restart, function() {
     // ===== ENDLESS GAUNTLET: round manager =====
-    // This event is typed Restart, so the engine starts it over as soon as the body
-    // reaches its end: one pass of this body is one round.
+    // The loop is written out explicitly (label + Goto) because an event body that
+    // simply reaches its end does NOT start over - only RestartEvent() or Goto loop.
     WaitFor(EventFlag(19002951));
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop the gauntlet
     }
-
+L0:
     SetNetworkconnectedEventFlagID(19002952, OFF);
     SetNetworkconnectedEventFlagID(19002953, OFF);
     SetNetworkconnectedEventFlagID(19002955, OFF);
@@ -2148,10 +2155,8 @@ $Event(19002951, Restart, function() {
     // every co-op peer sees the same pick.
     BatchSetNetworkconnectedEventFlags(19300010, 19300015, OFF);
     BatchSetNetworkconnectedEventFlags(19300020, 19300025, OFF);
-    if (HasMultiplayerState(MultiplayerState.Host) || PlayerIsInOwnWorld()) {
-        RandomlySetNetworkconnectedEventFlagInRange(19300010, 19300015, ON);
-    }
-    WaitFor(AnyBatchEventFlags(19300010, 19300015));
+    RandomlySetNetworkconnectedEventFlagInRange(19300010, 19300015, ON);
+    // resolve the roll to exactly one family - never two in the same round
     if (EventFlag(19300010)) {
         SetNetworkconnectedEventFlagID(19300020, ON);
     } else if (EventFlag(19300011)) {
@@ -2164,13 +2169,16 @@ $Event(19002951, Restart, function() {
         SetNetworkconnectedEventFlagID(19300024, ON);
     } else if (EventFlag(19300015)) {
         SetNetworkconnectedEventFlagID(19300025, ON);
+    } else {
+        SetNetworkconnectedEventFlagID(19300020, ON);   // roll failed - default family
     }
 
     SetNetworkconnectedEventFlagID(19002952, ON);
 
-    // the death handler clears 19002952 when the current boss is dead
+    // the death handler clears 19002952 when this round's Nightlord is dead
     WaitFor(!EventFlag(19002952));
     WaitFixedTimeSeconds(2);
+    Goto(L0);
 });
 
 // 重要：重写夜王死亡结算，让夜王死后不触发游戏结算
@@ -3122,7 +3130,8 @@ $Event(19309000, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId,
     // Same defeat feedback as common_func 90075901, but it never sets flag 7512
     // (expedition finished). Instead it counts the kill, optionally replenishes
     // consumables, and lets the round manager start the next round.
-    // Typed Restart, so one pass of this body is one kill.
+    // Explicit loop: one pass of this body is one kill.
+L0:
     if (EventFlag(7512)) {
         WaitFor(EventFlag(19300999));   // expedition finished - stop counting
     }
@@ -3202,4 +3211,5 @@ $Event(19309000, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId,
     DisableCharacter(chrEntityId);
 
     WaitFixedTimeSeconds(1);
+    Goto(L0);
 });

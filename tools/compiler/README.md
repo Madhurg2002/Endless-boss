@@ -36,6 +36,20 @@ The container is the same DCX format, only the compression codec differs.
 
 ## Notes
 
+- **ooz on Linux.** `ooz/stdafx.h` is a Windows header. Compile from a directory that has a
+  linux-friendly copy of `stdafx.h` next to `kraken.cpp`/`bitknit.cpp`/`lzna.cpp`: include
+  `<emmintrin.h>`/`<smmintrin.h>`, drop the Windows includes, add `_BitScanReverse`,
+  `_BitScanForward`, `_rotl`, `_rotr`, `_byteswap_*` shims, `#define __forceinline inline`,
+  `#define WINAPI`, and strip the Windows test harness below `Kraken_Decompress` (keep it,
+  drop everything after it). Build with `-msse4.1`.
+- **Header matters.** SoulsFormats picks the output codec from the `// @compress` line in the
+  `.js`, so it must say `DCX_DFLT_10000_44_9` here; `DCX_DFLT` alone is not a valid name and
+  `DCX_KRAK` makes the writer look for Oodle. `tools/endless_transform.py` rewrites that line.
+- **Only the map files.** Compile the four `m*.emevd.dcx.js`; do not put
+  `common_func.emevd.dcx.js` in the input directory (it still says KRAK and would be
+  recompiled). The map scripts' `$InitializeCommonEvent` calls are expanded to explicit
+  numeric arguments from `tools/original_inits.json`, so `common_func` definitions are not
+  needed at compile time.
 - `common_func.emevd.dcx` is unchanged and is shipped as the original KRAK file.
 - If a future edit needs to be recompiled on Windows, open the shipped `.dcx` in
   DarkScript3 and press Ctrl+S; that writes KRAK again, which is what the retail files use.
