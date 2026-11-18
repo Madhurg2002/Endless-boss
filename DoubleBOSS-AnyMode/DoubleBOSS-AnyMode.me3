@@ -1,0 +1,61 @@
+profileVersion = "v1"
+savefile = "NR0000.co2"
+start_online = false
+
+[[supports]]
+game = "nightreign"
+
+[[natives]]
+path = "./SeamlessCoop/nrsc.dll"
+load_early = true
+
+# ---------------------------------------------------------------------------
+# DoubleBOSS - Any Mode build. One package per file family, so a part that
+# clashes with another mod can be switched off here instead of removing the
+# whole mod. Packages are loaded in the order they appear; load_after keeps
+# that order explicit. See CONFLICTS.md for what to turn off and what has to be
+# merged by hand.
+# ---------------------------------------------------------------------------
+
+# The mod itself: the four recompiled arena scripts. Required.
+[[packages]]
+id = "db-events"
+path = "./packages/01-events/mod"
+
+# The extra Nightlord / invader placements. Required by the event scripts.
+# Clashes with any other mod that replaces the same mapstudio/*.msb.dcx.
+[[packages]]
+id = "db-maps"
+path = "./packages/02-maps/mod"
+load_after = ["db-events"]
+
+# regulation.bin for the added NPCs. Clashes with every other regulation.bin
+# mod: merge the two files (see CONFLICTS.md) and put the result in this folder,
+# or set enabled = false if your merged regulation.bin already contains these
+# rows and is loaded by another package.
+[[packages]]
+id = "db-params"
+path = "./packages/03-params/mod"
+load_after = ["db-maps"]
+
+# Boss name strings. Cosmetic: disabling it only loses the custom names.
+[[packages]]
+id = "db-text"
+path = "./packages/04-text/mod"
+load_after = ["db-params"]
+
+# Arena point lights shipped by the author. Cosmetic.
+[[packages]]
+id = "db-lights"
+path = "./packages/05-lights/mod"
+load_after = ["db-text"]
+
+# The author's copy of common_func.emevd.dcx. It is the stock file for this
+# build (it contains none of the chain's events or flags), and common_func is
+# the file other gameplay mods most often replace, so it is off by default.
+# Set enabled = true if the chain never starts and no other mod ships this file.
+[[packages]]
+id = "db-common-func"
+path = "./packages/06-common-func/mod"
+enabled = false
+load_after = ["db-text"]
