@@ -47,9 +47,10 @@ the stock behaviour.
 1. Copy this whole folder next to your other mods - or drop `DoubleBOSS-AnyMode.zip` (or the
    folder) into **ME3 Manager**, which installs it as one mod. Enabling that mod switches its
    five package entries on in the profile the manager writes.
-2. Seamless Co-op: put `nrsc.dll` at `DoubleBOSS-AnyMode/SeamlessCoop/nrsc.dll` if you use the
-   bundled profile. If the profile you already play already loads `nrsc` (the manager's own
-   `[[natives]]` entry), keep that one and do not add a second copy.
+2. Seamless Co-op: if you launch `DoubleBOSS-AnyMode.me3` itself, put `nrsc.dll` at
+   `DoubleBOSS-AnyMode/SeamlessCoop/nrsc.dll` and uncomment its `[[natives]]` block (it ships
+   commented out, because me3 fails to launch a profile whose native is missing). If the profile
+   you already play loads `nrsc` - the manager's own entry - keep that one and leave ours out.
 3. Launch through **me3**: `DoubleBOSS-AnyMode.me3`, or the profile you enabled the mod in.
 
 `savefile = "NR0000.co2"` and `start_online = false` are unchanged from the original profile.
