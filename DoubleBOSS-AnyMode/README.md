@@ -51,6 +51,39 @@ the stock behaviour.
 
 `savefile = "NR0000.co2"` and `start_online = false` are unchanged from the original profile.
 
+### Using it inside your own me3 profile
+
+me3 launches **one profile per run**, so if you already have a profile with Seamless Co-op and
+your other mods, do not launch `DoubleBOSS-AnyMode.me3` alongside it - paste these blocks into
+*your* profile instead (paths are relative to the `.me3` file, this example assumes the folder
+sits next to it):
+
+```toml
+[[packages]]
+id = "db-events"
+path = "./DoubleBOSS-AnyMode/packages/01-events/mod"
+
+[[packages]]
+id = "db-maps"
+path = "./DoubleBOSS-AnyMode/packages/02-maps/mod"
+
+[[packages]]
+id = "db-params"
+path = "./DoubleBOSS-AnyMode/packages/03-params/mod"
+
+[[packages]]
+id = "db-text"
+path = "./DoubleBOSS-AnyMode/packages/04-text/mod"
+```
+
+Leave your own `savefile`, `start_online` and `[[natives]]` lines alone - do not add `nrsc.dll` a
+second time. There is nothing to install through a manager: each package already is a plain
+folder of overrides, so a path entry is the whole install.
+
+Keep the same profile for your `regulation.bin` mod, but merge it first (see
+[CONFLICTS.md](CONFLICTS.md)) - `db-params` and another regulation package are the one pair that
+really cannot both be loaded.
+
 ## Packages
 
 | Package | Overrides | Needed? |
@@ -64,6 +97,14 @@ the stock behaviour.
 Set `enabled = false` on a package in `DoubleBOSS-AnyMode.me3` to leave it out; no two packages
 share a game path, so their order does not matter. What to turn off for which kind of mod, and
 what cannot be solved by turning things off, is in [CONFLICTS.md](CONFLICTS.md).
+
+`enabled = false` is only honoured from **me3 v0.9.0** on (`Don't load mods which are not enabled`
+in the v0.9.0 release notes). On anything older, `05-common-func` would be loaded anyway - update
+with `me3 update`, or delete the `packages/05-common-func` folder if you are loading another
+mod's `common_func.emevd.dcx`.
+
+If your me3 predates v0.4.0 it may only know the old key name: replace `path =` with `source =`.
+Both are accepted since v0.4.0.
 
 ## Rebuild
 
