@@ -33,7 +33,7 @@ disappear. Merge instead:
   ([Smithbox](https://github.com/vawser/Smithbox); CSV workflow explained in the
   [DSMapStudio regulation-merge guide](https://dsmapstudio.com/guides/merge-regulation-bin-elden-ring)).
 
-Then put the merged file in `packages/03-params/mod/` - or set `enabled = false` on `db-params`
+Then put the merged file in `mod/03-params/` - or set `enabled = false` on `db-params`
 and load the merged file from your own package, which is cleaner if you keep a merged build
 anyway.
 

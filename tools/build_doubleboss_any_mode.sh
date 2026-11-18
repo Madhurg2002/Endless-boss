@@ -35,7 +35,15 @@ cp DoubleBOSS-AnyMode/sources/*.js "$WORK/src/"
 echo "== installing the compiled files into the events package"
 for m in $MAPS; do
     test -s "$WORK/out/$m.emevd.dcx"
-    cp "$WORK/out/$m.emevd.dcx" "DoubleBOSS-AnyMode/packages/01-events/mod/event/$m.emevd.dcx"
+    cp "$WORK/out/$m.emevd.dcx" "DoubleBOSS-AnyMode/mod/01-events/event/$m.emevd.dcx"
 done
 
-echo "== done: DoubleBOSS-AnyMode/packages/01-events/mod/event/"
+echo "== done: DoubleBOSS-AnyMode/mod/01-events/event/"
+
+# The download on the branch: one folder at the zip root, so it can be unpacked next to the
+# other mods or dropped into ME3 Manager as it is.
+if command -v zip >/dev/null; then
+    rm -f DoubleBOSS-AnyMode.zip
+    zip -qr DoubleBOSS-AnyMode.zip DoubleBOSS-AnyMode -x '*/__pycache__/*'
+    echo "== zip: DoubleBOSS-AnyMode.zip ($(du -h DoubleBOSS-AnyMode.zip | cut -f1))"
+fi

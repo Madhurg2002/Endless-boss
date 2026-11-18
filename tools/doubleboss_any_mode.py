@@ -11,9 +11,11 @@ Two things are changed, nothing else:
    Nightlord, so nothing in the mod waits for an enemy that may not exist, or may
    not be reachable, in the expedition variant that is being played.
 
-2. **The payload is split into me3 packages** (events / maps / params / text /
-   common_func) so a part that collides with another mod can be switched off in
-   `DoubleBOSS-AnyMode.me3` instead of removing the whole mod.
+2. **The payload is split into me3 packages** under `DoubleBOSS-AnyMode/mod/`
+   (events / maps / params / text / common_func) so a part that collides with
+   another mod can be switched off in `DoubleBOSS-AnyMode.me3` instead of
+   removing the whole mod. `mod/` with one subfolder per package is the layout
+   me3 documents, and what ME3 Manager installs as a single container mod.
 
 Everything else - the dual-boss invasion, the chained Nightlord, and the map,
 param, message and lighting files - is the original author's work, copied as is.
@@ -160,8 +162,8 @@ def copy(src, dst):
 
 def build_packages():
     """Copy the untouched payload into its own package per file family."""
-    shutil.rmtree(os.path.join(OUT, "packages"), ignore_errors=True)
-    pkg = {name: os.path.join(OUT, "packages", name, "mod") for name in PACKAGES}
+    shutil.rmtree(os.path.join(OUT, "mod"), ignore_errors=True)
+    pkg = {name: os.path.join(OUT, "mod", name) for name in PACKAGES}
 
     # 02-maps: the extra Nightlord / invader placements live in the map files
     for p in glob.glob(os.path.join(SRC, MAP_DIR, "mapstudio", "*.msb.dcx")):
@@ -207,7 +209,7 @@ def main():
         print("%-28s %s" % (js, ", ".join(report)))
 
     print("sources  -> %s" % sources)
-    print("packages -> %s" % os.path.join(OUT, "packages"))
+    print("packages -> %s" % os.path.join(OUT, "mod"))
 
 
 if __name__ == "__main__":
