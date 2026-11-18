@@ -14,10 +14,10 @@ The table below is the complete list of paths it overrides.
 |---|---|---|
 | `event/m16_00_00_00.emevd.dcx`, `m16_10_00_00`, `m18_00_00_00`, `m19_00_00_00` | `01-events` | any mod that edits the Day-3 arena scripts: boss randomizers, "more map variations", boss-rush / extra-boss mods, 6-player event fixes |
 | `map/mapstudio/{m16_00_00_00,m16_10_00_00,m18_00_00_00,m19_00_00_00}.msb.dcx` | `02-maps` | any mod that edits the same arena maps (enemy/placement mods) |
+| `map/m16,m18,m19/**/*.btl.dcx` | `02-maps` | arena lighting mods |
 | `regulation.bin` | `03-params` | **every** other `regulation.bin` mod (weapons, scaling, shops, skins with params, DLC unlocks) |
 | `msg/{engus,zhocn}/{item,menu}_dlc01.msgbnd.dcx` | `04-text` | text/translation mods for those two files |
-| `map/m16,m18,m19/**/*.btl.dcx` | `05-lights` | arena lighting mods |
-| `event/common_func.emevd.dcx` | `06-common-func` (off by default) | almost every gameplay mod, including Seamless Co-op add-ons |
+| `event/common_func.emevd.dcx` | `05-common-func` (off by default) | almost every gameplay mod, including Seamless Co-op add-ons |
 
 ## Recipes, easiest first
 
@@ -43,7 +43,7 @@ chain's events or its `190029xx` flags, and the game's own copy is equivalent. O
 `enabled = true` if you run this mod alone and the chain never starts.
 
 **3. The other mod only changes text, lighting, or other maps** (`m60_*` overworld tiles,
-Limveld, POIs). Turn off `db-text` / `db-lights` if they collide. Different paths never conflict,
+Limveld, POIs). Turn off `db-text` if it collides. Different paths never conflict,
 so a Limveld map mod, a weapon mod you merged params for, and a UI mod can all run together.
 
 **4. The other mod replaces the same arena events or the same `.msb.dcx`.** Nothing merges these

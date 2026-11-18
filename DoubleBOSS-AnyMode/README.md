@@ -13,8 +13,8 @@ were changed, both in the event scripts, and one thing in the delivery.
 | Chained Nightlord after the arena's boss | yes | yes, unchanged |
 | Invading Nightlord below 70 % HP | yes, but only after killing the **scarab** | yes, no scarab needed |
 | Chain unlocked | only after killing the **golem** | from arena load, no golem needed |
-| Scarab / golem | present, mandatory | removed |
-| Delivery | one `mod/` folder, 25 overrides | six packages in one profile, see below |
+| Scarab / golem | present, mandatory | disabled |
+| Delivery | one `mod/` folder, 25 overrides | five packages in one profile, see below |
 | Works where those two NPCs are missing/unreachable | ends the expedition instead | works the same |
 
 ## Why this is the "any mode" build
@@ -56,15 +56,14 @@ the stock behaviour.
 | Package | Overrides | Needed? |
 |---|---|---|
 | `01-events` | `event/m16_00_00_00`, `m16_10_00_00`, `m18_00_00_00`, `m19_00_00_00` `.emevd.dcx` | yes - this is the mod |
-| `02-maps` | `map/mapstudio/m18_00_00_00.msb.dcx` and the other three | yes - places the extra Nightlords and the invader |
+| `02-maps` | `map/mapstudio/*.msb.dcx` (placements) and `map/m16,m18,m19/**/*.btl.dcx` (lights) | yes - places the extra Nightlords and the invader |
 | `03-params` | `regulation.bin` | yes for the added NPCs; must be merged if you run another regulation mod |
 | `04-text` | `msg/{engus,zhocn}/{item,menu}_dlc01.msgbnd.dcx` | cosmetic - boss names |
-| `05-lights` | `map/m16,m18,m19/**/*.btl.dcx` | cosmetic - arena lights |
-| `06-common-func` | `event/common_func.emevd.dcx` | off by default - it is the stock file and the one other mods most often replace |
+| `05-common-func` | `event/common_func.emevd.dcx` | off by default - it is the stock file and the one other mods most often replace |
 
-Set `enabled = false` on a package in `DoubleBOSS-AnyMode.me3` to leave it out. What to turn off
-for which kind of mod, and what cannot be solved by turning things off, is in
-[CONFLICTS.md](CONFLICTS.md).
+Set `enabled = false` on a package in `DoubleBOSS-AnyMode.me3` to leave it out; no two packages
+share a game path, so their order does not matter. What to turn off for which kind of mod, and
+what cannot be solved by turning things off, is in [CONFLICTS.md](CONFLICTS.md).
 
 ## Rebuild
 

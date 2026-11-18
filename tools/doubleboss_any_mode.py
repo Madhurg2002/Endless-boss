@@ -12,8 +12,8 @@ Two things are changed, nothing else:
    not be reachable, in the expedition variant that is being played.
 
 2. **The payload is split into me3 packages** (events / maps / params / text /
-   lights / common_func) so a part that collides with another mod can be switched
-   off in `DoubleBOSS-AnyMode.me3` instead of removing the whole mod.
+   common_func) so a part that collides with another mod can be switched off in
+   `DoubleBOSS-AnyMode.me3` instead of removing the whole mod.
 
 Everything else - the dual-boss invasion, the chained Nightlord, and the map,
 param, message and lighting files - is the original author's work, copied as is.
@@ -51,14 +51,13 @@ CHAIN_ARMED = 19002956    # set by the per-family init events when a chain exist
 SCARAB_GATE = 19002973    # "scarab defeated" - unlocks the invasion
 MAP_BOSS_DONE = 19002954  # one-shot latch of the original mod
 
-# Packages, in the order the profile loads them.
+# Packages. No two of them contain the same game path, so their order is irrelevant.
 PACKAGES = [
-    ("01-events", "event"),        # the four recompiled map scripts (build output)
-    ("02-maps", "map"),            # the extra Nightlord / invader placements
-    ("03-params", "params"),       # regulation.bin
-    ("04-text", "text"),           # boss name strings
-    ("05-lights", "lights"),       # arena lighting
-    ("06-common-func", "common"),  # stock common_func (profile disables it by default)
+    "01-events",       # the four recompiled map scripts (build output)
+    "02-maps",         # arena placements (.msb) and their point lights (.btl)
+    "03-params",       # regulation.bin
+    "04-text",         # boss name strings
+    "05-common-func",  # stock common_func.emevd.dcx (the profile disables it by default)
 ]
 
 
@@ -162,7 +161,7 @@ def copy(src, dst):
 def build_packages():
     """Copy the untouched payload into its own package per file family."""
     shutil.rmtree(os.path.join(OUT, "packages"), ignore_errors=True)
-    pkg = {name: os.path.join(OUT, "packages", name, "mod") for name, _ in PACKAGES}
+    pkg = {name: os.path.join(OUT, "packages", name, "mod") for name in PACKAGES}
 
     # 02-maps: the extra Nightlord / invader placements live in the map files
     for p in glob.glob(os.path.join(SRC, MAP_DIR, "mapstudio", "*.msb.dcx")):
@@ -176,13 +175,13 @@ def build_packages():
     for p in glob.glob(os.path.join(SRC, "mod", "msg", "**", "*.dcx"), recursive=True):
         copy(p, os.path.join(pkg["04-text"], os.path.relpath(p, os.path.join(SRC, "mod"))))
 
-    # 05-lights: the per-arena .btl point-light files
+    # 02-maps, continued: the per-arena .btl point-light files (lighting only)
     for p in glob.glob(os.path.join(SRC, MAP_DIR, "*", "*", "*.btl.dcx")):
-        copy(p, os.path.join(pkg["05-lights"], os.path.relpath(p, os.path.join(SRC, "mod"))))
+        copy(p, os.path.join(pkg["02-maps"], os.path.relpath(p, os.path.join(SRC, "mod"))))
 
-    # 06-common-func: stock common_func.emevd.dcx, as shipped by the author
+    # 05-common-func: stock common_func.emevd.dcx, as shipped by the author
     copy(os.path.join(SRC, EVENT_DIR, "common_func.emevd.dcx"),
-         os.path.join(pkg["06-common-func"], "event", "common_func.emevd.dcx"))
+         os.path.join(pkg["05-common-func"], "event", "common_func.emevd.dcx"))
 
     # 01-events: compiled build output, written by the build script
     os.makedirs(os.path.join(pkg["01-events"], "event"), exist_ok=True)
