@@ -616,12 +616,15 @@ def transform(text, name):
     report.extend(finalisers)
 
     # 3c. the map's own boss handler must not act before the boss exists ------
-    # The stock body starts with WaitFor(HPRatio(chrEntityId) == 0). At map load a boss
-    # that has not spawned yet reports HP 0 as well, so on the maps whose boss appears
-    # only when the team enters the arena (night 3) the handler fired immediately: it
-    # marked the map boss as defeated and started a chained round during the real fight
-    # (a second Nightlord next to it), and the real kill was then ignored. Require the
-    # boss to have been on the field with HP first.
+    # The stock body starts with WaitFor(HPRatio(chrEntityId) == 0). A boss that is not on
+    # the field reports 0 for HPRatio as well (and, while it exists but is disabled, it can
+    # report full HP), so on the maps whose boss only appears when the team enters the arena
+    # (night 3) the handler fired before/at the start of the real fight: it marked the map
+    # boss as defeated, armed the chain and a chained Nightlord spawned next to it - two
+    # health bars - and the real kill was then ignored.
+    # Flag 7511 is the stock "boss fight started" flag: the arena trigger sets it when the
+    # boss is brought in and its health bar is shown at full HP, so it is the only point at
+    # which the boss is guaranteed to exist and be alive.
     for eid in (190075901,):
         span = find_event_span(text, eid)
         if not span:
@@ -629,15 +632,17 @@ def transform(text, name):
         s, e = span
         body = text[s:e]
         guard = eol.join([
-            "    // Endless: a boss that has not spawned yet reports HPRatio 0 at map load,",
-            "    // which made this handler behave as if it had just been killed.",
-            "    WaitFor(HPRatio(chrEntityId) > 0);",
-            "    WaitFor(HPRatio(chrEntityId) == 0);"])
+            "    // Endless: before the arena brings the boss in, its HP reads 0 (and while it is",
+            "    // still disabled it reads full), so waiting on HP alone made this handler treat",
+            "    // the untouched map boss as dead and start a chained round beside it.",
+            "    WaitFor(EventFlag(7511));            // the arena fight has really started",
+            "    WaitFor(HPRatio(chrEntityId) > 0);    // the boss is on the field with HP",
+            "    WaitFor(HPRatio(chrEntityId) == 0);   // ...and now it is dead"])
         body, k = re.subn(r"^[ \t]*WaitFor\(HPRatio\(chrEntityId\) == 0\);[ \t\r]*$", guard,
                           body, count=1, flags=re.M)
         if k:
             text = text[:s] + body + text[e:]
-            report.append("boss-death handler waits for the boss to appear")
+            report.append("boss-death handler waits for the arena fight to start")
 
     # 4. append the new death handler ---------------------------------------
     text = text.rstrip() + eol + eol + eol + \

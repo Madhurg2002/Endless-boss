@@ -2175,10 +2175,12 @@ L0:
 $Event(190075901, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId) {
     EndIf(EventFlag(7512));
     EndIf(EventFlag(18002800));
-    // Endless: a boss that has not spawned yet reports HPRatio 0 at map load,
-    // which made this handler behave as if it had just been killed.
-    WaitFor(HPRatio(chrEntityId) > 0);
-    WaitFor(HPRatio(chrEntityId) == 0);
+    // Endless: before the arena brings the boss in, its HP reads 0 (and while it is
+    // still disabled it reads full), so waiting on HP alone made this handler treat
+    // the untouched map boss as dead and start a chained round beside it.
+    WaitFor(EventFlag(7511));            // the arena fight has really started
+    WaitFor(HPRatio(chrEntityId) > 0);    // the boss is on the field with HP
+    WaitFor(HPRatio(chrEntityId) == 0);   // ...and now it is dead
     EndIf(EventFlag(7516));
 
     if (!EventFlag(19002954)) {

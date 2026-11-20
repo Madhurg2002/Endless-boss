@@ -1,6 +1,6 @@
 # Endless Nightlord Gauntlet - a DoubleBOSS (Nexus #952) variant
 
-**Version 1.0.7** - see [CHANGELOG.md](CHANGELOG.md).
+**Version 1.0.8** - see [CHANGELOG.md](CHANGELOG.md).
 
 **Night 3 fix.** The map's own boss-death handler waited for the boss's HP to reach 0 - but a
 boss that has not spawned yet *reports* HP 0, so on the night-3 map (where the boss appears only

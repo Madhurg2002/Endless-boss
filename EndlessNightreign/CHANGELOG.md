@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.0.8
+
+Night-3 test of 1.0.7: on entering the arena two boss health bars appeared (none before entering).
+The chain was still arming itself before the arena fight began.
+
+- **The HP guard alone was not enough.** A boss that has not been brought into the arena does not
+  always report HP 0: while it exists but is still disabled it can report full HP, and during the
+  intro it can drop back to 0 for a frame. Either way the map's own boss handler (`190075901`) saw
+  "full HP, then 0 HP" and treated the untouched boss as dead: it set `19002954`, armed the chain
+  (`19002951`) and a chained Nightlord spawned beside the real one, so entering the arena showed two
+  health bars.
+- The generated handler now waits for the stock **"boss fight started" flag `7511`** before it
+  looks at HP at all. The arena trigger sets `7511` at the same moment the boss's health bar is
+  displayed at full HP, so it is the first point where the boss is guaranteed to exist and be
+  alive. Verified in the compiled files: `190075901` now begins `EndIf 7512`, `EndIf 18002800`,
+  `If 7511 ON`, `If HPRatio > 0`, `If HPRatio == 0` in all four maps.
+- The chain therefore starts only from a real kill, and the map's own boss keeps its single health
+  bar and its normal defeat feedback; after that kill the first chained round begins as before.
+- Unchanged: one boss at a time (no `19210900` invasion), no fade-out or player teleport in the
+  round manager plus its unconditional fade-in, 0 writes of `7512`, no `FinalizeExpedition`,
+  3-kill refill, scarab and golem removed, single `6015` callout per map (interlude only).
+
+
 ## v1.0.7
 
 Fixes from the night-3 test of 1.0.6: the "night has not ended" text appeared at the grace, an

@@ -145,14 +145,24 @@ DoubleBOSS adds to the arena are gone. Nothing else about the double-boss encoun
 and not while it is still alive.
 
 **Why this needed a fix:** the map's own boss-death handler (`190075901`) starts with
-`WaitFor(HPRatio(chrEntityId) == 0)`. A boss that has not spawned yet reports HP 0 as well, so on
-maps where the boss only appears when the team enters the arena (night 3), that handler ran at
-map load: it marked the real boss as defeated (`19002954`), armed the chain (`19002951`) and left
-an extra Nightlord standing next to the boss that had not even been engaged — and when that real
-boss died, the `if (!EventFlag(19002954))` branch was already closed, so nothing happened.
+`WaitFor(HPRatio(chrEntityId) == 0)`. A boss that is not on the field reports HP 0 as well — and a
+boss that exists but is still disabled can report full HP, dropping to 0 for a frame during its
+intro — so on maps where the boss only appears when the team enters the arena (night 3), that
+handler fired before the real fight: it marked the real boss as defeated (`19002954`), armed the
+chain (`19002951`) and left an extra Nightlord standing next to the boss that had not even been
+engaged (two health bars on entering the arena). When that real boss died, the
+`if (!EventFlag(19002954))` branch was already closed, so nothing happened.
 
-The generated script now inserts `WaitFor(HPRatio(chrEntityId) > 0);` in front of it, so the
-handler waits for the boss to exist with HP, then for its death. Applied to all four maps.
+The generated script now waits for the stock **"boss fight started" flag `7511`** before it looks
+at HP at all, then for HP > 0 and then for HP == 0. The arena trigger sets `7511` at the same
+moment the boss's health bar appears at full HP, so by then the boss certainly exists and is alive.
+Applied to all four maps.
+
+```
+WaitFor(EventFlag(7511));            // the arena fight has really started
+WaitFor(HPRatio(chrEntityId) > 0);   // the boss is on the field with HP
+WaitFor(HPRatio(chrEntityId) == 0);  // ...and now it is dead
+```
 
 **No pre-fight banner:** the "another Nightlord" callout (`6015`) is only shown by the round
 manager as part of a round's interlude. It is no longer repeated on map load (`BANNER = False` in
