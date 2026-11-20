@@ -139,24 +139,30 @@ DoubleBOSS adds to the arena are gone. Nothing else about the double-boss encoun
   definition is still in the file but nothing starts it, so exactly one Nightlord is on the
   field at a time. Controlled by `DUAL_BOSS` in `tools/endless_transform.py`.
 
-## 9. On-screen confirmation that the mod is live
+## 9. The chain only starts after the map's own boss is really dead
 
-**Capability:** after an expedition map loads, the game's own "another Nightlord" callout (text
-effect `6015`) is displayed five times over the first ~21 seconds — before any kill. DoubleBOSS
-only ever shows that callout when a chained fight begins, so seeing it on map load is proof that
-these scripts, not the stock ones, are running.
+**Capability:** the first chained round begins when the expedition's Nightlord dies — not before,
+and not while it is still alive.
 
-**How:** `19110900` (which every expedition map runs once at load) ends with five pairs of
-`WaitFixedTimeSeconds(...)` + `DisplayTextEffectId(6015)`. A single call 3 s after load was never
-seen in game: the effect landed while the map was still fading in, so the call is repeated —
-`DisplayTextEffectId` does not stack, each repetition is a fresh callout.
+**Why this needed a fix:** the map's own boss-death handler (`190075901`) starts with
+`WaitFor(HPRatio(chrEntityId) == 0)`. A boss that has not spawned yet reports HP 0 as well, so on
+maps where the boss only appears when the team enters the arena (night 3), that handler ran at
+map load: it marked the real boss as defeated (`19002954`), armed the chain (`19002951`) and left
+an extra Nightlord standing next to the boss that had not even been engaged — and when that real
+boss died, the `if (!EventFlag(19002954))` branch was already closed, so nothing happened.
 
-Configurable in `tools/endless_transform.py`:
+The generated script now inserts `WaitFor(HPRatio(chrEntityId) > 0);` in front of it, so the
+handler waits for the boss to exist with HP, then for its death. Applied to all four maps.
+
+**No pre-fight banner:** the "another Nightlord" callout (`6015`) is only shown by the round
+manager as part of a round's interlude. It is no longer repeated on map load (`BANNER = False` in
+`tools/endless_transform.py`), because text `6015` means "the night has not ended" and showing it
+before the fight made it look like the chain had already started.
 
 ```python
-BANNER = True            # False removes the banner entirely
+BANNER = False           # no callout at map load; the interlude shows it between rounds
 BANNER_TEXT_ID = 6015    # any existing text-effect id from the game's message data
-BANNER_TIMES = [5, 4, 4, 4, 4]   # one callout after each of these waits
+BANNER_TIMES = [5, 4, 4, 4, 4]   # one callout after each of these waits (only if BANNER = True)
 ```
 
 The text itself cannot be authored here: that would mean editing `menu.msgbnd.dcx`, which this
@@ -183,7 +189,8 @@ launching `DoubleBOSS.me3` restores the original mod. Nothing here modifies
 - **Not play-tested here.** The shipped binaries were verified by decompiling them back out
   (handler registered 6×, `Goto` loops present in manager, spawn events and handler, scarab and
   golem disabled, the dual-boss invasion not initialised, no stock run-ending handler left
-  registered, manager with no fade-out/teleport and an unconditional fade-in), and the
+  registered, manager with no fade-out/teleport and an unconditional fade-in, boss-death handler
+  gated on the boss actually having HP), and the
   compile path reproduces the four retail files byte-for-byte. Actual in-game behaviour has not
   been observed by the author of this variant. The one environmental risk is the container:
   the shipped `.dcx` use DCX **DFLT** (zlib) instead of the retail DCX_KRAK, because Oodle

@@ -1,6 +1,14 @@
 # Endless Nightlord Gauntlet - a DoubleBOSS (Nexus #952) variant
 
-**Version 1.0.6** - see [CHANGELOG.md](CHANGELOG.md).
+**Version 1.0.7** - see [CHANGELOG.md](CHANGELOG.md).
+
+**Night 3 fix.** The map's own boss-death handler waited for the boss's HP to reach 0 - but a
+boss that has not spawned yet *reports* HP 0, so on the night-3 map (where the boss appears only
+when the team walks in) the handler fired at map load. It marked the real boss as already dead,
+started a chained round next to it (the "extra boss") and then ignored the actual kill ("nothing
+happens"). The handler now waits for the boss to be on the field with HP first, so the chain
+only begins after the map boss really dies. The pre-fight banner spam is gone too: text `6015`
+only appears with the interlude between rounds.
 
 **One boss at a time.** The original mod's "dual boss" system is off: no invading second
 Nightlord joins the fight at 70 % HP any more, so a round is exactly the Nightlord you are
@@ -12,8 +20,8 @@ black. The fade-out and the teleport are gone - the next Nightlord's own spawn e
 in and fades the screen back, and the manager fades in unconditionally 8 s after arming the
 round as a safety net.
 
-The map-load banner (the game's "another Nightlord" callout) repeats five times over the
-first ~21 seconds, because a single callout 3 seconds after load was never visible in game.
+There is no callout on map load any more; the "another Nightlord" text (`6015`) is shown by the
+round manager when a chained round begins, which is where it belongs.
 
 If you played 1.0.0-1.0.3 you saw the chain stop after the second Nightlord: the results screen
 rolled even though the loop events themselves were looping. The reason was outside the loop. The

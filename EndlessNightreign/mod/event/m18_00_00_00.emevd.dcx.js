@@ -370,20 +370,6 @@ $Event(19110900, Default, function()
     DisableCharacterAI(19110888);
     DisableCharacterCollision(19110888);
     SetNetworkconnectedEventFlagID(19002957, ON);
-
-    // ===== ENDLESS GAUNTLET: banner on map load =====
-    // Proof the mod's scripts are live, before the first kill. Repeated because a
-    // single effect lands while the map is still loading and is never seen.
-    WaitFixedTimeSeconds(5);
-    DisplayTextEffectId(6015);
-    WaitFixedTimeSeconds(4);
-    DisplayTextEffectId(6015);
-    WaitFixedTimeSeconds(4);
-    DisplayTextEffectId(6015);
-    WaitFixedTimeSeconds(4);
-    DisplayTextEffectId(6015);
-    WaitFixedTimeSeconds(4);
-    DisplayTextEffectId(6015);
     EndEvent();
 });
 
@@ -885,6 +871,9 @@ L0:
 $Event(190075901, Restart, function(chrEntityId, bgmBossConvParamId, logObjectId) {
     EndIf(EventFlag(7512));
     EndIf(EventFlag(18002800));
+    // Endless: a boss that has not spawned yet reports HPRatio 0 at map load,
+    // which made this handler behave as if it had just been killed.
+    WaitFor(HPRatio(chrEntityId) > 0);
     WaitFor(HPRatio(chrEntityId) == 0);
     EndIf(EventFlag(7516));
 

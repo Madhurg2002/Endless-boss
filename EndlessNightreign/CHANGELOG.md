@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.0.7
+
+Fixes from the night-3 test of 1.0.6: the "night has not ended" text appeared at the grace, an
+extra boss joined the fight, and after killing everything nothing happened. All three came from
+one bug.
+
+- **The chain started before the map boss was dead.** The map's own boss-death handler
+  (`190075901`) begins with `WaitFor(HPRatio(chrEntityId) == 0)`, and a boss that has not spawned
+  yet reports HP 0 too. On night 3 the boss only appears once the team enters the arena, so the
+  handler fired at map load: it set `19002954` ("map boss defeated"), armed the chain, and let a
+  chained Nightlord spawn next to the untouched boss. When the real boss then died, the
+  `if (!EventFlag(19002954))` branch was already closed, so the kill did nothing.
+- The generated handler now requires `WaitFor(HPRatio(chrEntityId) > 0)` first - the boss must be
+  on the field with HP before the death wait starts. Verified in the compiled files: the two
+  conditions are consecutive in `190075901` in all four maps.
+- **No callout on map load.** The five repetitions of text `6015` at map load are gone
+  (`BANNER = False`); text `6015` is the "the night has not ended" callout and belongs to the
+  interlude between rounds, which is where it is shown now.
+- Unchanged: one boss at a time (no `19210900` invasion), no fade-out or player teleport in the
+  round manager plus its unconditional fade-in, 0 writes of `7512`, no `FinalizeExpedition`,
+  3-kill refill, scarab and golem removed.
+
+
 ## v1.0.6
 
 Two fixes from the in-game test of 1.0.5.
